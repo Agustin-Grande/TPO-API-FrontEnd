@@ -1,0 +1,12 @@
+{
+    "users": [
+        {
+            "id":1,
+            "nombre":"Juan",
+            "email": "santinofloridia1@gmail.com",
+            "nombreUsuario": "Fanta123",
+            "contrasena": "123456"
+        }
+    ]
+}
+
