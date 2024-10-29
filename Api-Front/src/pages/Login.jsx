@@ -1,15 +1,17 @@
 import React, { useState } from 'react';
-import "../../styles/Login.css";
 import axios from 'axios';
-
-const API_URL = 'http://localhost:3001'
+import "../styles/Login.css";
+import ErrorLogin from '../componentes/Autenticacion/ErrorLogin';
+import { handleLog } from '../services/serviceLogin';
 
 const Login = () => {
   const [newUser, setNewUser] = useState({
     nombreUsuario: '',
     contrasena: ''
   });
+  const [errorMessage, setErrorMessage] = useState(null);
   const [error, setError] = useState(false);
+  const [succes, setSucces] = useState(false);
 
   const handleInputChange = (e) => {
     setNewUser({
@@ -21,34 +23,37 @@ const Login = () => {
   const handleSubmit = async (e) => {  
     e.preventDefault();
 
+    
     if (newUser.nombreUsuario === '' || newUser.contrasena === '') {
       setError(true);
+      setErrorMessage(null);
+      setSucces(false);
       return;
     }
 
     setError(false);
     try {
-      const response = await axios.get(API_URL + '/users', {
-        params: {
-            nombreUsuario: newUser.nombreUsuario,
-            contrasena: newUser.contrasena
-          }
-      });
-      if (response.data.length > 0) {
-        console.log("Bienvenido");
-      } else {
-        console.log("No se encontró el usuario");
-      }
+      const data = await handleLog(newUser);
+
       
+      if (data && data.length > 0) {
+        setSucces(true);
+        setErrorMessage(null);
+      } else {
+        setSucces(false);
+        setErrorMessage("No se encontró el usuario");
+      }
     } catch (error) {
-      console.log("Error al crear usuario");
+      setErrorMessage("Error al conectar con la base de datos");
+      setSucces(false);
+      setError(false);
     }
   };
 
   return (
     <div className="login">
       <h2>Login</h2>
-      <form onSubmit={handleSubmit} className='formulario'>
+      <form onSubmit={handleSubmit} className="formulario">
         <div>
           <input
             type="text"
@@ -68,9 +73,11 @@ const Login = () => {
           />
         </div>
         <button type="submit">Iniciar Sesión</button>
-        <p>No tenés una cuenta?<a href=""> Registro</a></p>
+        <p>No tenés una cuenta? <a href="/registro">Registro</a></p>
       </form>
       {error && <p style={{ color: 'red' }}>Todos los campos son obligatorios</p>}
+      {succes && <p style={{ color: 'green' }}>Login exitoso!</p>}
+      {errorMessage && <ErrorLogin message={errorMessage} style={{ color: 'red' }} />}
     </div>
   );
 };
