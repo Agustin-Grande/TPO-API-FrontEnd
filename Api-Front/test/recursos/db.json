@@ -2,11 +2,52 @@
     "users": [
         {
             "id":1,
-            "nombre":"Juan",
-            "email": "santinofloridia1@gmail.com",
-            "nombreUsuario": "Fanta123",
-            "contrasena": "123456"
+            "nombre":"Agus",
+            "email": "Agus@gmail.com",
+            "nombreUsuario": "Agus",
+            "contrasena": "Agus"
         }
+    ],
+
+    "carrito": [
+        {
+            "id":1,
+            "precioTotal":0,
+            "user_id": 1
+        }
+    ],
+    "carrito_item": [
+        {
+            "id":1,
+            "cantidad":0,
+            "precioUnidad": 0,
+            "precioTotal": 0,
+            "product_id": 0,
+            "carrito_id":1
+        }
+    ],
+
+    "producto":[
+        {
+            "id": 1,
+            "nombre": "Nombre del producto",
+            "precio": 99.99,
+            "stock": 10,
+            "liga": "Liga Ejemplo",
+            "equipo": "Equipo Ejemplo",
+            "marca": "Marca Ejemplo",
+            "categoria": {
+              "id": 1,
+              "nombre": "Categoria Ejemplo"
+            },
+            "descripcion": "Descripción del producto",
+            "favorito": true,
+            "visto": false,
+            "destacado": true
+        }
+          
     ]
 }
+
+
 
