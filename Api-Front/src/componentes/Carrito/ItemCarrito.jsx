@@ -1,11 +1,13 @@
 const ItemCarrito = ({ item }) => {
+    console.log(item);
+    
     return (
         <div style={styles.item}>
             <div style={styles.itemDetail}>
                 <strong>Producto</strong>
             </div>
-            <div style={styles.itemDetail}>Precio</div>
-            <div style={styles.itemDetail}>Cantidad</div>
+            <div style={styles.itemDetail}>${item.precioUnidad}</div>
+            <div style={styles.itemDetail}>{item.cantidad}</div>
         </div>
     );
 };
