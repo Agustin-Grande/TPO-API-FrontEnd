@@ -1,53 +1,79 @@
 {
-    "users": [
-        {
-            "id":1,
-            "nombre":"Agus",
-            "email": "Agus@gmail.com",
-            "nombreUsuario": "Agus",
-            "contrasena": "Agus"
-        }
-    ],
-
-    "carrito": [
-        {
-            "id":1,
-            "precioTotal":0,
-            "user_id": 1
-        }
-    ],
-    "carrito_item": [
-        {
-            "id":1,
-            "cantidad":0,
-            "precioUnidad": 0,
-            "precioTotal": 0,
-            "product_id": 0,
-            "carrito_id":1
-        }
-    ],
-
-    "producto":[
-        {
-            "id": 1,
-            "nombre": "Nombre del producto",
-            "precio": 99.99,
-            "stock": 10,
-            "liga": "Liga Ejemplo",
-            "equipo": "Equipo Ejemplo",
-            "marca": "Marca Ejemplo",
-            "categoria": {
-              "id": 1,
-              "nombre": "Categoria Ejemplo"
-            },
-            "descripcion": "Descripción del producto",
-            "favorito": true,
-            "visto": false,
-            "destacado": true
-        }
-          
-    ]
+  "users": [
+    {
+      "id": "1",
+      "nombre": "Agus",
+      "email": "Agus@gmail.com",
+      "nombreUsuario": "Agus",
+      "contrasena": "Agus"
+    },
+    {
+      "id": "da47",
+      "nombre": "Santino ",
+      "apellido": "Floridia",
+      "nombreUsuario": "fafa123",
+      "email": "santinofloridia4@gmail.com",
+      "contrasena": "123456"
+    },
+    {
+      "id": "f036",
+      "nombre": "Juan",
+      "apellido": "Gshwind",
+      "nombreUsuario": "Fanta123",
+      "email": "vanesapecker@gmail.com",
+      "contrasena": "123456"
+    },
+    {
+      "id": "cf1b",
+      "nombre": "Juan",
+      "apellido": "Gshwind",
+      "nombreUsuario": "Fanta1234",
+      "email": "fafa123@gmail.com",
+      "contrasena": "123456"
+    },
+    {
+      "id": "e071",
+      "nombre": "fafa",
+      "apellido": "Gshwind",
+      "nombreUsuario": "Gol123",
+      "email": "hola@gmail.com",
+      "contrasena": "123456"
+    }
+  ],
+  "carrito": [
+    {
+      "id": "1",
+      "precioTotal": 0,
+      "user_id": 1
+    }
+  ],
+  "carrito_item": [
+    {
+      "id": "1",
+      "cantidad": 0,
+      "precioUnidad": 0,
+      "precioTotal": 0,
+      "product_id": 0,
+      "carrito_id": 1
+    }
+  ],
+  "producto": [
+    {
+      "id": "1",
+      "nombre": "Nombre del producto",
+      "precio": 99.99,
+      "stock": 10,
+      "liga": "Liga Ejemplo",
+      "equipo": "Equipo Ejemplo",
+      "marca": "Marca Ejemplo",
+      "categoria": {
+        "id": 1,
+        "nombre": "Categoria Ejemplo"
+      },
+      "descripcion": "Descripción del producto",
+      "favorito": true,
+      "visto": false,
+      "destacado": true
+    }
+  ]
 }
-
-
-
