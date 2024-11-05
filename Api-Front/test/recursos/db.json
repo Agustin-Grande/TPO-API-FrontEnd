@@ -3,9 +3,29 @@
         {
             "id":1,
             "nombre":"Agus",
+            "apellido":"Silva",
             "email": "Agus@gmail.com",
             "nombreUsuario": "Agus",
-            "contrasena": "Agus"
+            "contrasena": "Agus",
+            "rol": "admin",
+            "compras": [
+                {
+                    "idCompra1": 1,
+                    "nombreProducto": "Camiseta titular Riestra 24/25",
+                    "fecha": "2021-10-10",
+                    "precio": 119.99,
+                    "cantidad": 2,
+                    "imagen": "https://http2.mlstatic.com/D_NQ_NP_2X_992766-MLA71279057599_082023-F.webp"
+                },
+                {
+                    "idCompra1": 878,
+                    "nombreProducto": "Botines Mapu",
+                    "fecha": "2089-10-10",
+                    "precio": 239.99,
+                    "cantidad": 1,
+                    "imagen": "https://media2.solodeportes.com.ar/media/catalog/product/cache/7c4f9b393f0b8cb75f2b74fe5e9e52aa/b/o/botines-de-futbol-puma-borussia-classic-fg-negro1-640010104657001-1.jpg"
+                }
+            ]
         }
     ],
 

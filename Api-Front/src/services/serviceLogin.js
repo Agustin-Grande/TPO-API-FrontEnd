@@ -10,3 +10,9 @@ export const handleLog = async (newUser) => {
     });
     return response.data; 
 };
+
+export const getUsuarios = async () => {
+    const response = await apiClient.get('users');
+    console.log(response.data);
+    return response.data;
+}
