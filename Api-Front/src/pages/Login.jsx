@@ -3,6 +3,9 @@ import axios from 'axios';
 import "../styles/Login.css";
 import ErrorLogin from '../componentes/Autenticacion/ErrorLogin';
 import { handleLog } from '../services/serviceLogin';
+import {useNavigate} from 'react-router-dom';
+import { Link } from 'react-router-dom';
+
 
 const Login = () => {
   const [newUser, setNewUser] = useState({
@@ -12,6 +15,7 @@ const Login = () => {
   const [errorMessage, setErrorMessage] = useState(null);
   const [error, setError] = useState(false);
   const [succes, setSucces] = useState(false);
+  const navigate = useNavigate();
 
   const handleInputChange = (e) => {
     setNewUser({
@@ -39,6 +43,7 @@ const Login = () => {
       if (data && data.length > 0) {
         setSucces(true);
         setErrorMessage(null);
+        navigate("/home")
       } else {
         setSucces(false);
         setErrorMessage("No se encontró el usuario");
@@ -73,7 +78,7 @@ const Login = () => {
           />
         </div>
         <button type="submit">Iniciar Sesión</button>
-        <p>No tenés una cuenta? <a href="/registro">Registro</a></p>
+        <p>¿No tenés una cuenta? <Link to="/registro">Registro</Link></p>
       </form>
       {error && <p style={{ color: 'red' }}>Todos los campos son obligatorios</p>}
       {succes && <p style={{ color: 'green' }}>Login exitoso!</p>}
