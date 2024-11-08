@@ -22,21 +22,28 @@
       "nombreUsuario": "Fanta123",
       "email": "vanesapecker@gmail.com",
       "contrasena": "123456"
+    }
+  ],
+  "auth": [
+    {
+      "nombreUsuario": "Fanta123",
+      "contrasena": "123456",
+      "token": "abc",
+      "id": "76dc"
     },
     {
-      "id": "cf1b",
-      "nombre": "Juan",
-      "apellido": "Gshwind",
-      "nombreUsuario": "Fanta1234",
-      "email": "fafa123@gmail.com",
+      "id": "0dbf",
+      "nombreUsuario": "fafa",
       "contrasena": "123456"
     },
     {
-      "id": "e071",
-      "nombre": "fafa",
-      "apellido": "Gshwind",
-      "nombreUsuario": "Gol123",
-      "email": "hola@gmail.com",
+      "id": "cd89",
+      "nombreUsuario": "Fafa",
+      "contrasena": "123456"
+    },
+    {
+      "id": "007d",
+      "nombreUsuario": "Fanta123",
       "contrasena": "123456"
     }
   ],
