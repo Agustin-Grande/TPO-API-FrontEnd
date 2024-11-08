@@ -1,58 +1,27 @@
 import React, { useState } from 'react';
-import axios from 'axios';
 import "../styles/Login.css";
-import ErrorLogin from '../componentes/Autenticacion/ErrorLogin';
-import { handleLog } from '../services/serviceLogin';
-import {useNavigate} from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
-
+import { useAuth } from '../hooks/useAuth';
 
 const Login = () => {
-  const [newUser, setNewUser] = useState({
-    nombreUsuario: '',
-    contrasena: ''
-  });
-  const [errorMessage, setErrorMessage] = useState(null);
-  const [error, setError] = useState(false);
-  const [succes, setSucces] = useState(false);
+  const [nombreUsuario, setNombreUsuario] = useState("");
+  const [contrasena, setContrasena] = useState("");
+  const { login, error } = useAuth();
   const navigate = useNavigate();
 
-  const handleInputChange = (e) => {
-    setNewUser({
-      ...newUser,
-      [e.target.name]: e.target.value
-    });
+  const handleUserNameChange = (e) => {
+    setNombreUsuario(e.target.value);
   };
 
-  const handleSubmit = async (e) => {  
+  const handlePasswordChange = (e) => {
+    setContrasena(e.target.value);
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-
-    
-    if (newUser.nombreUsuario === '' || newUser.contrasena === '') {
-      setError(true);
-      setErrorMessage(null);
-      setSucces(false);
-      return;
-    }
-
-    setError(false);
-    try {
-      const data = await handleLog(newUser);
-
-      
-      if (data && data.length > 0) {
-        setSucces(true);
-        setErrorMessage(null);
-        navigate("/home")
-      } else {
-        setSucces(false);
-        setErrorMessage("No se encontró el usuario");
-      }
-    } catch (error) {
-      setErrorMessage("Error al conectar con la base de datos");
-      setSucces(false);
-      setError(false);
-    }
+    await login(nombreUsuario, contrasena);
+    navigate("/home"); 
   };
 
   return (
@@ -63,8 +32,8 @@ const Login = () => {
           <input
             type="text"
             name="nombreUsuario"
-            value={newUser.nombreUsuario}
-            onChange={handleInputChange}
+            value={nombreUsuario}
+            onChange={handleUserNameChange}
             placeholder="Nombre de usuario"
           />
         </div>
@@ -72,17 +41,15 @@ const Login = () => {
           <input
             type="password"
             name="contrasena"
-            value={newUser.contrasena}
-            onChange={handleInputChange}
+            value={contrasena}
+            onChange={handlePasswordChange}
             placeholder="Contraseña"
           />
         </div>
         <button type="submit">Iniciar Sesión</button>
-        <p>¿No tenés una cuenta? <Link to="/registro">Registro</Link></p>
+        <p>¿No tienes cuenta? <Link to="/registro">Registro</Link></p>
       </form>
-      {error && <p style={{ color: 'red' }}>Todos los campos son obligatorios</p>}
-      {succes && <p style={{ color: 'green' }}>Login exitoso!</p>}
-      {errorMessage && <ErrorLogin message={errorMessage} style={{ color: 'red' }} />}
+      {error && <p style={{ color: 'red' }}>{error}</p>}
     </div>
   );
 };
