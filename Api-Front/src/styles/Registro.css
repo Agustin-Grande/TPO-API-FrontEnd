@@ -1,0 +1,15 @@
+.formulario {
+    max-width: 400px; /* Ancho máximo del formulario */
+    margin: 0 auto;    /* Centrado del formulario */
+  }
+  
+  .formulario input[type="text"],
+  .formulario input[type="email"],
+  .formulario input[type="password"],
+  .formulario input[type="username"] {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+  }
+  
