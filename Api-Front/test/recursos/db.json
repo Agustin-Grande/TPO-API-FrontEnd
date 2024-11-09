@@ -7,25 +7,7 @@
             "email": "Agus@gmail.com",
             "nombreUsuario": "Agus",
             "contrasena": "Agus",
-            "rol": "admin",
-            "compras": [
-                {
-                    "idCompra1": 1,
-                    "nombreProducto": "Camiseta titular Riestra 24/25",
-                    "fecha": "2021-10-10",
-                    "precio": 119.99,
-                    "cantidad": 2,
-                    "imagen": "https://http2.mlstatic.com/D_NQ_NP_2X_992766-MLA71279057599_082023-F.webp"
-                },
-                {
-                    "idCompra1": 878,
-                    "nombreProducto": "Botines Mapu",
-                    "fecha": "2089-10-10",
-                    "precio": 239.99,
-                    "cantidad": 1,
-                    "imagen": "https://media2.solodeportes.com.ar/media/catalog/product/cache/7c4f9b393f0b8cb75f2b74fe5e9e52aa/b/o/botines-de-futbol-puma-borussia-classic-fg-negro1-640010104657001-1.jpg"
-                }
-            ]
+            "rol": "admin"
         }
     ],
 
@@ -66,6 +48,57 @@
             "destacado": true
         }
           
+    ],
+
+    "Orden": [
+        {
+            "idOrden1": 1,
+            "idUsuario": "1",
+            "fecha": "2021-10-10",
+            "precio_total": 119.99,
+            "imagen": "https://http2.mlstatic.com/D_NQ_NP_2X_992766-MLA71279057599_082023-F.webp"
+        },
+        {
+            "idOrden1": 878,
+            "idUsuario": "2",
+            "fecha": "2089-10-10",
+            "precio_total": 239.99,
+            "imagen": "https://media2.solodeportes.com.ar/media/catalog/product/cache/7c4f9b393f0b8cb75f2b74fe5e9e52aa/b/o/botines-de-futbol-puma-borussia-classic-fg-negro1-640010104657001-1.jpg"
+        }
+    ],
+    "OrdenItem": [
+        {
+            "id": 1,
+            "cantidad": 2,
+            "precio_total": 238.99,
+            "precio_unidad": 119.99,
+            "orden_id": 1,
+            "producto_id": 1
+        },
+        {
+            "id": 2,
+            "cantidad": 3,
+            "precio_total": 690.00,
+            "precio_unidad": 230.00,
+            "orden_id": 2,
+            "producto_id": 2
+        },
+        {
+            "id": 3,
+            "cantidad": 1,
+            "precio_total": 99.99,
+            "precio_unidad": 99.99,
+            "orden_id": 1,
+            "producto_id": 3
+        },
+        {
+            "id": 4,
+            "cantidad": 4,
+            "precio_total": 400.00,
+            "precio_unidad": 100.00,
+            "orden_id": 2,
+            "producto_id": 4
+        }
     ]
 }
 
