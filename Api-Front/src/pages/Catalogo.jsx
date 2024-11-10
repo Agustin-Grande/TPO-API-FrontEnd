@@ -36,10 +36,6 @@ const Catalogo = () => {
 
   return (
     <div>
-        <br />
-        <br />
-        <br />
-        <br />
       {/* Barra de búsqueda */}
       <div>
         <br />

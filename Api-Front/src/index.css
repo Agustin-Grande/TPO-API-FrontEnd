@@ -1,3 +1,4 @@
+/* Reset y configuración de variables */
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -13,28 +14,51 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Estilos para el header */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.2em 1.6em;
+  background-color: #333; /* Color de fondo para el header */
+  z-index: 1000;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Sombra opcional */
+}
+
+/* Ajustes para enlaces */
 a {
   font-weight: 500;
   color: #646cff;
-  text-decoration: inherit;
+  text-decoration: none;
 }
 a:hover {
   color: #535bf2;
 }
 
+/* Ajustes para el body */
 body {
-  display: flex;
-  flex-direction: column;
   margin: 0;
+  padding: 0;
   min-width: 320px;
   min-height: 100vh;
+  background-color: #373535;
+  padding-top: 80px; /* Espacio para evitar que el contenido quede debajo del header */
+  display: flex;
+  flex-direction: column;
 }
 
+/* Estilos de título */
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
+  color: #fff;
 }
 
+/* Estilos para botones */
 button {
   border-radius: 8px;
   border: 1px solid transparent;
@@ -43,6 +67,7 @@ button {
   font-weight: 500;
   font-family: inherit;
   background-color: #1a1a1a;
+  color: #fff;
   cursor: pointer;
   transition: border-color 0.25s;
 }
@@ -54,6 +79,7 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
+/* Estilos de color para el modo claro */
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
@@ -64,5 +90,7 @@ button:focus-visible {
   }
   button {
     background-color: #f9f9f9;
+    color: #000;
   }
 }
+
