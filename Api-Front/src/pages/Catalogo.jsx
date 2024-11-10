@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import '../styles/Catalogo.css';
+import BtnAgregarCarrito from '../componentes/Carrito/BtnAgregarCarrito.jsx';
 
 const Catalogo = () => {
   const [productos, setProductos] = useState([]);
@@ -54,7 +55,7 @@ const Catalogo = () => {
               {producto.stock === 0 ? (
                   <p>Sin Stock</p>
                 ) : (
-                  <button>Agregar al carrito</button>
+                  <BtnAgregarCarrito producto={producto}/>
               )}
             </div>
           ))
