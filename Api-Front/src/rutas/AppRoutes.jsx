@@ -14,7 +14,7 @@ const AppRoutes = () => {
     //agregar header, nav y footer como fijo
     return (
         <>
-            {/* <Header /> */}
+            <Header />
             <div>
                 <Routes>
                     <Route path="/home" element={<Home />} />
@@ -27,7 +27,7 @@ const AppRoutes = () => {
                     <Route path="/detalles-orden" element={<DetallesOrden />} />
                 </Routes>
             </div>
-            {/* <Footer /> */}
+            <Footer />
         </>
     );
 };
