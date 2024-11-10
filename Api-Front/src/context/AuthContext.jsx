@@ -18,6 +18,9 @@ export function AuthProvider({ children }) {
       setUser(response);
       localStorage.setItem("user", JSON.stringify(response)); // Almacenar el usuario en localStorage
       localStorage.setItem("token", response.id); // Almacenar el token
+      localStorage.setItem("nombre", JSON.stringify(response.nombre));
+      localStorage.setItem("apellido", response.apellido);
+      localStorage.setItem("mail", response.mail);
       navigate("/home");
     } catch (error) {
       setError("Usuario o contraseña incorrectos"); // Mensaje de error
@@ -28,6 +31,9 @@ export function AuthProvider({ children }) {
     setUser(null);
     localStorage.removeItem("user");
     localStorage.removeItem("token");
+    localStorage.removeItem("nombre");
+    localStorage.removeItem("apellido");
+    localStorage.removeItem("mail");
     navigate("/login");
   };
 
