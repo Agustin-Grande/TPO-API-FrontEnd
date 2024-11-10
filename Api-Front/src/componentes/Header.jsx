@@ -37,6 +37,12 @@ const Header = () => {
                 Home
               </Link>
             </li>
+
+            <li className="nav-item">
+              <Link className="nav-link active" aria-current="page" to="/carrito">
+                🛒
+              </Link>
+            </li>
           </ul>
           <button
             className="btn btn-danger"

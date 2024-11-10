@@ -17,6 +17,7 @@ const AppRoutes = () => {
                     <Route path="/login" element={<Login />} />
                     <Route path="/registro" element={<Registro />} />
                     <Route path="/gestorProd" element={<GestorProd />} />
+                    <Route path="/carrito" element={<Carrito />} />
                 </Routes>
             </div>
         </>
