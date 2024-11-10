@@ -26,15 +26,10 @@ export const handleRegister = async (newUser) => {
 
         const registro = await apiClient.post('users', newUser);
 
-        return { success: true};
+        return { success: true, registro};
     } catch (error) {
         console.error("Error en la conexión con el servidor:", error);
         return { success: false, message: 'Error de conexión con el servidor' };
     }
 };
 
-//if (registro.status === 201) {
-//    return { success: true, message: 'Registro exitoso' };
-//} else {
-//    return { success: false, message: 'Error al registrar el usuario' };
-//}

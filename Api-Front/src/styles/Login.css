@@ -1,9 +1,48 @@
-.formulario{
+/* Asegúrate de que el contenedor de login ocupe toda la altura de la pantalla */
+.login {
     display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
-}
-
-
+    justify-content: center; /* Centrado horizontal */
+    align-items: center; /* Centrado vertical */
+    height: 100vh; /* Ocupa toda la altura de la ventana */
+    background-color: #f4f4f9; /* Color de fondo opcional */
+    flex-wrap: wrap;
+  }
+  
+  /* Estilos para el formulario */
+  .formulario {
+    width: 300px;
+    padding: 2rem;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para destacar el formulario */
+    border-radius: 8px;
+    text-align: center;
+  }
+  
+  /* Estilos para los inputs y el botón */
+  .formulario input {
+    width: 100%;
+    padding: 0.5rem;
+    margin: 0.5rem 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .formulario button {
+    width: 100%;
+    padding: 0.5rem;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  
+  .formulario button:hover {
+    background-color: #0056b3;
+  }
+  
+  .formulario p {
+    margin-top: 1rem;
+  }
+  

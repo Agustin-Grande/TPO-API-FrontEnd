@@ -17,7 +17,7 @@ export function AuthProvider({ children }) {
       const response = await serviceLogin(nombreUsuario, contrasena);
       setUser(response);
       localStorage.setItem("user", JSON.stringify(response)); // Almacenar el usuario en localStorage
-      localStorage.setItem("token", response.id); // Almacenar el token
+      localStorage.setItem("token", user.id); // Almacenar el token
       localStorage.setItem("nombre", JSON.stringify(response.nombre));
       localStorage.setItem("apellido", response.apellido);
       localStorage.setItem("mail", response.mail);

@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import "../styles/Registro.css";
-import ErrorLogin from '../componentes/Autenticacion/ErrorLogin';
 import { handleRegister } from '../services/serviceRegistro';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { useAuth } from '../hooks/useAuth'; 
 
 const Registro = () => {
   const [newUser, setNewUser] = useState({
@@ -15,6 +15,8 @@ const Registro = () => {
   const [errorMessage, setErrorMessage] = useState(null);
   const [error, setError] = useState(false);
   const [success, setSuccess] = useState(false);
+  const navigate = useNavigate(); 
+  const { login } = useAuth(); 
 
   const handleInputChange = (e) => {
     setNewUser({
@@ -26,7 +28,7 @@ const Registro = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Validación de campos obligatorios
+    
     if (!newUser.nombre || !newUser.apellido || !newUser.email || !newUser.nombreUsuario || !newUser.contrasena) {
       setError(true);
       setErrorMessage(null);
@@ -37,13 +39,16 @@ const Registro = () => {
     setError(false);
     try {
       const data = await handleRegister(newUser);
+      console.log(data.registro.data); 
 
       if (data.success) {
         setSuccess(true);
         setErrorMessage(null);
+        await login(data.registro.data.nombreUsuario, data.registro.data.contrasena);
+        navigate("/home"); 
       } else {
         setSuccess(false);
-        setErrorMessage(data.message); 
+        setErrorMessage(data.message || "Error en el registro. Intenta de nuevo.");
       }
     } catch (error) {
       setErrorMessage("Error al conectar con la base de datos");
@@ -54,7 +59,6 @@ const Registro = () => {
 
   return (
     <div className="registro">
-      <h2>Registro</h2>
       <form onSubmit={handleSubmit} className="formulario">
         <div>
           <input
@@ -104,9 +108,13 @@ const Registro = () => {
         <button type="submit">Registrarse</button>
         <p>¿Ya tienes cuenta? <Link to="/">Login</Link></p>
       </form>
-      {error && <p style={{ color: 'red' }}>Todos los campos son obligatorios</p>}
-      {success && <p style={{ color: 'green' }}>¡Registro exitoso!</p>}
-      {errorMessage && <ErrorLogin message={errorMessage} style={{ color: 'red' }} />}
+
+      {/* Contenedor de mensajes */}
+      <div className="mensajes">
+        {error && <p style={{ color: 'red' }}>Todos los campos son obligatorios</p>}
+        {success && <p style={{ color: 'green' }}>¡Registro exitoso!</p>}
+        {errorMessage && <p>{errorMessage}</p>}
+      </div>
     </div>
   );
 };

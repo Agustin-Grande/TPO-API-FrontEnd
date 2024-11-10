@@ -7,7 +7,8 @@ import { useAuth } from '../hooks/useAuth';
 const Login = () => {
   const [nombreUsuario, setNombreUsuario] = useState("");
   const [contrasena, setContrasena] = useState("");
-  const { login, error } = useAuth();
+  const { login } = useAuth();
+  const [errorL, setError] = useState(null);
   const navigate = useNavigate();
 
   const handleUserNameChange = (e) => {
@@ -20,13 +21,16 @@ const Login = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (!nombreUsuario || !contrasena) {
+      setError("Ambos campos son obligatorios");
+      return;
+    }
     await login(nombreUsuario, contrasena);
     navigate("/home"); 
   };
 
   return (
     <div className="login">
-      <h2>Login</h2>
       <form onSubmit={handleSubmit} className="formulario">
         <div>
           <input
@@ -49,7 +53,10 @@ const Login = () => {
         <button type="submit">Iniciar Sesión</button>
         <p>¿No tienes cuenta? <Link to="/registro">Registro</Link></p>
       </form>
-      {error && <p style={{ color: 'red' }}>{error}</p>}
+       {/* Contenedor de mensajes */}
+       <div className="mensajesL">
+        {errorL && <p style={{ color: 'red' }}>{errorL}</p>} {/* Mostrar error debajo del formulario */}
+        </div>
     </div>
   );
 };
