@@ -1,11 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { useNavigate } from 'react-router-dom';
 
 const TarjetaCompra = ({ ordenes }) => {
-  const handleVerDetalles = (id) => {
-    // Reemplaza la URL con la dirección correcta de detalles de la orden
-    window.open(`/detalles/${id}`, '_blank');
+  const navigate = useNavigate();
+
+  const handleVerDetalles = (orden) => {
+    navigate('/detalles-orden', { state: { orden } });
   };
 
   return (
@@ -23,7 +25,7 @@ const TarjetaCompra = ({ ordenes }) => {
                 <div className="d-flex flex-column align-items-end">
                   <button 
                     className="btn btn-primary mt-2"
-                    onClick={() => handleVerDetalles(orden.id)}
+                    onClick={() => handleVerDetalles(orden)}
                   >
                     Ver detalles
                   </button>

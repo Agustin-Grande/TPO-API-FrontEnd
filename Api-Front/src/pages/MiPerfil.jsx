@@ -16,7 +16,7 @@ const MiPerfil = () => {
                     const response = await verOrdenesPorUsuario(user.id);
                     setOrdenes(Array.isArray(response) ? response : []);
                 } catch (error) {
-                    console.error("Error fetching orders:", error);
+                    console.error("Error con las ordenes:", error);
                     setOrdenes([]); 
                 }
             };

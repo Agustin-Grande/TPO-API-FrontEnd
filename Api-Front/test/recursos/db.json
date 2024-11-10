@@ -45,6 +45,26 @@
       "id": "007d",
       "nombreUsuario": "Fanta123",
       "contrasena": "123456"
+    },
+    {
+      "id": "95c2",
+      "nombreUsuario": "Fanta123",
+      "contrasena": "123456"
+    },
+    {
+      "id": "cdf9",
+      "nombreUsuario": "Fanta123",
+      "contrasena": "1231d"
+    },
+    {
+      "id": "7ef6",
+      "nombreUsuario": "Fanta123",
+      "contrasena": "2eoijw9d8qwhdiwjdoq"
+    },
+    {
+      "id": "59b2",
+      "nombreUsuario": "Fanta123",
+      "contrasena": "12ddw"
     }
   ],
   "carrito": [
@@ -64,23 +84,264 @@
       "carrito_id": 1
     }
   ],
-  "producto": [
+  "productos": [
     {
       "id": "1",
-      "nombre": "Nombre del producto",
-      "precio": 99.99,
-      "stock": 10,
-      "liga": "Liga Ejemplo",
-      "equipo": "Equipo Ejemplo",
-      "marca": "Marca Ejemplo",
-      "categoria": {
-        "id": 1,
-        "nombre": "Categoria Ejemplo"
-      },
-      "descripcion": "Descripción del producto",
+      "imagen": "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw43e15003/products/NI_CD4232-456/NI_CD4232-456-1.JPG",
+      "nombre": "Camiseta del Barcelona",
+      "precio": 79.99,
+      "stock": 50,
+      "liga": "La Liga",
+      "equipo": "FC Barcelona",
+      "marca": "Nike",
+      "categoria": "CAMISETA",
+      "descripcion": "Camiseta oficial de la temporada 2024 del FC Barcelona.",
+      "favorito": true,
+      "visto": true,
+      "destacado": false
+    },
+    {
+      "id": "2",
+      "imagen": "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/78b62417f1e042aeb25e3353d278de3b_9366/Camiseta_Titular_Real_Madrid_24-25_Version_Jugador_Blanco_IX8095_HM1.jpg",
+      "nombre": "Camiseta del Real Madrid",
+      "precio": 85,
+      "stock": 30,
+      "liga": "La Liga",
+      "equipo": "Real Madrid",
+      "marca": "Adidas",
+      "categoria": "CAMISETA",
+      "descripcion": "Camiseta blanca del Real Madrid con detalles dorados.",
+      "favorito": false,
+      "visto": true,
+      "destacado": true
+    },
+    {
+      "id": "3",
+      "imagen": "https://assets.adidas.com/images/w_600,f_auto,q_auto/5c3b0ad0c567497a8598ab7b011efa99_9366/Shorts_Local_Manchester_United_20-21_Blanco_FM4289_01_laydown.jpg",
+      "nombre": "Short del Manchester United",
+      "precio": 45.5,
+      "stock": 20,
+      "liga": "Premier League",
+      "equipo": "Manchester United",
+      "marca": "Adidas",
+      "categoria": "SHORT",
+      "descripcion": "Shorts rojos del uniforme oficial de Manchester United.",
       "favorito": true,
       "visto": false,
       "destacado": true
+    },
+    {
+      "id": "4",
+      "imagen": "https://www.tradeinn.com/f/13747/137475144/nike-pantalones-cortos-primera-equipacion-psg-20-21-breathe-stadium.webp",
+      "nombre": "Short del PSG",
+      "precio": 40,
+      "stock": 25,
+      "liga": "Ligue 1",
+      "equipo": "Paris Saint-Germain",
+      "marca": "Nike",
+      "categoria": "SHORT",
+      "descripcion": "Shorts azul oscuro del Paris Saint-Germain.",
+      "favorito": false,
+      "visto": true,
+      "destacado": false
+    },
+    {
+      "id": "5",
+      "imagen": "https://assets-es.imgfoot.com/media/cache/800x800/bayern-home-2022-2023.jpg",
+      "nombre": "Camiseta del Bayern Múnich",
+      "precio": 90,
+      "stock": 40,
+      "liga": "Bundesliga",
+      "equipo": "Bayern Múnich",
+      "marca": "Adidas",
+      "categoria": "CAMISETA",
+      "descripcion": "Camiseta roja del Bayern Múnich con detalles blancos.",
+      "favorito": true,
+      "visto": false,
+      "destacado": true
+    },
+    {
+      "id": "6",
+      "imagen": "https://i.pinimg.com/originals/8d/1e/34/8d1e346a36dedb51817c0a70b5af4316.jpg",
+      "nombre": "Pantalón del Juventus",
+      "precio": 55,
+      "stock": 35,
+      "liga": "Serie A",
+      "equipo": "Juventus",
+      "marca": "Adidas",
+      "categoria": "PANTALON",
+      "descripcion": "Pantalón negro ajustado del Juventus para entrenamientos.",
+      "favorito": false,
+      "visto": true,
+      "destacado": true
+    },
+    {
+      "id": "7",
+      "imagen": "https://www.footkorner.com/cdn/shop/products/footkorner-pantalon-entrainement-atletico-madrid-2021-2022-bleu-rouge-cw1835-421_1.jpg?v=1669914778",
+      "nombre": "Pantalón del Atlético de Madrid",
+      "precio": 50,
+      "stock": 40,
+      "liga": "La Liga",
+      "equipo": "Atlético de Madrid",
+      "marca": "Nike",
+      "categoria": "PANTALON",
+      "descripcion": "Pantalón largo del Atlético de Madrid con detalles rojos.",
+      "favorito": true,
+      "visto": true,
+      "destacado": false
+    },
+    {
+      "id": "8",
+      "imagen": "https://images.footballfanatics.com/chelsea/chelsea-nike-strike-training-top-green_ss5_p-13387589+pv-1+u-xfncixd0btt0zro8obww+v-149q3iidszxjguzbbay2.jpg?_hv=2&w=900",
+      "nombre": "Remera entrenamiento Chelsea",
+      "precio": 35.99,
+      "stock": 15,
+      "liga": "Premier League",
+      "equipo": "Chelsea FC",
+      "marca": "Nike",
+      "categoria": "REMERA",
+      "descripcion": "Remera azul casual del Chelsea con el escudo del equipo.",
+      "favorito": false,
+      "visto": false,
+      "destacado": true
+    },
+    {
+      "id": "9",
+      "imagen": "https://images.puma.com/image/upload/f_auto,q_auto,b_rgb:fafafa/global/777606/02/fnd/CHL/w/1000/h/1000/fmt/png",
+      "nombre": "Remera entrenamiento Borussia Dortmund",
+      "precio": 34.99,
+      "stock": 25,
+      "liga": "Bundesliga",
+      "equipo": "Borussia Dortmund",
+      "marca": "Puma",
+      "categoria": "REMERA",
+      "descripcion": "Remera amarilla del Borussia Dortmund, ideal para uso diario.",
+      "favorito": true,
+      "visto": false,
+      "destacado": false
+    },
+    {
+      "id": "10",
+      "imagen": "https://media2.solodeportes.com.ar/media/catalog/product/cache/3cb7d75bc2a65211451e92c5381048e9/b/o/botines-de-futbol-adidas-f50-elite-fg-blanco-100010if8819001-1.jpg",
+      "nombre": "Botines F50 Adidas",
+      "precio": 250,
+      "stock": 12,
+      "liga": "Serie A",
+      "equipo": "Inter de Milán",
+      "marca": "Adidas",
+      "categoria": "CALZADO",
+      "descripcion": "Botines Adidas F50 Messi edition",
+      "favorito": false,
+      "visto": true,
+      "destacado": true
+    },
+    {
+      "id": "11",
+      "imagen": "https://media2.solodeportes.com.ar/media/catalog/product/cache/3cb7d75bc2a65211451e92c5381048e9/b/o/botines-de-futbol-nike-mercurial-vapor-15-academy-fg-mg-verde-510010dj5631300-1.jpg",
+      "nombre": "Botines Mercurial Nike",
+      "precio": 230,
+      "stock": 10,
+      "liga": "",
+      "equipo": "",
+      "marca": "Nike",
+      "categoria": "CALZADO",
+      "descripcion": "Botines Nike Mercurial Modelo 2023",
+      "favorito": false,
+      "visto": false,
+      "destacado": false
+    },
+    {
+      "id": "12",
+      "imagen": "https://zeusdeportes.com.ar/wp-content/uploads/2024/02/3.jpg",
+      "nombre": "Camiseta Chacarita Juniors",
+      "precio": 1300,
+      "stock": 10,
+      "liga": "Nacional",
+      "equipo": "Club Atlético Chacarita Juniors",
+      "marca": "Hummel",
+      "categoria": "CAMISETA",
+      "descripcion": "Camiseta de Chacarita Juniors, temporada 23/24",
+      "favorito": true,
+      "visto": true,
+      "destacado": false
+    }
+  ],
+  "Orden": [
+    {
+      "id": "1",
+      "fecha": "2021-10-10",
+      "precio_total": 2800,
+      "user_id": "f036",
+      "items": [
+        1,
+        5
+      ]
+    },
+    {
+      "id": "2",
+      "fecha": "2021-11-11",
+      "precio_total": 1500,
+      "user_id": 2,
+      "items": [
+        1
+      ]
+    },
+    {
+      "id": "3",
+      "fecha": "2021-12-12",
+      "precio_total": 3200,
+      "user_id": 3
+    },
+    {
+      "id": "4",
+      "fecha": "2022-01-01",
+      "precio_total": 2100,
+      "user_id": "f036",
+      "items": [
+        4
+      ]
+    }
+  ],
+  "Orden_item": [
+    {
+      "id": "1",
+      "cantidad": 2,
+      "precio_unidad": 1400,
+      "precio_total": 2800,
+      "product_id": 1,
+      "orden_id": 1
+    },
+    {
+      "id": "2",
+      "cantidad": 1,
+      "precio_unidad": 1500,
+      "precio_total": 1500,
+      "product_id": 1,
+      "orden_id": 2
+    },
+    {
+      "id": "3",
+      "cantidad": 2,
+      "precio_unidad": 1600,
+      "precio_total": 3200,
+      "product_id": 1,
+      "orden_id": 3
+    },
+    {
+      "id": "4",
+      "cantidad": 1,
+      "precio_unidad": 2100,
+      "precio_total": 2100,
+      "product_id": 1,
+      "orden_id": 4
+    },
+    {
+      "id": "5",
+      "cantidad": 1,
+      "precio_unidad": 2100,
+      "precio_total": 2100,
+      "product_id": 3,
+      "orden_id": 1
     }
   ]
 }

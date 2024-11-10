@@ -7,12 +7,14 @@ import Home from '../pages/Home';
 import Header from '../componentes/Header';
 import Footer from '../componentes/Footer';
 import Catalogo from '../pages/Catalogo';
+import MiPerfil from '../pages/MiPerfil';
+import DetallesOrden from '../componentes/Perfil/DetallesOrden';
 
 const AppRoutes = () => {
     //agregar header, nav y footer como fijo
     return (
         <>
-            <Header />
+            {/* <Header /> */}
             <div>
                 <Routes>
                     <Route path="/home" element={<Home />} />
@@ -20,9 +22,11 @@ const AppRoutes = () => {
                     <Route path="/registro" element={<Registro />} />
                     <Route path="/gestorProd" element={<GestorProd />} />
                     <Route path="/catalogo" element={<Catalogo />} />
+                    <Route path="/mi-perfil" element={<MiPerfil />} />
+                    <Route path="/detalles-orden" element={<DetallesOrden />} />
                 </Routes>
             </div>
-            <Footer />
+            {/* <Footer /> */}
         </>
     );
 };

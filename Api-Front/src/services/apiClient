@@ -24,7 +24,7 @@ apiClient.interceptors.request.use(
     (response) => response,
     (error) => {
       if (error.response && error.response.status === 404) {
-        window.location.href = "/login";
+         window.location.href = "/login";
       }
       return Promise.reject(error);
     }
