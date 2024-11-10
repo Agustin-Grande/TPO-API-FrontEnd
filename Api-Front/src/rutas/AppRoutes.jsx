@@ -9,6 +9,7 @@ import Footer from '../componentes/Footer';
 import Catalogo from '../pages/Catalogo';
 import MiPerfil from '../pages/MiPerfil';
 import DetallesOrden from '../componentes/Perfil/DetallesOrden';
+import ProductoDetalles from '../pages/ProductoDetalles';
 
 const AppRoutes = () => {
     //agregar header, nav y footer como fijo
@@ -23,6 +24,7 @@ const AppRoutes = () => {
                     <Route path="/gestorProd" element={<GestorProd />} />
                     <Route path="/carrito" element={<Carrito />} />
                     <Route path="/catalogo" element={<Catalogo />} />
+                    <Route path="/producto/:id" element={<ProductoDetalles />} />
                     <Route path="/mi-perfil" element={<MiPerfil />} />
                     <Route path="/detalles-orden" element={<DetallesOrden />} />
                 </Routes>
