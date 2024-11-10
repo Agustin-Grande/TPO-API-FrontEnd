@@ -63,7 +63,12 @@ const Catalogo = () => {
                 <h3>{producto.nombre}</h3>
                 <p>${producto.precio}</p>
               </a>
-              <button>Agregar al carrito</button>
+              {producto.stock === 0 ? (
+                  <p>Sin Stock</p>
+                ) : (
+                  <button>Agregar al carrito</button>
+              )}
+              
             </div>
           ))
         ) : (

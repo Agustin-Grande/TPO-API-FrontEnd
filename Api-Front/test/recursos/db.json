@@ -190,7 +190,7 @@
             "imagen":"https://images.puma.com/image/upload/f_auto,q_auto,b_rgb:fafafa/global/777606/02/fnd/CHL/w/1000/h/1000/fmt/png",
             "nombre": "Remera entrenamiento Borussia Dortmund",
             "precio": 34.99,
-            "stock": 25,
+            "stock": 0,
             "liga": "Bundesliga",
             "equipo": "Borussia Dortmund",
             "marca": "Puma",
