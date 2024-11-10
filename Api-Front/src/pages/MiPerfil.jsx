@@ -1,38 +1,46 @@
-import React, { useState, useEffect } from 'react';
-import { getUsuarios } from '../services/serviceLogin'; 
 import "../styles/cardMP.css";
-import tarjetaCompra from '../componentes/Perfil/tarjetaCompra';
+import { useEffect, useState } from 'react';
+import { verOrdenesPorUsuario } from '../services/servicePerfil';
+import TarjetaCompra from '../componentes/Perfil/TarjetaCompra';
+import { useAuth } from '../hooks/useAuth';
+
 const MiPerfil = () => {
-    const [userProfile, setUserProfile] = useState([]);
+    const { user } = useAuth();
+    
+    const [ordenes, setOrdenes] = useState([]);
 
     useEffect(() => {
-        const inicio = async () => {
-            try {
-                const users = await getUsuarios(); 
-                setUserProfile(users);
-            } catch (error) {
-                console.log("ERROR");
-            }
-        };
-        inicio();
-    }, []);
+        if (user) {
+            const fetchOrdenes = async () => {
+                try {
+                    const response = await verOrdenesPorUsuario(user.id);
+                    setOrdenes(Array.isArray(response) ? response : []);
+                } catch (error) {
+                    console.error("Error fetching orders:", error);
+                    setOrdenes([]); 
+                }
+            };
+            fetchOrdenes();
+        }
+    }, [user]);
+    
+
+    if (!user) return <p>Cargando...</p>;
 
     return (
         <div>
             <h1>Mi Perfil</h1>
-            {userProfile?.map((user) => (
-                <div key={user.id}>
-                    <p>Nombre: {user.nombre}</p>
-                    <p>Apellido: {user.apellido}</p>
-                    <p>Email: {user.email}</p>
-                    <p>Compras: </p>
-                    {user.compras.map((compra, index) => (
-                        tarjetaCompra(index, compra)
-                    ))}
+            <div>
+                <p>Nombre: {user.nombre}</p>
+                <p>Apellido: {user.apellido}</p>
+                <p>Email: {user.email}</p>
+                <p>Compras: </p>
+                <div>
+                    <TarjetaCompra ordenes={ordenes} />
                 </div>
-            ))}
+            </div>
         </div>
     );
-    
 };
+
 export default MiPerfil;

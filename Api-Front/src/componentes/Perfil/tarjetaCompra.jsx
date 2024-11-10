@@ -1,24 +1,50 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import React from 'react';
+import PropTypes from 'prop-types';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
-function tarjetaCompra(index, compra) {
+const TarjetaCompra = ({ ordenes }) => {
+  const handleVerDetalles = (id) => {
+    // Reemplaza la URL con la dirección correcta de detalles de la orden
+    window.open(`/detalles/${id}`, '_blank');
+  };
+
   return (
-      <div key={index} id="tarjeta" className="card mb-3" style={{maxWidth: '540px'}}>
-        <div className="row g-0">
-            <div className="col-md-4">
-                <img src={compra.imagen} className="img-fluid rounded-start" alt="..." />
-            </div>
-            <div className="col-md-8">
-                <div className="card-body">
-                    <h5 className="card-title">Compra del {compra.fecha}</h5>
-                    <p className="card-text">Cantidad de productos comprados: {compra.cantidad} <br /> Costo final: {compra.precio * compra.cantidad}</p>
+    <>
+      {ordenes.map((orden, index) => (
+        <div className="card mb-3" key={index}>
+          <div className="row g-0">
+            {/* Columna de la información del pedido ocupando todo el ancho */}
+            <div className="col-12">
+              <div className="card-body d-flex flex-row justify-content-between align-items-center">
+                <div>
+                  <h5 className="card-title">Orden del {orden.fecha}</h5>
+                  <p className="card-text"><strong>Costo_final:</strong> ${orden.precio_total}</p>
                 </div>
+                <div className="d-flex flex-column align-items-end">
+                  <button 
+                    className="btn btn-primary mt-2"
+                    onClick={() => handleVerDetalles(orden.id)}
+                  >
+                    Ver detalles
+                  </button>
+                </div>
+              </div>
             </div>
+          </div>
         </div>
-    </div>
-  )
-}
+      ))}
+    </>
+  );
+};
 
+TarjetaCompra.propTypes = {
+  ordenes: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      precio_total: PropTypes.number.isRequired,
+      fecha: PropTypes.string.isRequired,
+    })
+  ).isRequired,
+};
 
-export default tarjetaCompra
-
+export default TarjetaCompra;

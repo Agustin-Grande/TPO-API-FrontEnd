@@ -5,6 +5,7 @@ import Carrito from '../pages/Carrito';
 import GestorProd from '../pages/GestorProd';
 import Home from '../pages/Home';
 import Header from '../componentes/Header';
+import MiPerfil from '../pages/MiPerfil';
 
 const AppRoutes = () => {
     //agregar header, nav y footer como fijo

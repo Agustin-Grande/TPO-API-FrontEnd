@@ -82,5 +82,76 @@
       "visto": false,
       "destacado": true
     }
+  ],
+  "Orden": [
+    {
+      "id": "1",
+      "fecha": "2021-10-10",
+      "precio_total": 2800,
+      "user_id": "f036",
+      "items": [1,5]
+    },
+    {
+      "id": "2",
+      "fecha": "2021-11-11",
+      "precio_total": 1500,
+      "user_id": 2,
+      "items": [1]
+    },
+    {
+      "id": "3",
+      "fecha": "2021-12-12",
+      "precio_total": 3200,
+      "user_id": 3
+    },
+    {
+      "id": "4",
+      "fecha": "2022-01-01",
+      "precio_total": 2100,
+      "user_id": "f036",
+      "items": [4]
+    }
+  ],
+  "Orden_item": [
+    {
+      "id": "1",
+      "cantidad": 2,
+      "precio_unidad": 1400,
+      "precio_total": 2800,
+      "product_id": 1,
+      "orden_id": 1
+    },
+    {
+      "id": "2",
+      "cantidad": 1,
+      "precio_unidad": 1500,
+      "precio_total": 1500,
+      "product_id": 1,
+      "orden_id": 2
+    },
+    {
+      "id": "3",
+      "cantidad": 2,
+      "precio_unidad": 1600,
+      "precio_total": 3200,
+      "product_id": 1,
+      "orden_id": 3
+    },
+    {
+      "id": "4",
+      "cantidad": 1,
+      "precio_unidad": 2100,
+      "precio_total": 2100,
+      "product_id": 1,
+      "orden_id": 4
+    },
+    {
+      "id": "5",
+      "cantidad": 1,
+      "precio_unidad": 2100,
+      "precio_total": 2100,
+      "product_id": 1,
+      "orden_id": 1
+    }
   ]
 }

@@ -4,12 +4,11 @@ import apiClient from "./apiClient";
 
 export const serviceLogin = async (nombreUsuario, contrasena) => {  
     const response = await apiClient.post("auth",{nombreUsuario, contrasena});
-    return response.data; 
-
+    const usuarios = await apiClient.get('http://localhost:3001/users');
+    const usuarioFiltrado = usuarios.data.filter(user => user.nombreUsuario === nombreUsuario);
+    const usuarioCompleto = {
+        ...response.data,
+        ...usuarioFiltrado[0]
+    };   
+    return usuarioCompleto;
 };
-
-export const getUsuarios = async () => {
-    const response = await apiClient.get('users');
-    console.log(response.data);
-    return response.data;
-}
