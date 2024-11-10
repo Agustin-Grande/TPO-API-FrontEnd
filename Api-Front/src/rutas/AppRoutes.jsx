@@ -21,6 +21,7 @@ const AppRoutes = () => {
                     <Route path="/login" element={<Login />} />
                     <Route path="/registro" element={<Registro />} />
                     <Route path="/gestorProd" element={<GestorProd />} />
+                    <Route path="/carrito" element={<Carrito />} />
                     <Route path="/catalogo" element={<Catalogo />} />
                     <Route path="/mi-perfil" element={<MiPerfil />} />
                     <Route path="/detalles-orden" element={<DetallesOrden />} />
