@@ -29,7 +29,7 @@ const MiPerfil = () => {
 
     return (
         <div>
-            <h1 className="tituloMiPerfil">Mi Perfil</h1>
+            <h1>Mi Perfil</h1>
             <div>
                 <p>Nombre: {user.nombre}</p>
                 <p>Apellido: {user.apellido}</p>
