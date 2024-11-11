@@ -6,7 +6,7 @@
       "email": "Agus@gmail.com",
       "nombreUsuario": "Agus",
       "contrasena": "Agus",
-      "rol": "Admin"
+      "rol": "ADMIN"
     },
     {
       "id": "da47",
@@ -105,6 +105,41 @@
       "email": "holder@gmail.com",
       "contrasena": "123456",
       "rol": "ADMIN"
+    },
+    {
+      "id": "914d",
+      "nombre": "fafa",
+      "apellido": "Gshwind",
+      "nombreUsuario": "fafa1234",
+      "email": "fafa@gmail.com",
+      "contrasena": "123456",
+      "rol": "ADMIN"
+    },
+    {
+      "id": "7771",
+      "nombre": "Martin",
+      "apellido": "asd",
+      "nombreUsuario": "FloridiaSantino",
+      "email": "dadada@gmail.com",
+      "contrasena": "123456",
+      "rol": "ADMIN"
+    },
+    {
+      "id": "5c05",
+      "nombre": "Holder",
+      "apellido": "Tomas",
+      "nombreUsuario": "adada",
+      "email": "dede@gmail.com",
+      "contrasena": "45654"
+    },
+    {
+      "id": "f9b2",
+      "nombre": "asd",
+      "apellido": "asdasdasdsda",
+      "nombreUsuario": "favoritoPrueba",
+      "email": "asdasdsad@gmail.com",
+      "contrasena": "qwert",
+      "favoritos": []
     }
   ],
   "auth": [
@@ -125,194 +160,34 @@
       "contrasena": "123456"
     },
     {
-      "id": "4325",
-      "nombreUsuario": "Holder20",
-      "contrasena": "123456"
+      "id": "0cb4",
+      "nombreUsuario": "Agus",
+      "contrasena": "Agus"
     },
     {
-      "id": "d16f",
+      "id": "f3f8",
+      "nombreUsuario": "Agus",
+      "contrasena": "Agus"
+    },
+    {
+      "id": "d3a7",
       "nombreUsuario": "Fanta123",
       "contrasena": "123456"
     },
     {
-      "id": "d8f7",
-      "nombreUsuario": "Fanta123",
-      "contrasena": "123456"
+      "id": "2d90",
+      "nombreUsuario": "adada",
+      "contrasena": "45654"
     },
     {
-      "id": "b19a",
-      "nombreUsuario": "Fanta123",
-      "contrasena": "2eoijw9d8qwhdiwjdoq"
-    },
-    {
-      "id": "59b2",
-      "nombreUsuario": "Fanta123",
-      "contrasena": "12ddw"
-    },
-    {
-      "id": "51fa",
+      "id": "9016",
       "nombreUsuario": "Agus",
       "contrasena": "Agus"
     },
     {
-      "id": "85d3",
-      "nombreUsuario": "Agus",
-      "contrasena": "Agus"
-    },
-    {
-      "id": "737d",
-      "nombreUsuario": "Agus",
-      "contrasena": "Agus"
-    },
-    {
-      "id": "9c38",
-      "nombreUsuario": "Agus",
-      "contrasena": "Agus"
-    },
-    {
-      "id": "5ce6",
-      "nombreUsuario": "Agus",
-      "contrasena": "Agus"
-    },
-    {
-      "id": "a8f5",
-      "nombreUsuario": "fafa123",
-      "contrasena": "123456"
-    },
-    {
-      "id": "8cd3",
-      "nombreUsuario": "fafa123",
-      "contrasena": "123456"
-    },
-    {
-      "id": "6629",
-      "nombreUsuario": "Agus",
-      "contrasena": "Agus"
-    },
-    {
-      "id": "0b2d",
-      "nombreUsuario": "fafa123",
-      "contrasena": "123456"
-    },
-    {
-      "id": "b506",
-      "nombreUsuario": "Agus",
-      "contrasena": "Agus"
-    },
-    {
-      "id": "1700",
-      "nombreUsuario": "fafa123",
-      "contrasena": "123456"
-    },
-    {
-      "id": "1f15",
-      "nombreUsuario": "Agus",
-      "contrasena": "Agus"
-    },
-    {
-      "id": "5533",
-      "nombreUsuario": "fafa123",
-      "contrasena": "123456"
-    },
-    {
-      "id": "72e5",
-      "nombreUsuario": "Agus",
-      "contrasena": "Agus"
-    },
-    {
-      "id": "285b",
-      "nombreUsuario": "Agus",
-      "contrasena": "Agus"
-    },
-    {
-      "id": "869c",
-      "nombreUsuario": "Agus",
-      "contrasena": "Agus"
-    },
-    {
-      "id": "aede",
-      "nombreUsuario": "Agus",
-      "contrasena": "Agus"
-    },
-    {
-      "id": "eca6",
-      "nombreUsuario": "Agus",
-      "contrasena": "Agus"
-    },
-    {
-      "id": "2765",
-      "nombreUsuario": "Agus",
-      "contrasena": "Agus"
-    },
-    {
-      "id": "ec1b",
-      "nombreUsuario": "fafa123",
-      "contrasena": "123456"
-    },
-    {
-      "id": "4809",
-      "nombreUsuario": "Agus",
-      "contrasena": "Agus"
-    },
-    {
-      "id": "abc1",
-      "nombreUsuario": "Agus",
-      "contrasena": "Agus"
-    },
-    {
-      "id": "b3ce",
-      "nombreUsuario": "Fanta123",
-      "contrasena": "123456"
-    },
-    {
-      "id": "fd9c",
-      "nombreUsuario": "Agus ",
-      "contrasena": "Agus"
-    },
-    {
-      "id": "1869",
-      "nombreUsuario": "Agus",
-      "contrasena": "Agus"
-    },
-    {
-      "id": "d092",
-      "nombreUsuario": "Agus",
-      "contrasena": "Agus"
-    },
-    {
-      "id": "5576",
-      "nombreUsuario": "Fanta123",
-      "contrasena": "123456"
-    },
-    {
-      "id": "be82",
-      "nombreUsuario": "Fanta123",
-      "contrasena": "123456"
-    },
-    {
-      "id": "611b",
-      "nombreUsuario": "Fanta123",
-      "contrasena": "123456"
-    },
-    {
-      "id": "7525",
-      "nombreUsuario": "Fanta123",
-      "contrasena": "123456"
-    },
-    {
-      "id": "0a1d",
-      "nombreUsuario": "Fanta123",
-      "contrasena": "123456"
-    },
-    {
-      "id": "69d8",
-      "nombreUsuario": "Fanta123",
-      "contrasena": "123456"
-    },
-    {
-      "id": "c4c5",
-      "nombreUsuario": "Fanta123",
-      "contrasena": "123456"
+      "id": "4626",
+      "nombreUsuario": "favoritoPrueba",
+      "contrasena": "qwert"
     }
   ],
   "carrito": [
@@ -325,6 +200,16 @@
       "id": "2627",
       "precioTotal": 0,
       "user_id": "f036"
+    },
+    {
+      "id": "17e8",
+      "precioTotal": 0,
+      "user_id": "914d"
+    },
+    {
+      "id": "2990",
+      "precioTotal": 0,
+      "user_id": "7771"
     }
   ],
   "carrito_item": [],
@@ -334,10 +219,10 @@
       "imagen": "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw43e15003/products/NI_CD4232-456/NI_CD4232-456-1.JPG",
       "nombre": "Camiseta del Barcelona",
       "precio": 79.99,
-      "stock": 50,
+      "stock": "60",
       "liga": "La Liga",
       "equipo": "FC Barcelona",
-      "marca": "Mike",
+      "marca": "Nike",
       "categoria": "CAMISETA",
       "descripcion": "Camiseta oficial de la temporada 2024 del FC Barcelona.",
       "favorito": true,

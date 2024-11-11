@@ -4,8 +4,12 @@ import axios from 'axios';
 import corazonVacio from '../assets/corazon_vacio.png';
 import corazonLleno from '../assets/corazon_lleno.png';
 import '../styles/ProductoDetalle.css';
+import { useAuth } from '../hooks/useAuth';
+
+
 
 const ProductoDetalles = () => {
+  const { user } = useAuth();
   const { id } = useParams();
   const [producto, setProducto] = useState(null);
   const [cantidad, setCantidad] = useState(1);

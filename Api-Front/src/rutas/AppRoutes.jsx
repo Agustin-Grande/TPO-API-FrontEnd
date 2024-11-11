@@ -18,8 +18,8 @@ const AppRoutes = () => {
     const hideHeaderFooter = location.pathname === "/login" || location.pathname === "/registro";
 
     return (
-        <>
-            {/* Renderiza Header solo si no estamos en /login o /registro */}
+        <>  
+            
             {!hideHeaderFooter && <Header />}
             <div>
                 <Routes>                    
@@ -35,7 +35,6 @@ const AppRoutes = () => {
                     <Route path="/detalles-orden" element={<DetallesOrden />} />
                 </Routes>
             </div>
-            {/* Renderiza Footer solo si no estamos en /login o /registro */}
             {!hideHeaderFooter && <Footer />}
         </>
     );

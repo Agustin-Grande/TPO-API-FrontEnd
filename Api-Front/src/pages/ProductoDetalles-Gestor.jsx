@@ -57,7 +57,7 @@ const handleSave = async () => {
 
   return (
     <div>
-    { user.rol != 'Admin' ? (
+    { user.rol != 'ADMIN' ? (
       <div>
      <p>No tienes acceso a editar productos</p>
      </div>

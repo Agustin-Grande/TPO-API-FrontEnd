@@ -3,7 +3,7 @@ import apiClient from "./apiClient";
 export const handleRegister = async (newUser) => {
     try {
         // Verificación de nombre de usuario
-        const responseNombre = await apiClient.get('users', {
+        /*const responseNombre = await apiClient.get('users', {
             params: {
                 nombreUsuario: newUser.nombreUsuario,
             }
@@ -21,9 +21,9 @@ export const handleRegister = async (newUser) => {
 
         if (responseMail.data.length > 0) {
             return { success: false, message: 'El correo electrónico ya está en uso' };
-        }
+        }*/
 
-
+        //No hace falta hacer la verificacion de usuario
         const registro = await apiClient.post('users', newUser);
 
         return { success: true, registro};

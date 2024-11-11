@@ -13,9 +13,10 @@
 }
 
 .portada-home img {
-    width: 100%; /* La imagen ocupa todo el ancho del contenedor */
+    width: 100%; 
     height: 500px; 
-    object-fit: cover; /* Asegura que la imagen cubra completamente el contenedor sin estirarse */
+    object-fit: cover; 
+    margin-top: -24px;
 }
 .bienvenido-home{
     display: flex;
