@@ -23,9 +23,6 @@ const obtenerCarrito = async (user) => {
     let carrito
     try {
         carrito = await axios.get(`http://localhost:3001/carrito?user_id=${user.id}`);
-        console.log("Cuando encuentra");
-        console.log(carrito);
-        
         
         // Si no existe, Axios devuelve 200 con un arr vacio
         // Por eso esta validacion
@@ -49,8 +46,6 @@ const agregarItemsCarrito = async (carritoId, producto, cantidad = 10) => {
     // Si no está, creo un item
 
     if(itemExistente.data.length > 0){
-        console.log("existe");
-        console.log(itemExistente.data[0]);
 
         const productoExistente = itemExistente.data[0];
         const nuevaCantidad = productoExistente.cantidad + cantidad; // Sumar la nueva cantidad
@@ -75,7 +70,6 @@ const agregarItemsCarrito = async (carritoId, producto, cantidad = 10) => {
         //agregarItemsCarrito()
     }
 }
-
 
 
 const crearCarrito = async (id) => {

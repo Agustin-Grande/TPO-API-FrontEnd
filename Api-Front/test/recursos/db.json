@@ -165,6 +165,21 @@
       "id": "ec1b",
       "nombreUsuario": "fafa123",
       "contrasena": "123456"
+    },
+    {
+      "id": "7d12",
+      "nombreUsuario": "Agus",
+      "contrasena": "Agus"
+    },
+    {
+      "id": "a62e",
+      "nombreUsuario": "fafa123",
+      "contrasena": "123456"
+    },
+    {
+      "id": "88b1",
+      "nombreUsuario": "Agus",
+      "contrasena": "Agus"
     }
   ],
   "carrito": [
@@ -174,16 +189,7 @@
       "user_id": "1"
     }
   ],
-  "carrito_item": [
-    {
-      "id": "3060",
-      "cantidad": 30,
-      "precioUnidad": 79.99,
-      "precioTotal": 2399.7,
-      "product_id": "1",
-      "carrito_id": "189a"
-    }
-  ],
+  "carrito_item": [],
   "productos": [
     {
       "id": "1",

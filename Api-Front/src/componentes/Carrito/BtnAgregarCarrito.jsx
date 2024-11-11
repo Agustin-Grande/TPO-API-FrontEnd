@@ -9,12 +9,10 @@ const BtnAgregarCarrito = ({ producto }) => {
     const navigate = useNavigate()
 
     const validarSesion = () =>{
-       user ?  agregarAlCarrito(producto) : navigate('/login')
+       user ? agregarAlCarrito(producto) : navigate('/login')
     }
 
-    const agregarAlCarrito = (producto) =>{
-        console.log(user); 
-        console.log(producto); 
+    const agregarAlCarrito = (producto) =>{ 
         agregarCarrito(user, producto)
     }
 
@@ -22,9 +20,6 @@ const BtnAgregarCarrito = ({ producto }) => {
         <button onClick={() => validarSesion(producto)}>
             Agregar al carrito
         </button>
-        // <button onClick={() => agregarAlCarrito(producto)}>
-        //     Agregar al carrito
-        // </button>
     );
     
 };
