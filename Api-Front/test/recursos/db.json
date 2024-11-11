@@ -170,11 +170,14 @@
       "contrasena": "123456"
     },
     {
+
       "id": "4809",
+
       "nombreUsuario": "Agus",
       "contrasena": "Agus"
     },
     {
+
       "id": "abc1",
       "nombreUsuario": "Agus",
       "contrasena": "Agus"
@@ -191,10 +194,12 @@
     },
     {
       "id": "1869",
+
       "nombreUsuario": "Agus",
       "contrasena": "Agus"
     },
     {
+
       "id": "d092",
       "nombreUsuario": "Agus",
       "contrasena": "Agus"
@@ -212,16 +217,7 @@
       "user_id": "1"
     }
   ],
-  "carrito_item": [
-    {
-      "id": "3060",
-      "cantidad": 30,
-      "precioUnidad": 79.99,
-      "precioTotal": 2399.7,
-      "product_id": "1",
-      "carrito_id": "189a"
-    }
-  ],
+  "carrito_item": [],
   "productos": [
     {
       "id": "1",

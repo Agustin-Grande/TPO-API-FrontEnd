@@ -1,27 +1,39 @@
+import './ItemCarrito.css'
+import { useEffect, useState } from 'react';
+import axios from 'axios';
+
 const ItemCarrito = ({ item }) => {
-    console.log(item);
+    const [nombreProducto, setNombreProducto] = useState('');
+
+    useEffect(() => {
+
+        const fetchItem = async () => {
+            try {
+                
+                const res = await axios.get(`http://localhost:3001/productos?id=${item.product_id}`);
+                setNombreProducto(res.data[0].nombre)
+                
+            } catch (err) {
+                console.error(err);
+            }
+        };
+
+        fetchItem();
+    }, []);
+    
     
     return (
-        <div style={styles.item}>
-            <div style={styles.itemDetail}>
-                <strong>Producto</strong>
+        <div className="item">
+            <div className='itemDetail'>
+                <strong>{nombreProducto}</strong>
             </div>
-            <div style={styles.itemDetail}>${item.precioUnidad}</div>
-            <div style={styles.itemDetail}>{item.cantidad}</div>
+            <div className="itemDetail">${item.precioUnidad}</div>
+            <div className="itemDetail">${item.precioTotal}</div>
+            <div className="itemDetail">{item.cantidad}</div>
         </div>
     );
 };
 
-const styles = {
-    item: {
-        display: 'flex', // Los detalles estarán en una fila
-        justifyContent: 'space-between', // Espacio entre los elementos
-        padding: '10px',
-        borderBottom: '1px solid #ddd',
-    },
-    itemDetail: {
-        margin: '0 100px', // Espacio entre cada detalle
-    }
-};
+
 
 export default ItemCarrito;
