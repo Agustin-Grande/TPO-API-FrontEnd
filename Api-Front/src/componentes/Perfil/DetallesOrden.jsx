@@ -33,22 +33,38 @@ const DetallesOrden = () => {
   }
 
   return (
-    <div>
-      <h1>Detalles de la Orden</h1>
+    <div className="container mt-4" style={{height:"100vh"}}>
+      <h1 className="mb-4">Detalles de la Orden</h1>
       <p><strong>Fecha:</strong> {orden.fecha}</p>
       <p><strong>Costo Total:</strong> ${orden.precio_total}</p>
       <div>
-        <h2>Productos</h2>
-        <ul>
-          {productos.map((producto, index) => (
-            <li key={index}>
-              <p><strong>Nombre:</strong> {producto.nombre}</p>
-              <p><strong>Precio:</strong> ${producto.precio}</p>
-              <p><strong>Cantidad:</strong> {items[index]?.cantidad}</p> {/* Verifica que el índice exista */}
-            </li>
-          ))}
-        </ul>
+        <h2 className="mt-4">Productos</h2>
+        <ul className="list-group">
+    {productos.map((producto, index) => (
+        <li key={index} className="list-group-item d-flex align-items-center" style={{ border: "solid 0.5px grey", marginBottom: "10px" }}>
+            <img src={producto.imagen} alt="" className="img-thumbnail mr-3" style={{ width: '100px', height: '100px', border:"none" }} />
+            <div className="container">
+                <div className="row">
+                    <div className="col-6">
+                        <p><strong>Nombre:</strong> {producto.nombre}</p>
+                    </div>
+                    <div className="col-6">
+                        <p><strong>Descripción:</strong> {producto.descripcion}</p>
+                    </div>
+                    <div className="col-6">
+                        <p><strong>Precio:</strong> ${producto.precio}</p>
+                    </div>
+                    <div className="col-6">
+                        <p><strong>Cantidad:</strong> {items[index]?.cantidad}</p>
+                    </div>
+                </div>
+            </div>
+        </li>
+    ))}
+</ul>
+
       </div>
+      <br />
     </div>
   );
 };

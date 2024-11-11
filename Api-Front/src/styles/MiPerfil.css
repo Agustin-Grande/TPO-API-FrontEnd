@@ -1,0 +1,21 @@
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: grey;
+    border-radius: 30px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: none;
+    margin: 4px 2px; /* Agrega márgenes alrededor del track para mayor separación */
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #156cb9;
+}
+.overflow-auto {
+    padding-right: 10px;
+    margin-bottom: 50px; 
+}

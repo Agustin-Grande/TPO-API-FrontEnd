@@ -1,8 +1,10 @@
-import "../styles/cardMP.css";
+import "../styles/MiPerfil.css";
 import { useEffect, useState } from 'react';
 import { verOrdenesPorUsuario } from '../services/servicePerfil';
 import TarjetaCompra from '../componentes/Perfil/TarjetaCompra';
 import { useAuth } from '../hooks/useAuth';
+import DatosPersonales from "../componentes/Perfil/DatosPersonales";
+
 
 const MiPerfil = () => {
     const { user } = useAuth();
@@ -28,16 +30,14 @@ const MiPerfil = () => {
     if (!user) return <p>Cargando...</p>;
 
     return (
-        <div>
-            <h1>Mi Perfil</h1>
+        <div className="container mt-4" style={{display:"flex", flexDirection:"column", gap:"20px"}} >
             <div>
-                <p>Nombre: {user.nombre}</p>
-                <p>Apellido: {user.apellido}</p>
-                <p>Email: {user.email}</p>
-                <p>Compras: </p>
-                <div>
-                    <TarjetaCompra ordenes={ordenes} />
-                </div>
+                <DatosPersonales user={user} />
+            </div>
+                <p><strong>Historial de compras</strong></p>
+            <div className="overflow-auto" style={{height:"270px"}}>
+                <TarjetaCompra ordenes={ordenes} />
+                <br />
             </div>
         </div>
     );

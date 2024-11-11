@@ -15,9 +15,8 @@ const TarjetaCompra = ({ ordenes }) => {
       {ordenes.map((orden, index) => (
         <div className="card mb-3" key={index}>
           <div className="row g-0">
-            {/* Columna de la información del pedido ocupando todo el ancho */}
             <div className="col-12">
-              <div className="card-body d-flex flex-row justify-content-between align-items-center">
+              <div className="card-body d-flex flex-row justify-content-between align-items-center" style={{ border: "solid 0.5px grey"}}>
                 <div>
                   <h5 className="card-title">Orden del {orden.fecha}</h5>
                   <p className="card-text"><strong>Costo_final:</strong> ${orden.precio_total}</p>
@@ -26,6 +25,9 @@ const TarjetaCompra = ({ ordenes }) => {
                   <button 
                     className="btn btn-primary mt-2"
                     onClick={() => handleVerDetalles(orden)}
+                    style={{ transition: 'background-color 0.3s' }}
+                    onMouseEnter={(e) => e.target.style.background = '#30182F' }
+                    onMouseLeave={(e) => e.target.style.background = '' }
                   >
                     Ver detalles
                   </button>
