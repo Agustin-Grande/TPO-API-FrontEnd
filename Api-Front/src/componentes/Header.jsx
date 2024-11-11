@@ -15,7 +15,7 @@ const Header = () => {
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
       <div className="container-fluid">
         <Link className="navbar-brand" to="/">
-          Navbar
+          Home
         </Link>
         <button
           className="navbar-toggler"
@@ -31,24 +31,13 @@ const Header = () => {
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              <Link className="nav-link active" aria-current="page" to="/pokemons">
-                Pokemons
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link active" aria-current="page" to="/home">
-                Home
+              <Link className="nav-link active" aria-current="page" to="/catalogo">
+                Catalogo
               </Link>
             </li>
             <li className="nav-item">
               <Link className="nav-link active" aria-current="page" to="/carrito">
                 🛒
-              </Link>
-            </li>
-
-            <li className="nav-item">
-              <Link className="nav-link active" aria-current="page" to="/catalogo">
-                Catalogo
               </Link>
             </li>
           </ul>

@@ -27,6 +27,7 @@ header {
   background-color: #333; /* Color de fondo para el header */
   z-index: 1000;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Sombra opcional */
+  margin-bottom: 50px;
 }
 
 /* Ajustes para enlaces */
@@ -50,6 +51,8 @@ body {
   display: flex;
   flex-direction: column;
 }
+
+
 
 /* Estilos de título */
 h1 {
@@ -91,6 +94,10 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
     color: #000;
+  }
+
+  h1 {
+    text-align: center;
   }
 }
 

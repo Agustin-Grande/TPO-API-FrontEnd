@@ -4,9 +4,7 @@ import Carrito from './pages/Carrito.jsx';
 
 function App() {
   return (
-    <div>
-      
-    </div>
+    <></>
   );
 }
 

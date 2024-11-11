@@ -1,0 +1,33 @@
+.contenedor-home {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+  }
+
+.cuadrado-home img {
+    width: 200px;
+    height: 100px;
+    background-color: #252c25;
+    margin: 30px;
+}
+
+.portada-home img {
+    width: 100%; 
+    height: 500px; 
+    object-fit: cover; 
+    margin-top: -24px;
+}
+.bienvenido-home{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.bienvenido-home img{
+    width: 100px;
+    height: 60px;
+}
+
+  
