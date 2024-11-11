@@ -94,6 +94,15 @@
       "nombreUsuario": "gege",
       "email": "mopgmbko@gmail.com",
       "contrasena": "123456"
+    },
+    {
+      "id": "f3ad",
+      "nombre": "Fermin",
+      "apellido": "Holder",
+      "nombreUsuario": "Holder20",
+      "email": "holder@gmail.com",
+      "contrasena": "123456",
+      "rol": "ADMIN"
     }
   ],
   "auth": [
@@ -114,12 +123,22 @@
       "contrasena": "123456"
     },
     {
-      "id": "9f05",
-      "nombreUsuario": "gege",
+      "id": "4325",
+      "nombreUsuario": "Holder20",
       "contrasena": "123456"
     },
     {
-      "id": "02b4",
+      "id": "d16f",
+      "nombreUsuario": "Fanta123",
+      "contrasena": "123456"
+    },
+    {
+      "id": "d8f7",
+      "nombreUsuario": "Fanta123",
+      "contrasena": "123456"
+    },
+    {
+      "id": "b19a",
       "nombreUsuario": "Fanta123",
       "contrasena": "123456"
     }

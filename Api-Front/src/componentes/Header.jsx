@@ -11,9 +11,6 @@ const Header = () => {
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
       <div className="container-fluid">
-        <Link className="navbar-brand" to="/">
-          Navbar
-        </Link>
         <button
           className="navbar-toggler"
           type="button"
@@ -28,8 +25,8 @@ const Header = () => {
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              <Link className="nav-link active" aria-current="page" to="/pokemons">
-                Pokemons
+              <Link className="nav-link active" aria-current="page" to="/mi-perfil">
+                Mi perfil
               </Link>
             </li>
             <li className="nav-item">
@@ -52,9 +49,8 @@ const Header = () => {
           <button
             className="btn btn-danger"
             onClick={handleLogOut}
-            type="button"
-          >
-            Salir
+            type="button">
+            Cerrar sesión
           </button>
         </div>
       </div>

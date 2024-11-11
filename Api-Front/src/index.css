@@ -46,10 +46,11 @@ body {
   min-width: 320px;
   min-height: 100vh;
   background-color: #373535;
-  padding-top: 80px; /* Espacio para evitar que el contenido quede debajo del header */
   display: flex;
   flex-direction: column;
 }
+
+
 
 /* Estilos de título */
 h1 {

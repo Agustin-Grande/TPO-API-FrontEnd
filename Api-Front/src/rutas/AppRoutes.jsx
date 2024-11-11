@@ -1,4 +1,4 @@
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, useLocation } from 'react-router-dom';
 import Login from "../pages/Login";
 import Registro from "../pages/Registro";
 import Carrito from '../pages/Carrito';
@@ -11,10 +11,15 @@ import MiPerfil from '../pages/MiPerfil';
 import DetallesOrden from '../componentes/Perfil/DetallesOrden';
 
 const AppRoutes = () => {
-    //agregar header, nav y footer como fijo
+    const location = useLocation();
+    
+    // Define las rutas donde no deseas mostrar Header y Footer
+    const hideHeaderFooter = location.pathname === "/login" || location.pathname === "/registro";
+
     return (
         <>
-            <Header />
+            {/* Renderiza Header solo si no estamos en /login o /registro */}
+            {!hideHeaderFooter && <Header />}
             <div>
                 <Routes>
                     <Route path="/home" element={<Home />} />
@@ -27,7 +32,8 @@ const AppRoutes = () => {
                     <Route path="/detalles-orden" element={<DetallesOrden />} />
                 </Routes>
             </div>
-            <Footer />
+            {/* Renderiza Footer solo si no estamos en /login o /registro */}
+            {!hideHeaderFooter && <Footer />}
         </>
     );
 };
