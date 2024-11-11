@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { useAuth } from "../hooks/useAuth";
+import profileUserIcon from "../assets/user.png";
 
 const Header = () => {
   const { logout } = useAuth();
@@ -7,6 +8,8 @@ const Header = () => {
   const handleLogOut = () => {
     logout();
   };
+
+  
 
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
@@ -49,6 +52,16 @@ const Header = () => {
               </Link>
             </li>
           </ul>
+          <div className="d-flex align-items-center">
+            <Link className="nav-link active" aria-current="page" to="/mi-perfil">
+              <img src={profileUserIcon} alt="icono" 
+              style={{ width: "35px",
+                marginLeft: "-70px",
+                border: "1px solid white",
+                padding: "5px",
+                borderRadius: "20px" }} />                        
+            </Link>
+          </div>
           <button
             className="btn btn-danger"
             onClick={handleLogOut}
