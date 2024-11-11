@@ -7,12 +7,14 @@ import BtnEditar from '../componentes/Gestor/BtnEditar.jsx';
 import AuthContext from '../context/AuthContext.jsx';
 import { useContext} from "react";
 
+const categories = ["Todos", "Camiseta", "Short", "Pantalon", "Remera", "Calzado"];
 
 const Catalogo = () => {
   const [productos, setProductos] = useState([]);
   const [search, setSearch] = useState("");
   const [filteredProducts, setFilteredProducts] = useState([]);
   const {user} = useContext(AuthContext);
+  const [selectedCategory, setSelectedCategory] = useState("Todos");
 
   const fetchCatalogo = async () => {
     try {
@@ -37,8 +39,41 @@ const Catalogo = () => {
     setFilteredProducts(filtered);
   };
 
+  const handleCategoryClick = (category) => {
+    setSelectedCategory(category);
+    filterProducts(search, category);
+  };
+
+  const filterProducts = (searchValue, category) => {
+    let filtered = productos;
+
+    if (category !== "Todos") {
+      filtered = filtered.filter(producto => producto.categoria.toLowerCase() === category.toLowerCase());
+    }
+    if (searchValue) {
+      filtered = filtered.filter(producto =>
+        producto.nombre.toLowerCase().includes(searchValue.toLowerCase())
+      );
+    }
+
+    setFilteredProducts(filtered);
+  };
+
   return (
     <div>
+      <h1>Catálogo</h1>
+      <div className="category-bar">
+        {categories.map((category) => (
+          <button
+            key={category}
+            onClick={() => handleCategoryClick(category)}
+            className={selectedCategory === category ? "active" : ""}
+          >
+            {category}
+          </button>
+        ))}
+      </div>
+
       <div className="search-bar">
         <input
           type="text"
