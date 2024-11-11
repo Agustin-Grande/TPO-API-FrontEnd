@@ -23,6 +23,10 @@ const ControlesCarrito = ({carrito, onVaciarCarrito}) => {
             for (const item of items) {
                 await axios.delete(`http://localhost:3001/carrito_item/${item.id}`);
             }
+
+            await axios.patch(`http://localhost:3001/carrito/${carrito.id}`, {
+                precioTotal: 0
+            });
             onVaciarCarrito()
             console.log("Carrito vaciado");
         } catch (error) {
