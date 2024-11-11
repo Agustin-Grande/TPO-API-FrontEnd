@@ -22,7 +22,8 @@ const AppRoutes = () => {
             {/* Renderiza Header solo si no estamos en /login o /registro */}
             {!hideHeaderFooter && <Header />}
             <div>
-                <Routes>
+                <Routes>                    
+                    <Route path="/" element={<Home />} />
                     <Route path="/home" element={<Home />} />
                     <Route path="/login" element={<Login />} />
                     <Route path="/registro" element={<Registro />} />
