@@ -23,7 +23,8 @@
       "apellido": "Gshwind",
       "nombreUsuario": "Fanta123",
       "email": "vanesapecker@gmail.com",
-      "contrasena": "123456"
+      "contrasena": "123456",
+      "favoritos": []
     },
     {
       "id": "4b97",
@@ -193,6 +194,16 @@
       "id": "a494",
       "nombreUsuario": "Fanta123",
       "contrasena": "123456"
+    },
+    {
+      "id": "838a",
+      "nombreUsuario": "Fanta123",
+      "contrasena": "123456"
+    },
+    {
+      "id": "666f",
+      "nombreUsuario": "Fanta123",
+      "contrasena": "123456"
     }
   ],
   "carrito": [
@@ -217,7 +228,16 @@
       "user_id": "7771"
     }
   ],
-  "carrito_item": [],
+  "carrito_item": [
+    {
+      "id": "d337",
+      "cantidad": 10,
+      "precioUnidad": 85,
+      "precioTotal": 850,
+      "product_id": "2",
+      "carrito_id": "2627"
+    }
+  ],
   "productos": [
     {
       "id": "1",
@@ -406,87 +426,74 @@
       "fecha": "2021-10-10",
       "precio_total": 2800,
       "user_id": "f036"
-
     },
     {
       "id": "2",
       "fecha": "2021-11-11",
       "precio_total": 1500,
       "user_id": 2
-
     },
     {
       "id": "3",
       "fecha": "2021-12-12",
       "precio_total": 3200,
       "user_id": 3
-
     },
     {
       "id": "4",
       "fecha": "2022-01-01",
       "precio_total": 2100,
       "user_id": "f036"
-
     },
     {
       "id": "5",
       "fecha": "2022-02-02",
       "precio_total": 2100,
       "user_id": "f036"
-
     },
     {
       "id": "6",
       "fecha": "2022-03-03",
       "precio_total": 2100,
       "user_id": "f036"
-
     },
     {
       "id": "7",
       "fecha": "2022-04-04",
       "precio_total": 1800,
       "user_id": "f036"
-
     },
     {
       "id": "8",
       "fecha": "2022-05-05",
       "precio_total": 2500,
       "user_id": "f036"
-
     },
     {
       "id": "9",
       "fecha": "2022-06-06",
       "precio_total": 3000,
       "user_id": "f036"
-
     },
     {
       "id": "10",
       "fecha": "2022-07-07",
       "precio_total": 2200,
       "user_id": "da47"
-
     },
     {
       "id": "11",
       "fecha": "2022-08-08",
       "precio_total": 2700,
       "user_id": "1"
-
     },
     {
       "id": "12",
       "fecha": "2022-09-09",
       "precio_total": 1900,
       "user_id": "da47"
-
     }
   ],
-  
   "Orden_item": [
     {
       "id": "1",

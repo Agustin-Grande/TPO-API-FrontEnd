@@ -1,13 +1,14 @@
 import { createContext, useEffect, useState } from "react";
 import { serviceLogin } from "../services/serviceLogin";
 import { useNavigate } from "react-router-dom";
+import axios from "axios"; // Asegúrate de tener axios importado
 
 export const AuthContext = createContext();
 
 export function AuthProvider({ children }) {
   const [user, setUser] = useState(() => {
     const savedUser = localStorage.getItem("user");
-    return JSON.parse(savedUser) ?? null;
+    return savedUser ? JSON.parse(savedUser) : { favoritos: [] };
   });
   const [error, setError] = useState(null);
   const navigate = useNavigate();
@@ -15,37 +16,61 @@ export function AuthProvider({ children }) {
   const login = async (nombreUsuario, contrasena) => {
     try {
       const response = await serviceLogin(nombreUsuario, contrasena);
-      setUser(response);
-      localStorage.setItem("user", JSON.stringify(response)); // Almacenar el usuario en localStorage
-      localStorage.setItem("token", response.id); // Almacenar el token
-      localStorage.setItem("nombre", JSON.stringify(response.nombre));
-      localStorage.setItem("apellido", response.apellido);
-      localStorage.setItem("mail", response.mail);
-      localStorage.setItem("rol", response.rol);
+      setUser({ ...response, favoritos: response.favoritos || [] });
+      localStorage.setItem("user", JSON.stringify({ ...response, favoritos: response.favoritos || [] }));
+      localStorage.setItem("token", response.id);
       navigate("/home");
     } catch (error) {
-      setError("Usuario o contraseña incorrectos"); // Mensaje de error
+      setError("Usuario o contraseña incorrectos");
     }
   };
 
   const logout = () => {
     setUser(null);
-    localStorage.removeItem("user");
-    localStorage.removeItem("token");
-    localStorage.removeItem("nombre");
-    localStorage.removeItem("apellido");
-    localStorage.removeItem("mail");
-    localStorage.removeItem("rol");
-
+    localStorage.clear();
     navigate("/login");
   };
+
+  const agregarAFavoritos = async (producto) => {
+    try {
+      const nuevosFavoritos = [...(user.favoritos || []), producto.id]; // Solo agregamos el id
+  
+      await axios.patch(`http://localhost:3001/users/${user.id}`, {
+        favoritos: nuevosFavoritos,
+      });
+  
+      const updatedUser = { ...user, favoritos: nuevosFavoritos };
+      setUser(updatedUser);
+      localStorage.setItem("user", JSON.stringify(updatedUser));
+    } catch (error) {
+      console.error("Error al agregar a favoritos en la DB:", error);
+    }
+  };
+  
+
+  const eliminarDeFavoritos = async (productoId) => {
+    try {
+      const nuevosFavoritos = user.favoritos.filter((fav) => fav !== productoId); // Filtramos por id
+  
+      await axios.patch(`http://localhost:3001/users/${user.id}`, {
+        favoritos: nuevosFavoritos,
+      });
+  
+      const updatedUser = { ...user, favoritos: nuevosFavoritos };
+      setUser(updatedUser);
+      localStorage.setItem("user", JSON.stringify(updatedUser));
+    } catch (error) {
+      console.error("Error al eliminar de favoritos en la DB:", error);
+    }
+  };
+  
 
   useEffect(() => {
     setError(null);
   }, [user]);
 
   return (
-    <AuthContext.Provider value={{ user, login, logout, error }}>
+    <AuthContext.Provider value={{ user, login, logout, error, agregarAFavoritos, eliminarDeFavoritos }}>
       {children}
     </AuthContext.Provider>
   );
