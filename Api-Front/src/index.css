@@ -27,6 +27,7 @@ header {
   background-color: #333; /* Color de fondo para el header */
   z-index: 1000;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Sombra opcional */
+  margin-bottom: 50px;
 }
 
 /* Ajustes para enlaces */
@@ -46,6 +47,7 @@ body {
   min-width: 320px;
   min-height: 100vh;
   background-color: #373535;
+  padding-top: 80px; /* Espacio para evitar que el contenido quede debajo del header */
   display: flex;
   flex-direction: column;
 }

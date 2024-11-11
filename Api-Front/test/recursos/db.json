@@ -250,14 +250,11 @@
       "contrasena": "123456"
     },
     {
-
       "id": "4809",
-
       "nombreUsuario": "Agus",
       "contrasena": "Agus"
     },
     {
-
       "id": "abc1",
       "nombreUsuario": "Agus",
       "contrasena": "Agus"
@@ -274,18 +271,46 @@
     },
     {
       "id": "1869",
-
       "nombreUsuario": "Agus",
       "contrasena": "Agus"
     },
     {
-
       "id": "d092",
       "nombreUsuario": "Agus",
       "contrasena": "Agus"
     },
     {
       "id": "5576",
+      "nombreUsuario": "Fanta123",
+      "contrasena": "123456"
+    },
+    {
+      "id": "be82",
+      "nombreUsuario": "Fanta123",
+      "contrasena": "123456"
+    },
+    {
+      "id": "611b",
+      "nombreUsuario": "Fanta123",
+      "contrasena": "123456"
+    },
+    {
+      "id": "7525",
+      "nombreUsuario": "Fanta123",
+      "contrasena": "123456"
+    },
+    {
+      "id": "0a1d",
+      "nombreUsuario": "Fanta123",
+      "contrasena": "123456"
+    },
+    {
+      "id": "69d8",
+      "nombreUsuario": "Fanta123",
+      "contrasena": "123456"
+    },
+    {
+      "id": "c4c5",
       "nombreUsuario": "Fanta123",
       "contrasena": "123456"
     }
@@ -295,6 +320,11 @@
       "id": "189a",
       "precioTotal": 0,
       "user_id": "1"
+    },
+    {
+      "id": "2627",
+      "precioTotal": 0,
+      "user_id": "f036"
     }
   ],
   "carrito_item": [],
