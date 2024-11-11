@@ -49,4 +49,29 @@
     display: none;
   }
   
+  .action-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+  }
+  
+  .btn-primary {
+    padding: 10px 15px;
+  }
+  
+  .favorite-btn {
+    border: none;
+    background: none;
+    cursor: pointer;
+  }
+  
+  .corazon-icon {
+    width: 30px;
+    height: 30px;
+    transition: transform 0.2s ease;
+  }
+  
+  .favorite-btn:active .corazon-icon {
+    transform: scale(1.2);
+  }
   
