@@ -1,15 +1,119 @@
+body {
+  font-family: 'Overpass', sans-serif;
+  font-weight: normal;
+  font-size: 100%;
+  color: #1b262c;
+  margin: 0;
+  /
+}
+
+
+
+.registro {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 100vw;
+  min-height: 100vh;
+  background-position: center;
+  background-size: cover;
+  flex-direction: column;
+  overflow: hidden;
+
+}
+
+.mensajesL{
+  margin-bottom: 50px;
+}
+
 .formulario {
-    max-width: 400px; /* Ancho máximo del formulario */
-    margin: 0 auto;    /* Centrado del formulario */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 400px;
+  width: 90%;
+  padding: 30px;
+  background-color: #FFFFFF;
+  border-radius: 10px;
+  box-shadow: 0px 0px 5px 5px rgba(0,0,0,0.15);
+  box-sizing: border-box;
+  margin-bottom: 25px;
+}
+
+.formulario input {
+  width: 100%;
+  height: 40px;
+  margin-bottom: 15px;
+  padding: 5px 10px;
+  font-size: 16px;
+  color: #1b262c;
+  border: none;
+  border-radius: 3px;
+  box-sizing: border-box;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.2); 
+  transition: border-color 0.3s;
+}
+
+.formulario input::placeholder {
+  color: #E4E4E4;
+}
+
+.formulario input:focus {
+  border-bottom: 2px solid #1b262c; 
+  outline: none; 
+}
+
+.formulario button {
+  width: 100%;
+  height: 40px;
+  font-size: 16px;
+  color: #1b262c;
+  background-color: #dfcdc3;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.formulario button:hover {
+  background-color: #3c4245;
+  color: #dfcdc3;
+}
+
+.mensajes {
+  text-align: center;
+  font-size: 90%;
+}
+
+.mensajes p {
+  margin: 5px 0;
+}
+
+.mensajes p.error {
+  color: red;
+}
+
+.mensajes p.success {
+  color: green;
+}
+
+.formulario p {
+  margin-top: 10px;
+  font-size: 90%;
+  color: #13181b;
+}
+
+.formulario p a {
+  color: #13181b;
+  text-decoration: none;
+}
+
+.formulario p a:hover {
+  color: #13181b;
+}
+
+@media all and (max-width: 775px) {
+  .formulario {
+      width: 90%;
+      padding: 20px;
   }
-  
-  .formulario input[type="text"],
-  .formulario input[type="email"],
-  .formulario input[type="password"],
-  .formulario input[type="username"] {
-    width: 100%;
-    padding: 8px;
-    margin-bottom: 10px;
-    box-sizing: border-box;
-  }
-  
+}

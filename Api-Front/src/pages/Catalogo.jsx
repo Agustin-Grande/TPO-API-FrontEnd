@@ -5,8 +5,6 @@ import '../styles/Catalogo.css';
 import BtnAgregarCarrito from '../componentes/Carrito/BtnAgregarCarrito.jsx';
 import BtnEditar from '../componentes/Gestor/BtnEditar.jsx';
 import AuthContext from '../context/AuthContext.jsx';
-import { getRol } from '../services/serviceGestor.js';
-
 import { useContext} from "react";
 
 

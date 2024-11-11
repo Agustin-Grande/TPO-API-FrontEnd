@@ -1,67 +1,83 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import "../styles/Registro.css";
-import ErrorLogin from '../componentes/Autenticacion/ErrorLogin';
 import { handleRegister } from '../services/serviceRegistro';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { useAuth } from '../hooks/useAuth';
 
 const Registro = () => {
-  const [newUser, setNewUser] = useState({
+  const [usuario, setUsuario] = useState({
     nombre: '',
     apellido: '',
     nombreUsuario: '',
     email: '',
-    contrasena: ''
+    contrasena: '',
+    rol: ''
   });
-  const [errorMessage, setErrorMessage] = useState(null);
+  const [mensajeError, setMensajeError] = useState(null);
   const [error, setError] = useState(false);
-  const [success, setSuccess] = useState(false);
+  const [registroExitoso, setRegistroExitoso] = useState(false);
+  const navigate = useNavigate();
+  const { login } = useAuth();
 
-  const handleInputChange = (e) => {
-    setNewUser({
-      ...newUser,
+  useEffect(() => {
+    document.body.style.overflow = 'hidden';
+
+    return () => {
+      document.body.style.overflow = 'auto';
+    };
+  }, []);
+
+
+
+  const manejarCambioInput = (e) => {
+    setUsuario({
+      ...usuario,
       [e.target.name]: e.target.value
     });
   };
 
-  const handleSubmit = async (e) => {
+  const manejarEnvioFormulario = async (e) => {
     e.preventDefault();
 
-    // Validación de campos obligatorios
-    if (!newUser.nombre || !newUser.apellido || !newUser.email || !newUser.nombreUsuario || !newUser.contrasena) {
+    if (!usuario.nombre || !usuario.apellido || !usuario.email || !usuario.nombreUsuario || !usuario.contrasena) {
       setError(true);
-      setErrorMessage(null);
-      setSuccess(false);
+      setMensajeError(null);
+      setRegistroExitoso(false);
       return;
     }
 
     setError(false);
     try {
-      const data = await handleRegister(newUser);
+      const data = await handleRegister(usuario);
+      console.log(data.registro.data);
 
       if (data.success) {
-        setSuccess(true);
-        setErrorMessage(null);
+        setRegistroExitoso(true);
+        setMensajeError(null);
+        await login(data.registro.data.nombreUsuario, data.registro.data.contrasena);
+        navigate("/home");
       } else {
-        setSuccess(false);
-        setErrorMessage(data.message); 
+        setRegistroExitoso(false);
+        setMensajeError(data.message || "Error en el registro. Intenta de nuevo.");
       }
     } catch (error) {
-      setErrorMessage("Error al conectar con la base de datos");
-      setSuccess(false);
+      setMensajeError("Error al conectar con la base de datos");
+      setRegistroExitoso(false);
       setError(false);
     }
   };
 
   return (
     <div className="registro">
-      <h2>Registro</h2>
-      <form onSubmit={handleSubmit} className="formulario">
+      <form onSubmit={manejarEnvioFormulario} className="formulario">
+        <h1 className="titulo">Registro</h1>
+
         <div>
           <input
             type="text"
             name="nombre"
-            value={newUser.nombre}
-            onChange={handleInputChange}
+            value={usuario.nombre}
+            onChange={manejarCambioInput}
             placeholder="Nombre"
           />
         </div>
@@ -69,8 +85,8 @@ const Registro = () => {
           <input
             type="text"
             name="apellido"
-            value={newUser.apellido}
-            onChange={handleInputChange}
+            value={usuario.apellido}
+            onChange={manejarCambioInput}
             placeholder="Apellido"
           />
         </div>
@@ -78,8 +94,8 @@ const Registro = () => {
           <input
             type="email"
             name="email"
-            value={newUser.email}
-            onChange={handleInputChange}
+            value={usuario.email}
+            onChange={manejarCambioInput}
             placeholder="Email"
           />
         </div>
@@ -87,26 +103,39 @@ const Registro = () => {
           <input
             type="text"
             name="nombreUsuario"
-            value={newUser.nombreUsuario}
-            onChange={handleInputChange}
-            placeholder="Nombre de usuario" 
+            value={usuario.nombreUsuario}
+            onChange={manejarCambioInput}
+            placeholder="Nombre de usuario"
           />
         </div>
         <div>
           <input
             type="password"
             name="contrasena"
-            value={newUser.contrasena}
-            onChange={handleInputChange}
+            value={usuario.contrasena}
+            onChange={manejarCambioInput}
             placeholder="Contraseña"
           />
         </div>
+        <div>
+          <input
+            type="text"
+            name="rol"
+            value={usuario.rol}
+            onChange={manejarCambioInput}
+            placeholder="Rol de usuario"
+          />
+        </div>
         <button type="submit">Registrarse</button>
-        <p>¿Ya tienes cuenta? <Link to="/">Login</Link></p>
+        <p>¿Ya tienes cuenta? <Link to="/login">Login</Link></p>
       </form>
-      {error && <p style={{ color: 'red' }}>Todos los campos son obligatorios</p>}
-      {success && <p style={{ color: 'green' }}>¡Registro exitoso!</p>}
-      {errorMessage && <ErrorLogin message={errorMessage} style={{ color: 'red' }} />}
+
+      {/* Contenedor de mensajes */}
+      <div className="mensajesRegistro">
+        {error && <p style={{ color: 'red' }}>Todos los campos son obligatorios</p>}
+        {registroExitoso && <p style={{ color: 'green' }}>¡Registro exitoso!</p>}
+        {mensajeError && <p>{mensajeError}</p>}
+      </div>
     </div>
   );
 };
