@@ -9,10 +9,10 @@ const ItemCarrito = ({ item }) => {
 
         const fetchItem = async () => {
             try {
-                
+
                 const res = await axios.get(`http://localhost:3001/productos?id=${item.product_id}`);
                 setNombreProducto(res.data[0].nombre)
-                
+
             } catch (err) {
                 console.error(err);
             }
@@ -20,8 +20,8 @@ const ItemCarrito = ({ item }) => {
 
         fetchItem();
     }, []);
-    
-    
+
+
     return (
         <div className="item">
             <div className='itemDetail'>
@@ -29,7 +29,14 @@ const ItemCarrito = ({ item }) => {
             </div>
             <div className="itemDetail">${item.precioUnidad}</div>
             <div className="itemDetail">${item.precioTotal}</div>
-            <div className="itemDetail">{item.cantidad}</div>
+            <div className="itemDetail">
+                <button onClick={() => disminuirCantidad(item.id)}>-</button>
+                {item.cantidad}
+                <button onClick={() => aumentarCantidad(item.id)}>+</button>
+            </div>
+            <div className="itemDetail">
+                <button onClick={() => eliminarItem(item.id)}>Eliminar</button>
+            </div>
         </div>
     );
 };
