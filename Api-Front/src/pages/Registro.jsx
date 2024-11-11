@@ -10,8 +10,7 @@ const Registro = () => {
     apellido: '',
     nombreUsuario: '',
     email: '',
-    contrasena: '',
-    rol: ''
+    contrasena: ''
   });
   const [mensajeError, setMensajeError] = useState(null);
   const [error, setError] = useState(false);
@@ -32,7 +31,8 @@ const Registro = () => {
   const manejarCambioInput = (e) => {
     setUsuario({
       ...usuario,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value, 
+      favoritos : []
     });
   };
 
@@ -117,25 +117,15 @@ const Registro = () => {
             placeholder="Contraseña"
           />
         </div>
-        <div>
-          <input
-            type="text"
-            name="rol"
-            value={usuario.rol}
-            onChange={manejarCambioInput}
-            placeholder="Rol de usuario"
-          />
-        </div>
         <button type="submit">Registrarse</button>
-        <p>¿Ya tienes cuenta? <Link to="/login">Login</Link></p>
+        <p>¿Ya tienes cuenta? <Link to="/login" className='logi'>Login</Link></p>
+        <div className="mensajesRegistro">
+          {error && <p style={{ color: 'red' }}>Todos los campos son obligatorios</p>}
+          {registroExitoso && <p style={{ color: 'green' }}>¡Registro exitoso!</p>}
+          {mensajeError && <p>{mensajeError}</p>}
+        </div>
       </form>
 
-      {/* Contenedor de mensajes */}
-      <div className="mensajesRegistro">
-        {error && <p style={{ color: 'red' }}>Todos los campos son obligatorios</p>}
-        {registroExitoso && <p style={{ color: 'green' }}>¡Registro exitoso!</p>}
-        {mensajeError && <p>{mensajeError}</p>}
-      </div>
     </div>
   );
 };

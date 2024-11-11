@@ -4,7 +4,7 @@ body {
   font-size: 100%;
   color: #1b262c;
   margin: 0;
-  /
+  
 }
 
 
@@ -32,9 +32,9 @@ body {
   align-items: center;
   max-width: 400px;
   width: 90%;
-  padding: 30px;
+  padding: 10px;
   background-color: #FFFFFF;
-  border-radius: 10px;
+  border-radius: 20px;
   box-shadow: 0px 0px 5px 5px rgba(0,0,0,0.15);
   box-sizing: border-box;
   margin-bottom: 25px;
@@ -108,12 +108,6 @@ body {
 }
 
 .formulario p a:hover {
-  color: #13181b;
+  color: #317ba9;
 }
 
-@media all and (max-width: 775px) {
-  .formulario {
-      width: 90%;
-      padding: 20px;
-  }
-}

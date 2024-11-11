@@ -62,17 +62,14 @@ const Catalogo = () => {
                 ) : (
                   <BtnAgregarCarrito producto={producto}/>
               )}
-              { user.rol != 'Admin' ? (
-                  <div></div>
-                ) : (
-                  <BtnEditar producto={producto}/>
-              )}
+              { user?.rol === 'ADMIN' ? <BtnEditar producto={producto} /> : <div></div> }
             </div>
           ))
         ) : (
           <p>No se encontraron productos.</p>
         )}
       </div>
+      <br />
     </div>
   );
 };

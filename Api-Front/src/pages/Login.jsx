@@ -62,11 +62,11 @@ const Login = () => {
         </div>
         <button type="submit">Iniciar Sesión</button>
         <p>¿No tenes cuenta? <Link to="/registro" className='regi'>Registro</Link></p>
+        <div className="login-messages">
+          {errorL && <p style={{ color: 'red' }}>{errorL}</p>} {/* Mostrar error debajo del formulario */}
+        </div>
       </form>
-      {/* Contenedor de mensajes */}
-      <div className="login-messages">
-        {errorL && <p style={{ color: 'red' }}>{errorL}</p>} {/* Mostrar error debajo del formulario */}
-      </div>
+      
     </div>
   );
 };
