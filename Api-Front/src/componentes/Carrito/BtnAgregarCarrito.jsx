@@ -1,6 +1,7 @@
 import { useContext} from "react";
 import {AuthContext} from '../../context/AuthContext.jsx'
 import { useNavigate } from "react-router-dom";
+import {agregarCarrito} from '../../services/serviceCart.js'
 
 const BtnAgregarCarrito = ({ producto }) => {
 
@@ -14,6 +15,7 @@ const BtnAgregarCarrito = ({ producto }) => {
     const agregarAlCarrito = (producto) =>{
         console.log(user); 
         console.log(producto); 
+        agregarCarrito(user, producto)
     }
 
     return (

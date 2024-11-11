@@ -80,23 +80,108 @@
       "id": "737d",
       "nombreUsuario": "Agus",
       "contrasena": "Agus"
+    },
+    {
+      "id": "9c38",
+      "nombreUsuario": "Agus",
+      "contrasena": "Agus"
+    },
+    {
+      "id": "5ce6",
+      "nombreUsuario": "Agus",
+      "contrasena": "Agus"
+    },
+    {
+      "id": "a8f5",
+      "nombreUsuario": "fafa123",
+      "contrasena": "123456"
+    },
+    {
+      "id": "8cd3",
+      "nombreUsuario": "fafa123",
+      "contrasena": "123456"
+    },
+    {
+      "id": "6629",
+      "nombreUsuario": "Agus",
+      "contrasena": "Agus"
+    },
+    {
+      "id": "0b2d",
+      "nombreUsuario": "fafa123",
+      "contrasena": "123456"
+    },
+    {
+      "id": "b506",
+      "nombreUsuario": "Agus",
+      "contrasena": "Agus"
+    },
+    {
+      "id": "1700",
+      "nombreUsuario": "fafa123",
+      "contrasena": "123456"
+    },
+    {
+      "id": "1f15",
+      "nombreUsuario": "Agus",
+      "contrasena": "Agus"
+    },
+    {
+      "id": "5533",
+      "nombreUsuario": "fafa123",
+      "contrasena": "123456"
+    },
+    {
+      "id": "72e5",
+      "nombreUsuario": "Agus",
+      "contrasena": "Agus"
+    },
+    {
+      "id": "285b",
+      "nombreUsuario": "Agus",
+      "contrasena": "Agus"
+    },
+    {
+      "id": "869c",
+      "nombreUsuario": "Agus",
+      "contrasena": "Agus"
+    },
+    {
+      "id": "aede",
+      "nombreUsuario": "Agus",
+      "contrasena": "Agus"
+    },
+    {
+      "id": "eca6",
+      "nombreUsuario": "Agus",
+      "contrasena": "Agus"
+    },
+    {
+      "id": "2765",
+      "nombreUsuario": "Agus",
+      "contrasena": "Agus"
+    },
+    {
+      "id": "ec1b",
+      "nombreUsuario": "fafa123",
+      "contrasena": "123456"
     }
   ],
   "carrito": [
     {
-      "id": "1",
+      "id": "189a",
       "precioTotal": 0,
-      "user_id": 1
+      "user_id": "1"
     }
   ],
   "carrito_item": [
     {
-      "id": "1",
-      "cantidad": 0,
-      "precioUnidad": 0,
-      "precioTotal": 0,
-      "product_id": 0,
-      "carrito_id": 1
+      "id": "3060",
+      "cantidad": 30,
+      "precioUnidad": 79.99,
+      "precioTotal": 2399.7,
+      "product_id": "1",
+      "carrito_id": "189a"
     }
   ],
   "productos": [
