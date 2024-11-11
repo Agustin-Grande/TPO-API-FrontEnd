@@ -9,6 +9,8 @@ import Footer from '../componentes/Footer';
 import Catalogo from '../pages/Catalogo';
 import MiPerfil from '../pages/MiPerfil';
 import DetallesOrden from '../componentes/Perfil/DetallesOrden';
+import ProductoDetalles from '../pages/ProductoDetalles';
+import ProductoDetalles_Gestor from '../pages/ProductoDetalles-Gestor';
 
 const AppRoutes = () => {
     const location = useLocation();
@@ -25,9 +27,10 @@ const AppRoutes = () => {
                     <Route path="/home" element={<Home />} />
                     <Route path="/login" element={<Login />} />
                     <Route path="/registro" element={<Registro />} />
-                    <Route path="/gestorProd" element={<GestorProd />} />
                     <Route path="/carrito" element={<Carrito />} />
                     <Route path="/catalogo" element={<Catalogo />} />
+                    <Route path="/producto/:id" element={<ProductoDetalles />} />
+                    <Route path="/productoEdit/:id" element={<ProductoDetalles_Gestor />} />
                     <Route path="/mi-perfil" element={<MiPerfil />} />
                     <Route path="/detalles-orden" element={<DetallesOrden />} />
                 </Routes>

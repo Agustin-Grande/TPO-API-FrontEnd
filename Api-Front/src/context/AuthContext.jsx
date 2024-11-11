@@ -2,7 +2,7 @@ import { createContext, useEffect, useState } from "react";
 import { serviceLogin } from "../services/serviceLogin";
 import { useNavigate } from "react-router-dom";
 
-const AuthContext = createContext();
+export const AuthContext = createContext();
 
 export function AuthProvider({ children }) {
   const [user, setUser] = useState(() => {
@@ -21,6 +21,7 @@ export function AuthProvider({ children }) {
       localStorage.setItem("nombre", JSON.stringify(response.nombre));
       localStorage.setItem("apellido", response.apellido);
       localStorage.setItem("mail", response.mail);
+      localStorage.setItem("rol", response.rol);
       navigate("/home");
     } catch (error) {
       setError("Usuario o contraseña incorrectos"); // Mensaje de error
@@ -34,6 +35,8 @@ export function AuthProvider({ children }) {
     localStorage.removeItem("nombre");
     localStorage.removeItem("apellido");
     localStorage.removeItem("mail");
+    localStorage.removeItem("rol");
+
     navigate("/login");
   };
 

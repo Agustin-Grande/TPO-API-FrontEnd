@@ -5,7 +5,8 @@
       "nombre": "Agus",
       "email": "Agus@gmail.com",
       "nombreUsuario": "Agus",
-      "contrasena": "Agus"
+      "contrasena": "Agus",
+      "rol": "Admin"
     },
     {
       "id": "da47",
@@ -13,7 +14,8 @@
       "apellido": "Floridia",
       "nombreUsuario": "fafa123",
       "email": "santinofloridia4@gmail.com",
-      "contrasena": "123456"
+      "contrasena": "123456",
+      "rol": "Admin"
     },
     {
       "id": "f036",
@@ -140,26 +142,162 @@
     {
       "id": "b19a",
       "nombreUsuario": "Fanta123",
+      "contrasena": "2eoijw9d8qwhdiwjdoq"
+    },
+    {
+      "id": "59b2",
+      "nombreUsuario": "Fanta123",
+      "contrasena": "12ddw"
+    },
+    {
+      "id": "51fa",
+      "nombreUsuario": "Agus",
+      "contrasena": "Agus"
+    },
+    {
+      "id": "85d3",
+      "nombreUsuario": "Agus",
+      "contrasena": "Agus"
+    },
+    {
+      "id": "737d",
+      "nombreUsuario": "Agus",
+      "contrasena": "Agus"
+    },
+    {
+      "id": "9c38",
+      "nombreUsuario": "Agus",
+      "contrasena": "Agus"
+    },
+    {
+      "id": "5ce6",
+      "nombreUsuario": "Agus",
+      "contrasena": "Agus"
+    },
+    {
+      "id": "a8f5",
+      "nombreUsuario": "fafa123",
+      "contrasena": "123456"
+    },
+    {
+      "id": "8cd3",
+      "nombreUsuario": "fafa123",
+      "contrasena": "123456"
+    },
+    {
+      "id": "6629",
+      "nombreUsuario": "Agus",
+      "contrasena": "Agus"
+    },
+    {
+      "id": "0b2d",
+      "nombreUsuario": "fafa123",
+      "contrasena": "123456"
+    },
+    {
+      "id": "b506",
+      "nombreUsuario": "Agus",
+      "contrasena": "Agus"
+    },
+    {
+      "id": "1700",
+      "nombreUsuario": "fafa123",
+      "contrasena": "123456"
+    },
+    {
+      "id": "1f15",
+      "nombreUsuario": "Agus",
+      "contrasena": "Agus"
+    },
+    {
+      "id": "5533",
+      "nombreUsuario": "fafa123",
+      "contrasena": "123456"
+    },
+    {
+      "id": "72e5",
+      "nombreUsuario": "Agus",
+      "contrasena": "Agus"
+    },
+    {
+      "id": "285b",
+      "nombreUsuario": "Agus",
+      "contrasena": "Agus"
+    },
+    {
+      "id": "869c",
+      "nombreUsuario": "Agus",
+      "contrasena": "Agus"
+    },
+    {
+      "id": "aede",
+      "nombreUsuario": "Agus",
+      "contrasena": "Agus"
+    },
+    {
+      "id": "eca6",
+      "nombreUsuario": "Agus",
+      "contrasena": "Agus"
+    },
+    {
+      "id": "2765",
+      "nombreUsuario": "Agus",
+      "contrasena": "Agus"
+    },
+    {
+      "id": "ec1b",
+      "nombreUsuario": "fafa123",
+      "contrasena": "123456"
+    },
+    {
+
+      "id": "4809",
+
+      "nombreUsuario": "Agus",
+      "contrasena": "Agus"
+    },
+    {
+
+      "id": "abc1",
+      "nombreUsuario": "Agus",
+      "contrasena": "Agus"
+    },
+    {
+      "id": "b3ce",
+      "nombreUsuario": "Fanta123",
+      "contrasena": "123456"
+    },
+    {
+      "id": "fd9c",
+      "nombreUsuario": "Agus ",
+      "contrasena": "Agus"
+    },
+    {
+      "id": "1869",
+
+      "nombreUsuario": "Agus",
+      "contrasena": "Agus"
+    },
+    {
+
+      "id": "d092",
+      "nombreUsuario": "Agus",
+      "contrasena": "Agus"
+    },
+    {
+      "id": "5576",
+      "nombreUsuario": "Fanta123",
       "contrasena": "123456"
     }
   ],
   "carrito": [
     {
-      "id": "1",
+      "id": "189a",
       "precioTotal": 0,
-      "user_id": 1
+      "user_id": "1"
     }
   ],
-  "carrito_item": [
-    {
-      "id": "1",
-      "cantidad": 0,
-      "precioUnidad": 0,
-      "precioTotal": 0,
-      "product_id": 0,
-      "carrito_id": 1
-    }
-  ],
+  "carrito_item": [],
   "productos": [
     {
       "id": "1",
@@ -169,7 +307,7 @@
       "stock": 50,
       "liga": "La Liga",
       "equipo": "FC Barcelona",
-      "marca": "Nike",
+      "marca": "Mike",
       "categoria": "CAMISETA",
       "descripcion": "Camiseta oficial de la temporada 2024 del FC Barcelona.",
       "favorito": true,
@@ -316,7 +454,7 @@
       "imagen": "https://media2.solodeportes.com.ar/media/catalog/product/cache/3cb7d75bc2a65211451e92c5381048e9/b/o/botines-de-futbol-nike-mercurial-vapor-15-academy-fg-mg-verde-510010dj5631300-1.jpg",
       "nombre": "Botines Mercurial Nike",
       "precio": 230,
-      "stock": 10,
+      "stock": 0,
       "liga": "",
       "equipo": "",
       "marca": "Nike",

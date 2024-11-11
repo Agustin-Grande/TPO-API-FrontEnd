@@ -1,0 +1,33 @@
+.controles-carrito {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.btn-confirmar, .btn-vaciar {
+    padding: 10px 20px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-confirmar {
+    background-color: #28a745;
+    color: white;
+}
+
+.btn-confirmar:hover {
+    background-color: #218838;
+}
+
+.btn-vaciar {
+    background-color: #dc3545;
+    color: white;
+}
+
+.btn-vaciar:hover {
+    background-color: #c82333;
+}

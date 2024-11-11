@@ -1,18 +1,26 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 import '../styles/Catalogo.css';
+import BtnAgregarCarrito from '../componentes/Carrito/BtnAgregarCarrito.jsx';
+import BtnEditar from '../componentes/Gestor/BtnEditar.jsx';
+import AuthContext from '../context/AuthContext.jsx';
+import { getRol } from '../services/serviceGestor.js';
+
+import { useContext} from "react";
+
 
 const Catalogo = () => {
   const [productos, setProductos] = useState([]);
   const [search, setSearch] = useState("");
   const [filteredProducts, setFilteredProducts] = useState([]);
+  const {user} = useContext(AuthContext);
 
-  // Función para obtener el catálogo de productos
   const fetchCatalogo = async () => {
     try {
       const response = await axios.get('http://localhost:3001/productos');
       setProductos(response.data);
-      setFilteredProducts(response.data); // Inicializar productos filtrados con todos los productos
+      setFilteredProducts(response.data);
     } catch (error) {
       console.error('Error al cargar los productos:', error);
     }
@@ -22,12 +30,9 @@ const Catalogo = () => {
     fetchCatalogo();
   }, []);
 
-  // Manejar el cambio en la barra de búsqueda
   const handleSearchChange = (e) => {
     const searchValue = e.target.value;
     setSearch(searchValue);
-
-    // Filtrar productos según el valor de búsqueda
     const filtered = productos.filter(producto =>
       producto.nombre.toLowerCase().includes(searchValue.toLowerCase())
     );
@@ -36,14 +41,7 @@ const Catalogo = () => {
 
   return (
     <div>
-      {/* Barra de búsqueda */}
-      <div>
-        <br />
-        <br />
-      </div>
       <div className="search-bar">
-        <br />
-        <br />
         <input
           type="text"
           placeholder="Buscar producto..."
@@ -52,25 +50,31 @@ const Catalogo = () => {
         />
       </div>
 
-      {/* Productos */}
       <div className="product-grid">
-        
         {filteredProducts.length > 0 ? (
           filteredProducts.map((producto) => (
             <div key={producto.id} className="product">
-              <a href="#">
+              <Link to={`/producto/${producto.id}`}>
                 <img src={producto.imagen} alt={producto.nombre} />
                 <h3>{producto.nombre}</h3>
                 <p>${producto.precio}</p>
-              </a>
-              <button>Agregar al carrito</button>
+              </Link>
+              {producto.stock === 0 ? (
+                  <p>Sin Stock</p>
+                ) : (
+                  <BtnAgregarCarrito producto={producto}/>
+              )}
+              { user.rol != 'Admin' ? (
+                  <div></div>
+                ) : (
+                  <BtnEditar producto={producto}/>
+              )}
             </div>
           ))
         ) : (
           <p>No se encontraron productos.</p>
         )}
       </div>
-      <br />
     </div>
   );
 };

@@ -1,10 +1,10 @@
-.item{
-    display: 'flex'; /* Los detalles estarán en una fila*/
-    justify-Content: 'space-between'; /* Espacio entre los elementos*/
-    padding: '10px';
-    border-Bottom: '1px solid #ddd';
+.item {
+    display: flex; /* Los detalles estarán en una fila */
+    justify-content: space-between; /* Espacio entre los elementos */
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
 }
 
 .itemDetail {
-    margin: '0 100px'; /* Espacio entre cada detalle*/
+    margin: 0 10px; /* Espacio entre cada detalle */
 }
