@@ -5,7 +5,8 @@
       "nombre": "Agus",
       "email": "Agus@gmail.com",
       "nombreUsuario": "Agus",
-      "contrasena": "Agus"
+      "contrasena": "Agus",
+      "rol": "Admin"
     },
     {
       "id": "da47",
@@ -13,7 +14,8 @@
       "apellido": "Floridia",
       "nombreUsuario": "fafa123",
       "email": "santinofloridia4@gmail.com",
-      "contrasena": "123456"
+      "contrasena": "123456",
+      "rol": "Admin"
     },
     {
       "id": "f036",
@@ -21,7 +23,8 @@
       "apellido": "Gshwind",
       "nombreUsuario": "Fanta123",
       "email": "vanesapecker@gmail.com",
-      "contrasena": "123456"
+      "contrasena": "123456",
+      "rol": "User"
     }
   ],
   "auth": [
@@ -165,6 +168,41 @@
       "id": "ec1b",
       "nombreUsuario": "fafa123",
       "contrasena": "123456"
+    },
+    {
+      "id": "4809",
+      "nombreUsuario": "Agus",
+      "contrasena": "Agus"
+    },
+    {
+      "id": "abc1",
+      "nombreUsuario": "Agus",
+      "contrasena": "Agus"
+    },
+    {
+      "id": "b3ce",
+      "nombreUsuario": "Fanta123",
+      "contrasena": "123456"
+    },
+    {
+      "id": "fd9c",
+      "nombreUsuario": "Agus ",
+      "contrasena": "Agus"
+    },
+    {
+      "id": "1869",
+      "nombreUsuario": "Agus",
+      "contrasena": "Agus"
+    },
+    {
+      "id": "d092",
+      "nombreUsuario": "Agus",
+      "contrasena": "Agus"
+    },
+    {
+      "id": "5576",
+      "nombreUsuario": "Fanta123",
+      "contrasena": "123456"
     }
   ],
   "carrito": [
@@ -193,7 +231,7 @@
       "stock": 50,
       "liga": "La Liga",
       "equipo": "FC Barcelona",
-      "marca": "Nike",
+      "marca": "Mike",
       "categoria": "CAMISETA",
       "descripcion": "Camiseta oficial de la temporada 2024 del FC Barcelona.",
       "favorito": true,

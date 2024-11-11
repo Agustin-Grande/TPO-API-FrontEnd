@@ -3,11 +3,18 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import '../styles/Catalogo.css';
 import BtnAgregarCarrito from '../componentes/Carrito/BtnAgregarCarrito.jsx';
+import BtnEditar from '../componentes/Gestor/BtnEditar.jsx';
+import AuthContext from '../context/AuthContext.jsx';
+import { getRol } from '../services/serviceGestor.js';
+
+import { useContext} from "react";
+
 
 const Catalogo = () => {
   const [productos, setProductos] = useState([]);
   const [search, setSearch] = useState("");
   const [filteredProducts, setFilteredProducts] = useState([]);
+  const {user} = useContext(AuthContext);
 
   const fetchCatalogo = async () => {
     try {
@@ -56,6 +63,11 @@ const Catalogo = () => {
                   <p>Sin Stock</p>
                 ) : (
                   <BtnAgregarCarrito producto={producto}/>
+              )}
+              { user.rol != 'Admin' ? (
+                  <div></div>
+                ) : (
+                  <BtnEditar producto={producto}/>
               )}
             </div>
           ))
