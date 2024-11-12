@@ -11,7 +11,7 @@ export const checkout = async (carrito) => {
     try {
         const response = await axios.post('http://localhost:3001/Orden', nuevaOrden);
         console.log("Orden creada exitosamente:", response.data);
-        cargarLineasOrden(carrito.id, response.data.id) // Id del carrito y de la orden creada
+        await cargarLineasOrden(carrito.id, response.data.id) // Id del carrito y de la orden creada
     } catch (error) {
         console.error("Error al crear la orden:", error);
     }
@@ -40,6 +40,6 @@ const cargarLineasOrden = async (idCarrito, idOrden) => {
         
     }
 
-      
+    
 }
 
