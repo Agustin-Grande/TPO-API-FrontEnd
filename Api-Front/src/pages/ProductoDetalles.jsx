@@ -6,10 +6,8 @@ import corazonLleno from '../assets/corazon_lleno.png';
 import '../styles/ProductoDetalle.css';
 import { useAuth } from '../hooks/useAuth';
 
-
-
 const ProductoDetalles = () => {
-  const { user } = useAuth();
+  const { user, agregarAFavoritos, eliminarDeFavoritos } = useAuth();
   const { id } = useParams();
   const [producto, setProducto] = useState(null);
   const [cantidad, setCantidad] = useState(1);
@@ -21,13 +19,15 @@ const ProductoDetalles = () => {
       try {
         const response = await axios.get(`http://localhost:3001/productos/${id}`);
         setProducto(response.data);
-        setFavorito(response.data.favorito || false); // Estado inicial de favorito
+  
+        setFavorito(user?.favoritos.includes(response.data.id));  
       } catch (error) {
         console.error('Error al cargar el producto:', error);
       }
     };
     fetchProducto();
-  }, [id]);
+  }, [id, user]);
+  
 
   const toggleDescripcion = () => {
     setMostrarDescripcion(!mostrarDescripcion);
@@ -38,9 +38,11 @@ const ProductoDetalles = () => {
     setFavorito(nuevoEstadoFavorito);
 
     try {
-      await axios.patch(`http://localhost:3001/productos/${id}`, {
-        favorito: nuevoEstadoFavorito,
-      });
+      if (nuevoEstadoFavorito) {
+        await agregarAFavoritos(producto); 
+      } else {
+        await eliminarDeFavoritos(producto.id); 
+      }
     } catch (error) {
       console.error('Error al actualizar el estado de favorito:', error);
     }
