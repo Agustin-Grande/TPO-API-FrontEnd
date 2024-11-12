@@ -17,10 +17,11 @@ export const mostrarFavUser = async (user) => {
       productosFavoritos.push(response.data); 
     }
 
-    console.log(productosFavoritos);
     return productosFavoritos;
   } catch (err) {
     console.error("Error al obtener los productos favoritos", err);
     throw err;
   }
 };
+
+
