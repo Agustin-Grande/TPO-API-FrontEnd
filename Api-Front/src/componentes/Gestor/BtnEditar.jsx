@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 
 
-const BtnAgregarCarrito = ({ producto }) => {
+const BtnEditar = ({ producto }) => {
 
     const navigate = useNavigate()
 
@@ -21,4 +21,4 @@ const BtnAgregarCarrito = ({ producto }) => {
 
 
 
-export default BtnAgregarCarrito;
+export default BtnEditar;

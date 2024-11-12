@@ -42,7 +42,7 @@ const Login = () => {
   };
 
   return (
-    <div style={{height : '77vh'}}>
+    <div>
         <Card className="mx-auto max-w-sm">
         <CardHeader className="space-y-1">
           <CardTitle className="text-2xl font-bold">Login</CardTitle>

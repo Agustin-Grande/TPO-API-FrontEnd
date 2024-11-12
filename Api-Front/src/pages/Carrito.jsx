@@ -140,7 +140,7 @@ const confirmarCarrito = async() =>{
 
 
   return (
-    <div style={{height:'90vh'}}>
+    <div >
     <Card className="w-full max-w-4xl mx-auto" >
       <CardHeader>
         <CardTitle className="text-2xl">Carrito de Compras</CardTitle>

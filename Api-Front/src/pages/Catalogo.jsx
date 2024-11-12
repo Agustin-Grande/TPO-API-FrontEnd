@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 import '../styles/Catalogo.css';
 import BtnAgregarCarrito from '../componentes/Carrito/BtnAgregarCarrito.jsx';
 import BtnEditar from '../componentes/Gestor/BtnEditar.jsx';
+import BtnEliminar from '../componentes/Gestor/BtnEliminar.jsx';
+
 import BtnCrearArt from '../componentes/Gestor/BtnCrearArt.jsx';
 import AuthContext from '../context/AuthContext.jsx';
 import { useContext } from "react";
@@ -66,7 +68,7 @@ const Catalogo = () => {
   
 
   return (
-    <div style={{height : '270vh'}}>
+    <div >
     <div className="category-bar">
       {categories.map((category) => (
         <button
@@ -124,7 +126,9 @@ const Catalogo = () => {
             )}
               
             </div>
-            {user?.rol === 'ADMIN' ? <BtnEditar producto={producto} /> : <div></div>}
+            {user?.rol === 'ADMIN' ?  <BtnEditar producto={producto} /> : <div></div>}
+            {user?.rol === 'ADMIN' ?  <BtnEliminar producto={producto} /> : <div></div>}
+
           </div>
         ))
       ) : (
