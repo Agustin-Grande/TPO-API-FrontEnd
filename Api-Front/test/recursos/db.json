@@ -24,7 +24,9 @@
       "nombreUsuario": "Fanta123",
       "email": "vanesapecker@gmail.com",
       "contrasena": "123456",
-      "favoritos": []
+      "favoritos": [
+        "5"
+      ]
     },
     {
       "id": "4b97",
@@ -140,7 +142,9 @@
       "nombreUsuario": "favoritoPrueba",
       "email": "asdasdsad@gmail.com",
       "contrasena": "qwert",
-      "favoritos": []
+      "favoritos": [
+        "4"
+      ]
     }
   ],
   "auth": [
@@ -204,6 +208,31 @@
       "id": "666f",
       "nombreUsuario": "Fanta123",
       "contrasena": "123456"
+    },
+    {
+      "id": "bfdf",
+      "nombreUsuario": "Fanta123",
+      "contrasena": "123456"
+    },
+    {
+      "id": "f0f3",
+      "nombreUsuario": "favoritoPrueba",
+      "contrasena": "qwert"
+    },
+    {
+      "id": "8254",
+      "nombreUsuario": "favoritoPrueba",
+      "contrasena": "qwert"
+    },
+    {
+      "id": "20bc",
+      "nombreUsuario": "Fanta123",
+      "contrasena": "123456"
+    },
+    {
+      "id": "f7c4",
+      "nombreUsuario": "Fanta123",
+      "contrasena": "123456"
     }
   ],
   "carrito": [
@@ -228,16 +257,7 @@
       "user_id": "7771"
     }
   ],
-  "carrito_item": [
-    {
-      "id": "d337",
-      "cantidad": 10,
-      "precioUnidad": 85,
-      "precioTotal": 850,
-      "product_id": "2",
-      "carrito_id": "2627"
-    }
-  ],
+  "carrito_item": [],
   "productos": [
     {
       "id": "1",
