@@ -65,13 +65,13 @@ const Home = () => {
       </div>
 
       <h2 className='tituloFav'>Productos Favoritos</h2>
-      <div className="productos-favoritos">
+      <div className="product-grid">
         {loading ? (
           <p>Cargando productos favoritos...</p>
         ) : error ? (
           <p>{error}</p>
         ) : productosFavoritos?.length > 0 ? (
-          <div className="productos-lista">
+          <div className="product-grid">
             {productosFavoritos.map((productoArray) =>
               productoArray.map((producto) => (
                 <div key={producto.id} className="producto">
@@ -92,9 +92,9 @@ const Home = () => {
       </div>
 
       <h2 className='tituloFav'>Productos Visitados</h2>
-      <div className="productos-favoritos">
+      <div className="product-grid">
         {vistos?.length > 0 ? (
-          <div className="productos-lista">
+          <div className="product-grid">
             {vistos.map((producto) => (
               <div key={producto.id} className="producto">
                 <Link to={`/producto/${producto.id}`}>

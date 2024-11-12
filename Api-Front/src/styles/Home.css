@@ -25,6 +25,14 @@
     justify-content: center;
     flex-direction: column;
     align-items: center;
+    font-family: 'Nexa', sans-serif;
+    font-weight: bolder;
+
+}
+
+h1{
+  color: black;
+  font-family: 'Nexa', sans-serif;
 }
 
 .bienvenido-home img{
@@ -32,15 +40,17 @@
     height: 60px;
 }
 
-.productos-favoritos {
-    display: flex;
-    justify-content: center ;
-    padding: 40px 20px;
-    background-color: #f9f9f9;
-  }
+.product-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
   
 .productos-favoritos h2 {
-    font-size: 28px;
+    font-size: 34px;
     font-weight: bold;
     color: #333;
     text-align: center;
@@ -104,6 +114,9 @@
     display: flex;
     justify-content: center;
     margin-top: 50px;
+    font-size: 35px;
+    font-family: 'Nexa', sans-serif;
+
 }
   
   
