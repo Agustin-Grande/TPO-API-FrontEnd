@@ -1,7 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import 'bootstrap/dist/css/bootstrap.min.css';
+//import 'bootstrap/dist/css/bootstrap.min.css';
 import { useNavigate } from 'react-router-dom';
+import { Card, CardHeader, CardTitle, CardContent, CardDescription, CardFooter } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
+import { Separator } from '@/components/ui/separator';
 
 const TarjetaCompra = ({ ordenes }) => {
   const navigate = useNavigate();
@@ -13,29 +16,26 @@ const TarjetaCompra = ({ ordenes }) => {
   return (
     <>
       {ordenes.map((orden, index) => (
-        <div className="card mb-3" key={index}>
-          <div className="row g-0">
-            <div className="col-12">
-              <div className="card-body d-flex flex-row justify-content-between align-items-center" style={{ border: "solid 0.5px grey"}}>
-                <div>
-                  <h5 className="card-title">Orden del {orden.fecha}</h5>
-                  <p className="card-text"><strong>Costo_final:</strong> ${orden.precio_total}</p>
-                </div>
-                <div className="d-flex flex-column align-items-end">
-                  <button 
-                    className="btn btn-primary mt-2"
-                    onClick={() => handleVerDetalles(orden)}
-                    style={{ transition: 'background-color 0.3s' }}
-                    onMouseEnter={(e) => e.target.style.background = '#30182F' }
-                    onMouseLeave={(e) => e.target.style.background = '' }
-                  >
-                    Ver detalles
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+       <Card key={index} className="mb-4">
+       <CardHeader>
+         <CardTitle>Orden del {orden.fecha}</CardTitle>
+       </CardHeader>
+       <CardContent>
+         <CardDescription>
+           <strong>Costo final:</strong> ${orden.precio_total}
+         </CardDescription>
+       </CardContent>
+       <CardFooter className="flex items-center justify-between">
+         <Button
+           variant="outline"
+           onClick={() => handleVerDetalles(orden)}
+           onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = '#80714a')}
+           onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = '')}
+         >
+           Ver detalles
+         </Button>
+       </CardFooter>
+     </Card>
       ))}
     </>
   );

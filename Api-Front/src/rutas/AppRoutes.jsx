@@ -10,17 +10,19 @@ import MiPerfil from '../pages/MiPerfil';
 import DetallesOrden from '../componentes/Perfil/DetallesOrden';
 import ProductoDetalles from '../pages/ProductoDetalles';
 import ProductoDetalles_Gestor from '../pages/ProductoDetalles-Gestor';
+import FormProducto from '../pages/FormProducto';
+
 
 const AppRoutes = () => {
     const location = useLocation();
     
     // Define las rutas donde no deseas mostrar Header y Footer
-    const hideHeaderFooter = location.pathname === "/login" || location.pathname === "/registro";
+   
 
     return (
         <>  
             
-            {!hideHeaderFooter && <Header />}
+            { <Header />}
             <div>
                 <Routes>                    
                     <Route path="/" element={<Home />} />
@@ -33,9 +35,11 @@ const AppRoutes = () => {
                     <Route path="/productoEdit/:id" element={<ProductoDetalles_Gestor />} />
                     <Route path="/mi-perfil" element={<MiPerfil />} />
                     <Route path="/detalles-orden" element={<DetallesOrden />} />
+                    <Route path="/crearProd" element={<FormProducto />} />
+
                 </Routes>
             </div>
-            {!hideHeaderFooter && <Footer />}
+            {<Footer />}
         </>
     );
 };

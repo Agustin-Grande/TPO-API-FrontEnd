@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { verItemsDeOrden, productoPorOrden } from '../../services/servicePerfil'; // Asegúrate de importar la función
+import { Card, CardHeader, CardTitle, CardContent, CardDescription } from '@/components/ui/card';
+import { Separator } from '@/components/ui/separator';
 
 
 const DetallesOrden = () => {
@@ -33,39 +35,47 @@ const DetallesOrden = () => {
   }
 
   return (
-    <div className="container mt-4" style={{height:"100vh"}}>
-      <h1 className="mb-4">Detalles de la Orden</h1>
-      <p><strong>Fecha:</strong> {orden.fecha}</p>
-      <p><strong>Costo Total:</strong> ${orden.precio_total}</p>
-      <div>
-        <h2 className="mt-4">Productos</h2>
-        <ul className="list-group">
-    {productos.map((producto, index) => (
-        <li key={index} className="list-group-item d-flex align-items-center" style={{ border: "solid 0.5px grey", marginBottom: "10px" }}>
-            <img src={producto.imagen} alt="" className="img-thumbnail mr-3" style={{ width: '100px', height: '100px', border:"none" }} />
-            <div className="container">
-                <div className="row">
-                    <div className="col-6">
-                        <p><strong>Nombre:</strong> {producto.nombre}</p>
+    <div className="container flex flex-col items-center justify-center h-full">
+    <Card className="w-full max-w-4xl">
+      <CardHeader className="sticky top-0 bg-background z-10">
+        <CardTitle>Detalles de la Orden</CardTitle>
+      </CardHeader>
+      <CardContent>
+        <CardDescription className="sticky top-[72px] bg-background z-10 pb-4">
+          <p><strong>Fecha:</strong> {orden.fecha}</p>
+          <p><strong>Costo Total:</strong> ${orden.precio_total}</p>
+        </CardDescription>
+        <Separator className="my-6" />
+        <div>
+          <h2 className="text-lg font-medium mb-4 sticky top-[160px] bg-background z-10">Productos</h2>
+          <div className="space-y-4 max-h-[60vh] overflow-y-auto pr-2">
+            {productos.map((producto, index) => (
+              <div 
+                key={index} 
+                className="border border-gray-300 rounded-md p-4 bg-background hover:bg-accent/50 transition-colors"
+              >
+                <div className="flex items-center space-x-4">
+                  <img 
+                    src={producto.imagen} 
+                    alt={producto.nombre} 
+                    className="w-20 h-20 rounded object-cover flex-shrink-0"
+                  />
+                  <div className="flex-grow">
+                    <p className="font-medium text-lg mb-1">{producto.nombre}</p>
+                    <p className="text-sm text-muted-foreground mb-2">{producto.descripcion}</p>
+                    <div className="flex justify-between items-center">
+                      <p className="text-sm"><strong>Precio:</strong> ${producto.precio}</p>
+                      <p className="text-sm"><strong>Cantidad:</strong> {items[index]?.cantidad}</p>
                     </div>
-                    <div className="col-6">
-                        <p><strong>Descripción:</strong> {producto.descripcion}</p>
-                    </div>
-                    <div className="col-6">
-                        <p><strong>Precio:</strong> ${producto.precio}</p>
-                    </div>
-                    <div className="col-6">
-                        <p><strong>Cantidad:</strong> {items[index]?.cantidad}</p>
-                    </div>
+                  </div>
                 </div>
-            </div>
-        </li>
-    ))}
-</ul>
-
-      </div>
-      <br />
-    </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </CardContent>
+    </Card>
+  </div>
   );
 };
 

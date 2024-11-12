@@ -1,4 +1,4 @@
-
+import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
 
 
@@ -12,12 +12,9 @@ const BtnAgregarCarrito = ({ producto }) => {
     }
 
     return (
-        <button onClick={() => mostrarProdEdit(producto)}>
-            Editar Producto
-        </button>
-        // <button onClick={() => agregarAlCarrito(producto)}>
-        //     Agregar al carrito
-        // </button>
+        <Button variant="outline" className="w-full" onClick={() => mostrarProdEdit(producto)}>
+         Editar Producto
+      </Button>
     );
     
 };

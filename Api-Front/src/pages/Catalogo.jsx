@@ -4,8 +4,9 @@ import { Link } from 'react-router-dom';
 import '../styles/Catalogo.css';
 import BtnAgregarCarrito from '../componentes/Carrito/BtnAgregarCarrito.jsx';
 import BtnEditar from '../componentes/Gestor/BtnEditar.jsx';
+import BtnCrearArt from '../componentes/Gestor/BtnCrearArt.jsx';
 import AuthContext from '../context/AuthContext.jsx';
-import { useContext} from "react";
+import { useContext } from "react";
 import { useVistos } from '../hooks/useVistos';
 
 
@@ -62,54 +63,76 @@ const Catalogo = () => {
     setFilteredProducts(filtered);
   };
 
+  
+
   return (
-    <div>
-      <h1>Catálogo</h1>
-      <div className="category-bar">
-        {categories.map((category) => (
-          <button
-            key={category}
-            onClick={() => handleCategoryClick(category)}
-            className={selectedCategory === category ? "active" : ""}
-          >
-            {category}
-          </button>
-        ))}
-      </div>
-
-      <div className="search-bar">
-        <input
-          type="text"
-          placeholder="Buscar producto..."
-          value={search}
-          onChange={handleSearchChange}
-        />
-      </div>
-
-      <div className="product-grid">
-        {filteredProducts.length > 0 ? (
-          filteredProducts.map((producto) => (
-            <div key={producto.id} className="product">
-              <Link to={`/producto/${producto.id}`}
-                    onClick={() => agregarVisto(producto)}>
-                <img src={producto.imagen} alt={producto.nombre} />
-                <h3>{producto.nombre}</h3>
-                <p>${producto.precio}</p>
-              </Link>
-              {producto.stock === 0 ? (
-                  <p>Sin Stock</p>
-                ) : (
-                  <BtnAgregarCarrito producto={producto}/>
-              )}
-              { user?.rol === 'ADMIN' ? <BtnEditar producto={producto} /> : <div></div> }
-            </div>
-          ))
-        ) : (
-          <p>No se encontraron productos.</p>
-        )}
-      </div>
-      <br />
+    <div style={{height : '270vh'}}>
+    <div className="category-bar">
+      {categories.map((category) => (
+        <button
+          key={category}
+          onClick={() => handleCategoryClick(category)}
+          className={selectedCategory === category ? "active" : ""}
+        >
+          {category}
+        </button>
+      ))}
     </div>
+      
+    <div className="search-bar">
+      <input
+        type="text"
+        placeholder="Buscar producto..."
+        value={search}
+        onChange={handleSearchChange}
+      />
+     {user?.rol === 'ADMIN' ? <BtnCrearArt /> : <div></div>}
+
+    </div>
+
+    <div className="product-grid">
+      {filteredProducts.length > 0 ? (
+        filteredProducts.map((producto) => (
+          <div key={producto.id} className="w-[300px] group relative space-y-3">
+            <figure className="group-hover:opacity-90">
+              <Link to={`/producto/${producto.id}`} onClick={() => agregarVisto(producto)}>
+                <img
+                  className="w-full rounded-lg aspect-square"
+                  src={producto.imagen}
+                  width={300}
+                  height={500}
+                  alt={producto.nombre}
+                />
+              </Link>
+            </figure>
+            <div className="flex justify-between">
+              <div>
+                <h3 className="text-lg">
+                  <Link to={`/producto/${producto.id}`}>
+                    {producto.nombre}
+                  </Link>
+                </h3>
+                <p className="text-sm text-muted-foreground">{producto.categoria}</p>
+              </div>
+              <p className="text-lg font-semibold">${producto.precio}</p>
+            </div>
+            <div className="flex gap-4">
+              {producto.stock === 0 ? (
+              <p>Sin Stock</p>
+            ) : (
+              <BtnAgregarCarrito producto={producto} />
+            )}
+              
+            </div>
+            {user?.rol === 'ADMIN' ? <BtnEditar producto={producto} /> : <div></div>}
+          </div>
+        ))
+      ) : (
+        <p>No se encontraron productos.</p>
+      )}
+    </div>
+    <br />
+  </div>
   );
 };
 
