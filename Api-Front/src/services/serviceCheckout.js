@@ -15,8 +15,6 @@ export const checkout = async (carrito) => {
     } catch (error) {
         console.error("Error al crear la orden:", error);
     }
-
-    
     
 }
 
@@ -28,9 +26,9 @@ const cargarLineasOrden = async (idCarrito, idOrden) => {
         const nuevoItemOrden = {
             cantidad: item.cantidad,
             precio_unidad: item.precioUnidad,
-            precio_total: item.precioTotal, // cantidad * precio_unidad
-            product_id: item.product_id, // ID del producto que estás añadiendo
-            orden_id: idOrden // ID de la orden a la que se agregará este item
+            precio_total: item.precioTotal, 
+            product_id: item.product_id, 
+            orden_id: idOrden 
         };
     
         try {

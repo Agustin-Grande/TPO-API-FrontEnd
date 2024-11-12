@@ -35,8 +35,8 @@ const ControlesCarrito = ({carrito, onVaciarCarrito}) => {
         }
     }
 
-    const confirmarCarrito = () =>{
-        checkout(carrito)
+    const confirmarCarrito = async() =>{
+        await checkout(carrito)
         vaciarCarrito()
     }
 
