@@ -6,6 +6,8 @@ import { Button } from '@/components/ui/button';
 import { Switch } from '@/components/ui/switch';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Textarea } from '@/components/ui/textarea';
+import axios from 'axios';
+
 
 const FormProducto = () => {
   const initialState = {
@@ -82,10 +84,14 @@ const FormProducto = () => {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (validateForm()) {
-      // Here you would typically send the data to your backend
+      try {
+        const response = await axios.post(`http://localhost:3001/productos`, formData);
+      } catch (error) {
+        console.error("Error updating product:", error);
+      } 
       console.log('Form submitted:', {
         ...formData,
         precio: Number(formData.precio),
@@ -95,6 +101,15 @@ const FormProducto = () => {
       setFormData(initialState);
     }
   };
+  
+  
+const handleSave = async () => {
+  try {
+      const response = await axios.post(`http://localhost:3001/productos`, editProduct);
+  } catch (error) {
+      console.error("Error updating product:", error);
+  } 
+};
 
   return (
     <Card className="w-full max-w-2xl mx-auto">

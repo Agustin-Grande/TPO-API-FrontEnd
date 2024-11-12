@@ -6,9 +6,11 @@ import BtnAgregarCarrito from '../componentes/Carrito/BtnAgregarCarrito.jsx';
 import BtnEditar from '../componentes/Gestor/BtnEditar.jsx';
 import BtnCrearArt from '../componentes/Gestor/BtnCrearArt.jsx';
 import AuthContext from '../context/AuthContext.jsx';
-import { useContext} from "react";
+import { useContext } from "react";
 import { Button } from "@/components/ui/button";
 import { HeartIcon, PlusIcon } from "lucide-react";
+import { Input } from "@/components/ui/input";
+import { Search } from "lucide-react";
 
 const categories = ["Todos", "Camiseta", "Short", "Pantalon", "Remera", "Calzado"];
 
@@ -16,7 +18,7 @@ const Catalogo = () => {
   const [productos, setProductos] = useState([]);
   const [search, setSearch] = useState("");
   const [filteredProducts, setFilteredProducts] = useState([]);
-  const {user} = useContext(AuthContext);
+  const { user } = useContext(AuthContext);
   const [selectedCategory, setSelectedCategory] = useState("Todos");
 
   const fetchCatalogo = async () => {
@@ -62,6 +64,11 @@ const Catalogo = () => {
     setFilteredProducts(filtered);
   };
 
+  const handleAddToCart = (producto) => {
+    console.log(`Producto agregado al carrito: ${producto.nombre}`);
+    BtnAgregarCarrito({ producto });
+  };
+
   return (
     <div>
       <h1>Catálogo</h1>
@@ -84,29 +91,31 @@ const Catalogo = () => {
           value={search}
           onChange={handleSearchChange}
         />
-        {user?.rol === 'ADMIN' ? <BtnCrearArt /> : <div></div>}
+       {user?.rol === 'ADMIN' ? <BtnCrearArt /> : <div></div>}
+
       </div>
-  
+
       <div className="product-grid">
         {filteredProducts.length > 0 ? (
           filteredProducts.map((producto) => (
             <div key={producto.id} className="w-[300px] group relative space-y-4">
               <figure className="group-hover:opacity-90">
-                <img
-                  className="w-full rounded-lg aspect-square"
-                  src={producto.imagen}
-                  width={300}
-                  height={500}
-                  alt={producto.nombre}
-                />
+                <Link to={`/producto/${producto.id}`}>
+                  <img
+                    className="w-full rounded-lg aspect-square"
+                    src={producto.imagen}
+                    width={300}
+                    height={500}
+                    alt={producto.nombre}
+                  />
+                </Link>
               </figure>
               <div className="flex justify-between">
                 <div>
                   <h3 className="text-lg">
-                  <a Link to={`/producto/${producto.id}`}>
-                      <span aria-hidden="true" className="absolute inset-0" />
+                    <Link to={`/producto/${producto.id}`}>
                       {producto.nombre}
-                    </a>
+                    </Link>
                   </h3>
                   <p className="text-sm text-muted-foreground">{producto.categoria}</p>
                 </div>
@@ -116,15 +125,13 @@ const Catalogo = () => {
                 <Button variant="outline" size="icon" className="flex-shrink-0">
                   <HeartIcon className="size-4" />
                 </Button>
-                <Button variant="outline" className="w-full">
-                  <PlusIcon className="size-4 me-1" /> Add to Cart
-                </Button>
-              </div>
-              {producto.stock === 0 ? (
+                {producto.stock === 0 ? (
                 <p>Sin Stock</p>
               ) : (
                 <BtnAgregarCarrito producto={producto} />
               )}
+                
+              </div>
               {user?.rol === 'ADMIN' ? <BtnEditar producto={producto} /> : <div></div>}
             </div>
           ))

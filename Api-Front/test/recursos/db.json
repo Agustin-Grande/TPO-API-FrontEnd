@@ -19,11 +19,11 @@
     },
     {
       "id": "f036",
-      "nombre": "Juan",
-      "apellido": "Gshwind",
       "nombreUsuario": "Fanta123",
-      "email": "vanesapecker@gmail.com",
-      "contrasena": "123456"
+      "contrasena": "123456",
+      "nombre": "Juanitrox",
+      "apellido": "Gshwind",
+      "email": "vanesapecker@gmail.com"
     },
     {
       "id": "4b97",
@@ -193,6 +193,26 @@
       "id": "a494",
       "nombreUsuario": "Fanta123",
       "contrasena": "123456"
+    },
+    {
+      "id": "392b",
+      "nombreUsuario": "Agus",
+      "contrasena": "Agus"
+    },
+    {
+      "id": "2a50",
+      "nombreUsuario": "Agus",
+      "contrasena": "Agus"
+    },
+    {
+      "id": "b230",
+      "nombreUsuario": "Fanta123",
+      "contrasena": "123456"
+    },
+    {
+      "id": "e3eb",
+      "nombreUsuario": "Fanta123",
+      "contrasena": "123456"
     }
   ],
   "carrito": [
@@ -200,9 +220,31 @@
       "id": "189a",
       "precioTotal": 0,
       "user_id": "1"
+    },
+    {
+      "id": "f6f6",
+      "precioTotal": 324.96999999999997,
+      "user_id": "f036"
     }
   ],
-  "carrito_item": [],
+  "carrito_item": [
+    {
+      "id": "9a4f",
+      "cantidad": 3,
+      "precioUnidad": 79.99,
+      "precioTotal": 239.96999999999997,
+      "product_id": "1",
+      "carrito_id": "f6f6"
+    },
+    {
+      "id": "631a",
+      "cantidad": 1,
+      "precioUnidad": 85,
+      "precioTotal": 85,
+      "product_id": "2",
+      "carrito_id": "f6f6"
+    }
+  ],
   "productos": [
     {
       "id": "1",
@@ -382,6 +424,21 @@
       "descripcion": "Camiseta de Chacarita Juniors, temporada 23/24",
       "favorito": true,
       "visto": true,
+      "destacado": false
+    },
+    {
+      "id": "2363",
+      "imagen": "https://www.thunderinternacional.com/cdn/shop/files/AenrzpwhHFetcNW.jpg?v=1698159217",
+      "nombre": "Camiseta Borussia",
+      "precio": "25",
+      "stock": "10",
+      "liga": "Bundesliga",
+      "equipo": "Borussia Dortmund",
+      "marca": "Puma",
+      "categoria": "CAMISETA",
+      "descripcion": "Camiseta Borussia temporada 2023",
+      "favorito": false,
+      "visto": false,
       "destacado": false
     }
   ],

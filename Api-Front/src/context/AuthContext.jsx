@@ -40,12 +40,22 @@ export function AuthProvider({ children }) {
     navigate("/login");
   };
 
+  const updateUser = (newUserData) => {
+    setUser(newUserData);
+    localStorage.setItem("user", JSON.stringify(newUserData)); // Almacenar el usuario en localStorage
+      localStorage.setItem("token", newUserData.id); // Almacenar el token
+      localStorage.setItem("nombre", JSON.stringify(newUserData.nombre));
+      localStorage.setItem("apellido", newUserData.apellido);
+      localStorage.setItem("mail", newUserData.mail);
+      localStorage.setItem("rol", newUserData.rol);
+};
+
   useEffect(() => {
     setError(null);
   }, [user]);
 
   return (
-    <AuthContext.Provider value={{ user, login, logout, error }}>
+    <AuthContext.Provider value={{ user, login, logout, error, updateUser }}>
       {children}
     </AuthContext.Provider>
   );

@@ -1,4 +1,4 @@
-
+import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
 
 
@@ -12,9 +12,9 @@ const BtnCrearArt = ({ producto }) => {
     }
 
     return (
-        <button onClick={() => crearProd()}>
-            Editar Producto
-        </button>
+            <Button variant="outline" className="w-half" onClick={() =>crearProd()}>
+            Crear Producto
+         </Button>
     );
     
 };
