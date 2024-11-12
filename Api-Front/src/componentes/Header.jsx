@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { useAuth } from "../hooks/useAuth";
 import profileUserIcon from "../assets/user.png";
-import ThemeSwitcher from "./ThemeSwitch"; // Import the ThemeSwitcher component
+import ThemeSwitcher from "./ThemeSwitch.jsx"; // Import the ThemeSwitcher component
 
 const Header = () => {
   const { logout } = useAuth();
@@ -55,7 +55,7 @@ const Header = () => {
               />                        
             </Link>
           </div>
-          {/* Add ThemeSwitcher component here */}
+          {ThemeSwitcher}
           <ThemeSwitcher />
 
           <button
