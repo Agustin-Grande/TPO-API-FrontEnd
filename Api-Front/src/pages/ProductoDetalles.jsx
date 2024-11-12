@@ -11,6 +11,8 @@ import { Input } from "@/components/ui/input";
 import { Heart, ChevronDown, ChevronUp, Loader2, ArrowLeft, ShoppingCart } from "lucide-react";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Badge } from "@/components/ui/badge";
+import BtnAgregarCarrito from '../componentes/Carrito/BtnAgregarCarrito.jsx';
+
 
 const ProductoDetalles = () => {
   const { user, agregarAFavoritos, eliminarDeFavoritos } = useAuth();
@@ -103,18 +105,12 @@ const ProductoDetalles = () => {
 
               <div className="space-y-2">
                 <label htmlFor="cantidad" className="block text-sm font-medium">
-                  Cantidad:
+                   {producto.equipo}
                 </label>
                 <div className="flex gap-4">
-                  <Input
-                    type="number"
-                    id="cantidad"
-                    min="1"
-                    max={producto.stock}
-                    value={cantidad}
-                    onChange={(e) => setCantidad(parseInt(e.target.value))}
-                    className="w-24"
-                  />
+                <label htmlFor="cantidad" className="block text-sm font-medium">
+                  {producto.liga}
+                </label>
                 </div>
               </div>
 
@@ -124,10 +120,7 @@ const ProductoDetalles = () => {
                   className="flex-1"
                   disabled={producto.stock === 0}
                 >
-                  <Link to="/formulario">
-                    <ShoppingCart className="mr-2 h-4 w-4" />
-                    Comprar
-                  </Link>
+                  <BtnAgregarCarrito producto={producto} />
                 </Button>
                 <Button
                   variant="outline"
