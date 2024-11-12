@@ -12,11 +12,25 @@ export const agregarCarrito = async (user, producto) => {
         console.log(carrito);
         
         // 2. Inserto las lineas del carrito
-        agregarItemsCarrito(carrito.id, producto)
+        await agregarItemsCarrito(carrito.id, producto)
 
         // 3. Seteo el total del carrito
+        actualizarPrecioTotal(carrito)
 
     }
+}
+
+const actualizarPrecioTotal = async (carrito) =>{
+    let items = await axios.get(`http://localhost:3001/carrito_item?carrito_id=${carrito.id}`);
+    let total = 0
+
+    for (const item of items.data) {
+        total += item.precioTotal
+    }
+
+    await axios.patch(`http://localhost:3001/carrito/${carrito.id}`, {
+        precioTotal: total
+    });
 }
 
 const obtenerCarrito = async (user) => {
@@ -38,7 +52,7 @@ const obtenerCarrito = async (user) => {
     
 }
 
-const agregarItemsCarrito = async (carritoId, producto, cantidad = 10) => {
+const agregarItemsCarrito = async (carritoId, producto, cantidad = 1) => {
     let itemExistente =  await axios.get(`http://localhost:3001/carrito_item?carrito_id=${carritoId}&product_id=${producto.id}`);
 
     // Me fijo si el item ya estaba en el carrito. 

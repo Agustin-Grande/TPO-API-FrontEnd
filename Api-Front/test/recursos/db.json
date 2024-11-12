@@ -188,6 +188,11 @@
       "id": "4626",
       "nombreUsuario": "favoritoPrueba",
       "contrasena": "qwert"
+    },
+    {
+      "id": "a494",
+      "nombreUsuario": "Fanta123",
+      "contrasena": "123456"
     }
   ],
   "carrito": [
@@ -195,21 +200,6 @@
       "id": "189a",
       "precioTotal": 0,
       "user_id": "1"
-    },
-    {
-      "id": "2627",
-      "precioTotal": 0,
-      "user_id": "f036"
-    },
-    {
-      "id": "17e8",
-      "precioTotal": 0,
-      "user_id": "914d"
-    },
-    {
-      "id": "2990",
-      "precioTotal": 0,
-      "user_id": "7771"
     }
   ],
   "carrito_item": [],
@@ -400,20 +390,13 @@
       "id": "1",
       "fecha": "2021-10-10",
       "precio_total": 2800,
-      "user_id": "f036",
-      "items": [
-        1,
-        5
-      ]
+      "user_id": "f036"
     },
     {
       "id": "2",
       "fecha": "2021-11-11",
       "precio_total": 1500,
-      "user_id": 2,
-      "items": [
-        1
-      ]
+      "user_id": 2
     },
     {
       "id": "3",
@@ -425,10 +408,55 @@
       "id": "4",
       "fecha": "2022-01-01",
       "precio_total": 2100,
-      "user_id": "f036",
-      "items": [
-        4
-      ]
+      "user_id": "f036"
+    },
+    {
+      "id": "5",
+      "fecha": "2022-02-02",
+      "precio_total": 2100,
+      "user_id": "f036"
+    },
+    {
+      "id": "6",
+      "fecha": "2022-03-03",
+      "precio_total": 2100,
+      "user_id": "f036"
+    },
+    {
+      "id": "7",
+      "fecha": "2022-04-04",
+      "precio_total": 1800,
+      "user_id": "f036"
+    },
+    {
+      "id": "8",
+      "fecha": "2022-05-05",
+      "precio_total": 2500,
+      "user_id": "f036"
+    },
+    {
+      "id": "9",
+      "fecha": "2022-06-06",
+      "precio_total": 3000,
+      "user_id": "f036"
+    },
+    {
+      "id": "10",
+      "fecha": "2022-07-07",
+      "precio_total": 2200,
+      "user_id": "da47"
+    },
+    {
+      "id": "11",
+      "fecha": "2022-08-08",
+      "precio_total": 2700,
+      "user_id": "1"
+    },
+    {
+      "id": "12",
+      "fecha": "2022-09-09",
+      "precio_total": 1900,
+      "user_id": "da47"
     }
   ],
   "Orden_item": [
@@ -462,7 +490,7 @@
       "precio_unidad": 2100,
       "precio_total": 2100,
       "product_id": 1,
-      "orden_id": 4
+      "orden_id": 5
     },
     {
       "id": "5",
@@ -471,6 +499,94 @@
       "precio_total": 2100,
       "product_id": 3,
       "orden_id": 1
+    },
+    {
+      "id": "6",
+      "cantidad": 1,
+      "precio_unidad": 2100,
+      "precio_total": 2100,
+      "product_id": 5,
+      "orden_id": 5
+    },
+    {
+      "id": "7",
+      "cantidad": 1,
+      "precio_unidad": 2100,
+      "precio_total": 2100,
+      "product_id": 6,
+      "orden_id": 5
+    },
+    {
+      "id": "8",
+      "cantidad": 1,
+      "precio_unidad": 1800,
+      "precio_total": 1800,
+      "product_id": 2,
+      "orden_id": 7
+    },
+    {
+      "id": "9",
+      "cantidad": 1,
+      "precio_unidad": 1800,
+      "precio_total": 1800,
+      "product_id": 3,
+      "orden_id": 7
+    },
+    {
+      "id": "10",
+      "cantidad": 1,
+      "precio_unidad": 2500,
+      "precio_total": 2500,
+      "product_id": 5,
+      "orden_id": 8
+    },
+    {
+      "id": "11",
+      "cantidad": 1,
+      "precio_unidad": 2500,
+      "precio_total": 2500,
+      "product_id": 7,
+      "orden_id": 8
+    },
+    {
+      "id": "12",
+      "cantidad": 1,
+      "precio_unidad": 3000,
+      "precio_total": 3000,
+      "product_id": 1,
+      "orden_id": 9
+    },
+    {
+      "id": "13",
+      "cantidad": 1,
+      "precio_unidad": 3000,
+      "precio_total": 3000,
+      "product_id": 6,
+      "orden_id": 9
+    },
+    {
+      "id": "14",
+      "cantidad": 1,
+      "precio_unidad": 2200,
+      "precio_total": 2200,
+      "product_id": 3,
+      "orden_id": 10
+    },
+    {
+      "id": "15",
+      "cantidad": 1,
+      "precio_unidad": 2200,
+      "precio_total": 2200,
+      "product_id": 4,
+      "orden_id": 10
+    },
+    {
+      "id": "16",
+      "cantidad": 1,
+      "precio_unidad": 2700,
+      "precio_total": 2700,
+      "product_id": 2,
+      "orden_id": 11
     }
   ]
 }
