@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react';
 import ItemCarrito from '../componentes/Carrito/ItemCarrito.jsx';
 import CarritoVacio from '../componentes/Carrito/carritoVacio.jsx';
 import ControlesCarrito from '../componentes/Carrito/ControlesCarrito.jsx';
-import {agregarItemsCarrito, obtenerCarrito} from '../services/serviceCart.js'
+import {agregarItemsCarrito, obtenerCarrito, actualizarPrecioTotal} from '../services/serviceCart.js'
 
 const Carrito = () => {
     const [carrito, setCarrito] = useState(null);
@@ -14,9 +14,7 @@ const Carrito = () => {
 
     useEffect(() => {
 
-        const fetchCarrito = async () => {
-            console.log("Fetch use effect");
-            
+        const fetchCarrito = async () => {            
             try {
                 const res = await axios.get(`http://localhost:3001/carrito?user_id=${user.id}`);               
                 await cargarItems(res.data[0].id)
@@ -30,14 +28,10 @@ const Carrito = () => {
     }, []);
 
     // Función para levantar los items del carrito
-    const cargarItems = async (id) => {
-        console.log("cargando items");
-        
+    const cargarItems = async (id) => {        
         await axios
             .get(`http://localhost:3001/carrito_item?carrito_id=${id}`)
-            .then((res) => {
-                console.log(res.data);
-                
+            .then((res) => {                
                 setItems(res.data);
             })
             .catch((err) => console.log(err));
@@ -61,17 +55,17 @@ const Carrito = () => {
         if(item.cantidad < producto.stock){
             let carrito = await obtenerCarrito(user)
             await agregarItemsCarrito(carrito.id, producto)
+            await actualizarPrecioTotal(carrito)
         }
 
         cargarItems(carrito.id)
     }
 
-    const restarCantidad = async (item, producto) =>{
-        console.log(item.cantidad);
-        
+    const restarCantidad = async (item, producto) =>{        
         if(item.cantidad > 1){
             let carrito = await obtenerCarrito(user)
             await agregarItemsCarrito(carrito.id, producto, -1)
+            await actualizarPrecioTotal(carrito)
         }
 
         cargarItems(carrito.id)

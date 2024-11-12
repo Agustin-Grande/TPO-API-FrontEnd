@@ -1,17 +1,18 @@
 import axios from "axios";
 
-export const checkout = async (carrito) => {
-
-    const nuevaOrden = {
-        fecha: "Hoy",
-        precio_total: carrito.precioTotal,
-        user_id: carrito.user_id
-    };
-
+export const checkout = async (carritoId) => {      
     try {
+        let carrito = await axios.get(`http://localhost:3001/carrito/${carritoId}`);        
+
+        const nuevaOrden = {
+            fecha: "Hoy",
+            precio_total: carrito.data.precioTotal,
+            user_id: carrito.data.user_id
+        };
+
         const response = await axios.post('http://localhost:3001/Orden', nuevaOrden);
         console.log("Orden creada exitosamente:", response.data);
-        await cargarLineasOrden(carrito.id, response.data.id) // Id del carrito y de la orden creada
+        await cargarLineasOrden(carrito.data.id, response.data.id) // Id del carrito y de la orden creada
     } catch (error) {
         console.error("Error al crear la orden:", error);
     }

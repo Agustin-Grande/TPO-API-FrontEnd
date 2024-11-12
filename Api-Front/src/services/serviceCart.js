@@ -18,7 +18,7 @@ export const agregarCarrito = async (user, producto) => {
     }
 }
 
-const actualizarPrecioTotal = async (carrito) =>{
+export const actualizarPrecioTotal = async (carrito) =>{
     let items = await axios.get(`http://localhost:3001/carrito_item?carrito_id=${carrito.id}`);
     let total = 0
 

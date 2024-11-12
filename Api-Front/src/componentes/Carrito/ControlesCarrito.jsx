@@ -29,14 +29,13 @@ const ControlesCarrito = ({carrito, onVaciarCarrito}) => {
                 precioTotal: 0
             });
             onVaciarCarrito()
-            console.log("Carrito vaciado");
         } catch (error) {
             console.error("Error al vaciar carrito:", error);
         }
     }
 
     const confirmarCarrito = async() =>{
-        await checkout(carrito)
+        await checkout(carrito.id)
         vaciarCarrito()
     }
 
