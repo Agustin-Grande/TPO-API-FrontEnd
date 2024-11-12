@@ -31,16 +31,28 @@ const cargarLineasOrden = async (idCarrito, idOrden) => {
             product_id: item.product_id, 
             orden_id: idOrden 
         };
-    
+
+        console.log("id prod");
+        console.log(item.product_id);
         try {
             const response = await axios.post('http://localhost:3001/Orden_item', nuevoItemOrden);
             console.log("Item de orden creado exitosamente:", response.data);
         } catch (error) {
             console.error("Error al crear el item de la orden:", error);
         }
-        
-    }
 
-    
+        await actualizarStock(item.product_id, item.cantidad)
+    } 
+}
+
+const actualizarStock = async (product_id,cantidad) =>{
+    let producto = await axios.get(`http://localhost:3001/productos/${product_id}`)    
+    try{
+        await axios.patch(`http://localhost:3001/productos/${product_id}`, {
+            stock: producto.data.stock - cantidad
+        });
+    }catch{
+        console.error("Error actualizando stock");
+    }
 }
 
