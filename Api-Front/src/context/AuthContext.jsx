@@ -70,6 +70,16 @@ export function AuthProvider({ children }) {
     }
   };
 
+  const updateUser = (newUserData) => {
+    setUser(newUserData);
+    localStorage.setItem("user", JSON.stringify(newUserData)); // Almacenar el usuario en localStorage
+      localStorage.setItem("token", newUserData.id); // Almacenar el token
+      localStorage.setItem("nombre", JSON.stringify(newUserData.nombre));
+      localStorage.setItem("apellido", newUserData.apellido);
+      localStorage.setItem("mail", newUserData.mail);
+      localStorage.setItem("rol", newUserData.rol);
+};
+
 
   
 
@@ -78,7 +88,7 @@ export function AuthProvider({ children }) {
   }, [user]);
 
   return (
-    <AuthContext.Provider value={{ user, login, logout, error, agregarAFavoritos, eliminarDeFavoritos }}>
+    <AuthContext.Provider value={{ user, login, logout, error, agregarAFavoritos, eliminarDeFavoritos, updateUser }}>
       {children}
     </AuthContext.Provider>
   );

@@ -3,6 +3,10 @@ import "../styles/Login.css";
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { useAuth } from '../hooks/useAuth';
+import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card";
+import { Label } from "@/components/ui/label";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
 
 const Login = () => {
   const [nombreUsuario, setNombreUsuario] = useState("");
@@ -38,36 +42,47 @@ const Login = () => {
   };
 
   return (
-    <div className="login-container">
-      <form onSubmit={handleSubmit} className="login-form">
-        <h1 className="login-title">Login</h1>
-
-        <div className="login-username">
-          <input
+    <Card className="mx-auto max-w-sm">
+    <CardHeader className="space-y-1">
+      <CardTitle className="text-2xl font-bold">Login</CardTitle>
+      <CardDescription>Enter your email and password to login to your account</CardDescription>
+    </CardHeader>
+    <CardContent>
+      <form onSubmit={handleSubmit} className="space-y-4">
+        <div className="space-y-2">
+          <Label htmlFor="nombreUsuario">Nombre de usuario</Label>
+          <Input
             type="text"
+            id="nombreUsuario"
             name="nombreUsuario"
             value={nombreUsuario}
             onChange={handleUserNameChange}
             placeholder="Nombre de usuario"
+            required
           />
         </div>
-        <div>
-          <input
+        <div className="space-y-2">
+          <Label htmlFor="contrasena">Contraseña</Label>
+          <Input
             type="password"
+            id="contrasena"
             name="contrasena"
             value={contrasena}
             onChange={handlePasswordChange}
             placeholder="Contraseña"
+            required
           />
         </div>
-        <button type="submit">Iniciar Sesión</button>
-        <p>¿No tenes cuenta? <Link to="/registro" className='regi'>Registro</Link></p>
+        <Button type="submit" className="w-full">
+          Iniciar Sesión
+        </Button>
+        <p>¿No tienes cuenta? <Link to="/registro" className='regi'>Registro</Link></p>
         <div className="login-messages">
-          {errorL && <p style={{ color: 'red' }}>{errorL}</p>} {/* Mostrar error debajo del formulario */}
+          {errorL && <p style={{ color: 'red' }}>{errorL}</p>}
         </div>
       </form>
-      
-    </div>
+    </CardContent>
+  </Card>
   );
 };
 

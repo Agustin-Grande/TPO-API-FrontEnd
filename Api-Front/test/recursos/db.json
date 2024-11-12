@@ -305,23 +305,37 @@
       "id": "d4db",
       "nombreUsuario": "Agus",
       "contrasena": "Agus"
+    },
+    {
+      "id": "6477",
+      "nombreUsuario": "Agus",
+      "contrasena": "Agus"
     }
   ],
   "carrito": [
     {
       "id": "189a",
-      "precioTotal": 0,
+      "precioTotal": 85,
       "user_id": "1"
     }
   ],
-  "carrito_item": [],
+  "carrito_item": [
+    {
+      "id": "05d2",
+      "cantidad": 1,
+      "precioUnidad": 85,
+      "precioTotal": 85,
+      "product_id": "2",
+      "carrito_id": "189a"
+    }
+  ],
   "productos": [
     {
       "id": "1",
       "imagen": "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw43e15003/products/NI_CD4232-456/NI_CD4232-456-1.JPG",
       "nombre": "Camiseta del Barcelona",
       "precio": 79.99,
-      "stock": "60",
+      "stock": 58,
       "liga": "La Liga",
       "equipo": "FC Barcelona",
       "marca": "Nike",
@@ -336,7 +350,7 @@
       "imagen": "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/78b62417f1e042aeb25e3353d278de3b_9366/Camiseta_Titular_Real_Madrid_24-25_Version_Jugador_Blanco_IX8095_HM1.jpg",
       "nombre": "Camiseta del Real Madrid",
       "precio": 85,
-      "stock": 30,
+      "stock": 28,
       "liga": "La Liga",
       "equipo": "Real Madrid",
       "marca": "Adidas",
@@ -351,7 +365,7 @@
       "imagen": "https://assets.adidas.com/images/w_600,f_auto,q_auto/5c3b0ad0c567497a8598ab7b011efa99_9366/Shorts_Local_Manchester_United_20-21_Blanco_FM4289_01_laydown.jpg",
       "nombre": "Short del Manchester United",
       "precio": 45.5,
-      "stock": 20,
+      "stock": 18,
       "liga": "Premier League",
       "equipo": "Manchester United",
       "marca": "Adidas",
@@ -499,86 +513,28 @@
   ],
   "Orden": [
     {
-      "id": "1",
-      "fecha": "2021-10-10",
-      "precio_total": 2800,
-      "user_id": "f036"
-    },
-    {
-      "id": "2",
-      "fecha": "2021-11-11",
-      "precio_total": 1500,
-      "user_id": 2
-    },
-    {
-      "id": "3",
-      "fecha": "2021-12-12",
-      "precio_total": 3200,
-      "user_id": 3
-    },
-    {
-      "id": "4",
-      "fecha": "2022-01-01",
-      "precio_total": 2100,
-      "user_id": "f036"
-    },
-    {
-      "id": "5",
-      "fecha": "2022-02-02",
-      "precio_total": 2100,
-      "user_id": "f036"
-    },
-    {
-      "id": "6",
-      "fecha": "2022-03-03",
-      "precio_total": 2100,
-      "user_id": "f036"
-    },
-    {
-      "id": "7",
-      "fecha": "2022-04-04",
-      "precio_total": 1800,
-      "user_id": "f036"
-    },
-    {
-      "id": "8",
-      "fecha": "2022-05-05",
-      "precio_total": 2500,
-      "user_id": "f036"
-    },
-    {
-      "id": "9",
-      "fecha": "2022-06-06",
-      "precio_total": 3000,
-      "user_id": "f036"
-    },
-    {
-      "id": "10",
-      "fecha": "2022-07-07",
-      "precio_total": 2200,
-      "user_id": "da47"
-    },
-    {
-      "id": "11",
-      "fecha": "2022-08-08",
-      "precio_total": 2700,
-      "user_id": "1"
-    },
-    {
-      "id": "c7ca",
+      "id": "3140",
       "fecha": "Hoy",
-      "precio_total": 1300,
+      "precio_total": 244.98,
       "user_id": "1"
     }
   ],
   "Orden_item": [
     {
-      "id": "80f0",
+      "id": "0bfb",
       "cantidad": 1,
-      "precio_unidad": 1300,
-      "precio_total": 1300,
-      "product_id": "12",
-      "orden_id": "c7ca"
+      "precio_unidad": 85,
+      "precio_total": 85,
+      "product_id": "2",
+      "orden_id": "3140"
+    },
+    {
+      "id": "e194",
+      "cantidad": 2,
+      "precio_unidad": 79.99,
+      "precio_total": 159.98,
+      "product_id": "1",
+      "orden_id": "3140"
     }
   ]
 }
