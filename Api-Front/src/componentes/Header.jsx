@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { useAuth } from "../hooks/useAuth";
 import profileUserIcon from "../assets/imagen.png";
+import ThemeSwitcher from "./ThemeSwitch"; // Import the ThemeSwitcher component
 
 const Header = () => {
   const { logout } = useAuth();
@@ -8,8 +9,6 @@ const Header = () => {
   const handleLogOut = () => {
     logout();
   };
-
-  
 
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
@@ -43,16 +42,24 @@ const Header = () => {
           </ul>
           <div className="d-flex align-items-center">
             <Link className="nav-link active" aria-current="page" to="/mi-perfil">
-              <img src={profileUserIcon} alt="icono" 
-              style={{ width: "35px",
-                marginLeft: "-70px",
-                border: "1px solid white",
-                padding: "5px",
-                borderRadius: "20px" }} />                        
+              <img 
+                src={profileUserIcon} 
+                alt="icono" 
+                style={{
+                  width: "35px",
+                  marginLeft: "-70px",
+                  border: "1px solid white",
+                  padding: "5px",
+                  borderRadius: "20px" 
+                }} 
+              />                        
             </Link>
           </div>
+          {/* Add ThemeSwitcher component here */}
+          <ThemeSwitcher />
+
           <button
-            className="btn btn-danger"
+            className="btn btn-danger ms-2"
             onClick={handleLogOut}
             type="button"
           >

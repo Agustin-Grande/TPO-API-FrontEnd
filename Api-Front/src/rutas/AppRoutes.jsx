@@ -10,6 +10,7 @@ import MiPerfil from '../pages/MiPerfil';
 import DetallesOrden from '../componentes/Perfil/DetallesOrden';
 import ProductoDetalles from '../pages/ProductoDetalles';
 import ProductoDetalles_Gestor from '../pages/ProductoDetalles-Gestor';
+import FormProducto from '../pages/FormProducto';
 
 const AppRoutes = () => {
     const location = useLocation();
@@ -33,6 +34,8 @@ const AppRoutes = () => {
                     <Route path="/productoEdit/:id" element={<ProductoDetalles_Gestor />} />
                     <Route path="/mi-perfil" element={<MiPerfil />} />
                     <Route path="/detalles-orden" element={<DetallesOrden />} />
+                    <Route path="/crearProd" element={<FormProducto />} />
+
                 </Routes>
             </div>
             {!hideHeaderFooter && <Footer />}
