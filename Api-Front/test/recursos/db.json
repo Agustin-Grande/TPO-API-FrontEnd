@@ -198,6 +198,11 @@
       "id": "b7ca",
       "nombreUsuario": "Agus",
       "contrasena": "Agus"
+    },
+    {
+      "id": "d4db",
+      "nombreUsuario": "Agus",
+      "contrasena": "Agus"
     }
   ],
   "carrito": [
@@ -209,11 +214,11 @@
   ],
   "carrito_item": [
     {
-      "id": "6c1a",
-      "cantidad": 1,
-      "precioUnidad": 79.99,
-      "precioTotal": 79.99,
-      "product_id": "1",
+      "id": "c00c",
+      "cantidad": 2,
+      "precioUnidad": 55,
+      "precioTotal": 110,
+      "product_id": "6",
       "carrito_id": "189a"
     }
   ],
@@ -401,228 +406,28 @@
   ],
   "Orden": [
     {
-      "id": "1",
-      "fecha": "2021-10-10",
-      "precio_total": 2800,
-      "user_id": "f036"
-    },
-    {
-      "id": "2",
-      "fecha": "2021-11-11",
-      "precio_total": 1500,
-      "user_id": 2
-    },
-    {
-      "id": "3",
-      "fecha": "2021-12-12",
-      "precio_total": 3200,
-      "user_id": 3
-    },
-    {
-      "id": "4",
-      "fecha": "2022-01-01",
-      "precio_total": 2100,
-      "user_id": "f036"
-    },
-    {
-      "id": "5",
-      "fecha": "2022-02-02",
-      "precio_total": 2100,
-      "user_id": "f036"
-    },
-    {
-      "id": "6",
-      "fecha": "2022-03-03",
-      "precio_total": 2100,
-      "user_id": "f036"
-    },
-    {
-      "id": "7",
-      "fecha": "2022-04-04",
-      "precio_total": 1800,
-      "user_id": "f036"
-    },
-    {
-      "id": "8",
-      "fecha": "2022-05-05",
-      "precio_total": 2500,
-      "user_id": "f036"
-    },
-    {
-      "id": "9",
-      "fecha": "2022-06-06",
-      "precio_total": 3000,
-      "user_id": "f036"
-    },
-    {
-      "id": "10",
-      "fecha": "2022-07-07",
-      "precio_total": 2200,
-      "user_id": "da47"
-    },
-    {
-      "id": "11",
-      "fecha": "2022-08-08",
-      "precio_total": 2700,
-      "user_id": "1"
-    },
-    {
-      "id": "12",
-      "fecha": "2022-09-09",
-      "precio_total": 1900,
-      "user_id": "da47"
-    },
-    {
-      "id": "ba59",
+      "id": "0db4",
       "fecha": "Hoy",
-      "precio_total": 164.99,
+      "precio_total": 150,
       "user_id": "1"
     }
   ],
   "Orden_item": [
     {
-      "id": "1",
+      "id": "e06e",
       "cantidad": 2,
-      "precio_unidad": 1400,
-      "precio_total": 2800,
-      "product_id": 1,
-      "orden_id": 1
+      "precio_unidad": 55,
+      "precio_total": 110,
+      "product_id": "6",
+      "orden_id": "0db4"
     },
     {
-      "id": "2",
+      "id": "a7a2",
       "cantidad": 1,
-      "precio_unidad": 1500,
-      "precio_total": 1500,
-      "product_id": 1,
-      "orden_id": 2
-    },
-    {
-      "id": "3",
-      "cantidad": 2,
-      "precio_unidad": 1600,
-      "precio_total": 3200,
-      "product_id": 1,
-      "orden_id": 3
-    },
-    {
-      "id": "4",
-      "cantidad": 1,
-      "precio_unidad": 2100,
-      "precio_total": 2100,
-      "product_id": 1,
-      "orden_id": 5
-    },
-    {
-      "id": "5",
-      "cantidad": 1,
-      "precio_unidad": 2100,
-      "precio_total": 2100,
-      "product_id": 3,
-      "orden_id": 1
-    },
-    {
-      "id": "6",
-      "cantidad": 1,
-      "precio_unidad": 2100,
-      "precio_total": 2100,
-      "product_id": 5,
-      "orden_id": 5
-    },
-    {
-      "id": "7",
-      "cantidad": 1,
-      "precio_unidad": 2100,
-      "precio_total": 2100,
-      "product_id": 6,
-      "orden_id": 5
-    },
-    {
-      "id": "8",
-      "cantidad": 1,
-      "precio_unidad": 1800,
-      "precio_total": 1800,
-      "product_id": 2,
-      "orden_id": 7
-    },
-    {
-      "id": "9",
-      "cantidad": 1,
-      "precio_unidad": 1800,
-      "precio_total": 1800,
-      "product_id": 3,
-      "orden_id": 7
-    },
-    {
-      "id": "10",
-      "cantidad": 1,
-      "precio_unidad": 2500,
-      "precio_total": 2500,
-      "product_id": 5,
-      "orden_id": 8
-    },
-    {
-      "id": "11",
-      "cantidad": 1,
-      "precio_unidad": 2500,
-      "precio_total": 2500,
-      "product_id": 7,
-      "orden_id": 8
-    },
-    {
-      "id": "12",
-      "cantidad": 1,
-      "precio_unidad": 3000,
-      "precio_total": 3000,
-      "product_id": 1,
-      "orden_id": 9
-    },
-    {
-      "id": "13",
-      "cantidad": 1,
-      "precio_unidad": 3000,
-      "precio_total": 3000,
-      "product_id": 6,
-      "orden_id": 9
-    },
-    {
-      "id": "14",
-      "cantidad": 1,
-      "precio_unidad": 2200,
-      "precio_total": 2200,
-      "product_id": 3,
-      "orden_id": 10
-    },
-    {
-      "id": "15",
-      "cantidad": 1,
-      "precio_unidad": 2200,
-      "precio_total": 2200,
-      "product_id": 4,
-      "orden_id": 10
-    },
-    {
-      "id": "16",
-      "cantidad": 1,
-      "precio_unidad": 2700,
-      "precio_total": 2700,
-      "product_id": 2,
-      "orden_id": 11
-    },
-    {
-      "id": "7ce0",
-      "cantidad": 1,
-      "precio_unidad": 79.99,
-      "precio_total": 79.99,
-      "product_id": "1",
-      "orden_id": "ba59"
-    },
-    {
-      "id": "8bc2",
-      "cantidad": 1,
-      "precio_unidad": 85,
-      "precio_total": 85,
-      "product_id": "2",
-      "orden_id": "ba59"
+      "precio_unidad": 40,
+      "precio_total": 40,
+      "product_id": "4",
+      "orden_id": "0db4"
     }
   ]
 }
