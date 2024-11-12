@@ -39,9 +39,9 @@ const ProductoDetalles = () => {
 
     try {
       if (nuevoEstadoFavorito) {
-        await agregarAFavoritos(producto); // Agregar a favoritos en el contexto
+        await agregarAFavoritos(producto); 
       } else {
-        await eliminarDeFavoritos(producto.id); // Eliminar de favoritos en el contexto
+        await eliminarDeFavoritos(producto.id); 
       }
     } catch (error) {
       console.error('Error al actualizar el estado de favorito:', error);

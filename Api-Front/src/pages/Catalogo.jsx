@@ -6,10 +6,13 @@ import BtnAgregarCarrito from '../componentes/Carrito/BtnAgregarCarrito.jsx';
 import BtnEditar from '../componentes/Gestor/BtnEditar.jsx';
 import AuthContext from '../context/AuthContext.jsx';
 import { useContext} from "react";
+import { useVistos } from '../hooks/useVistos';
+
 
 const categories = ["Todos", "Camiseta", "Short", "Pantalon", "Remera", "Calzado"];
 
 const Catalogo = () => {
+  const { vistos, agregarVisto } = useVistos(); 
   const [productos, setProductos] = useState([]);
   const [search, setSearch] = useState("");
   const [filteredProducts, setFilteredProducts] = useState([]);
@@ -87,7 +90,8 @@ const Catalogo = () => {
         {filteredProducts.length > 0 ? (
           filteredProducts.map((producto) => (
             <div key={producto.id} className="product">
-              <Link to={`/producto/${producto.id}`}>
+              <Link to={`/producto/${producto.id}`}
+                    onClick={() => agregarVisto(producto)}>
                 <img src={producto.imagen} alt={producto.nombre} />
                 <h3>{producto.nombre}</h3>
                 <p>${producto.precio}</p>

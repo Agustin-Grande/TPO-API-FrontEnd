@@ -32,7 +32,8 @@ const Registro = () => {
     setUsuario({
       ...usuario,
       [e.target.name]: e.target.value, 
-      favoritos : []
+      favoritos : [],
+      vistos :  []
     });
   };
 

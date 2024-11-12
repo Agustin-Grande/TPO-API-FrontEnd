@@ -26,8 +26,8 @@
       "contrasena": "123456",
       "favoritos": [
         "8",
-        "10",
-        "1"
+        "1",
+        "5"
       ]
     },
     {
@@ -233,6 +233,76 @@
     },
     {
       "id": "f7c4",
+      "nombreUsuario": "Fanta123",
+      "contrasena": "123456"
+    },
+    {
+      "id": "d7a1",
+      "nombreUsuario": "Fanta123",
+      "contrasena": "123456"
+    },
+    {
+      "id": "e5ae",
+      "nombreUsuario": "Fanta123",
+      "contrasena": "123456"
+    },
+    {
+      "id": "4444",
+      "nombreUsuario": "Fanta123",
+      "contrasena": "123456"
+    },
+    {
+      "id": "fa90",
+      "nombreUsuario": "Fanta123",
+      "contrasena": "123456"
+    },
+    {
+      "id": "5c72",
+      "nombreUsuario": "Fanta123",
+      "contrasena": "123456"
+    },
+    {
+      "id": "9c13",
+      "nombreUsuario": "Fanta123",
+      "contrasena": "123456"
+    },
+    {
+      "id": "ea00",
+      "nombreUsuario": "Fanta123",
+      "contrasena": "123456"
+    },
+    {
+      "id": "11e6",
+      "nombreUsuario": "Fanta123",
+      "contrasena": "123456"
+    },
+    {
+      "id": "0e87",
+      "nombreUsuario": "Fanta123",
+      "contrasena": "123456"
+    },
+    {
+      "id": "15e1",
+      "nombreUsuario": "Agus",
+      "contrasena": "Agus"
+    },
+    {
+      "id": "b8d6",
+      "nombreUsuario": "Fanta123",
+      "contrasena": "123456"
+    },
+    {
+      "id": "055c",
+      "nombreUsuario": "Fanta123",
+      "contrasena": "123456"
+    },
+    {
+      "id": "ad9d",
+      "nombreUsuario": "Fanta123",
+      "contrasena": "123456"
+    },
+    {
+      "id": "c26e",
       "nombreUsuario": "Fanta123",
       "contrasena": "123456"
     }

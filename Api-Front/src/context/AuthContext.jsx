@@ -1,7 +1,9 @@
 import { createContext, useEffect, useState } from "react";
 import { serviceLogin } from "../services/serviceLogin";
 import { useNavigate } from "react-router-dom";
-import axios from "axios"; // Asegúrate de tener axios importado
+import axios from "axios"; 
+import { useVistos } from '../hooks/useVistos';
+
 
 export const AuthContext = createContext();
 
@@ -12,6 +14,10 @@ export function AuthProvider({ children }) {
   });
   const [error, setError] = useState(null);
   const navigate = useNavigate();
+  const { limpiarVistos } = useVistos(); 
+
+  
+ 
 
   const login = async (nombreUsuario, contrasena) => {
     try {
@@ -27,7 +33,8 @@ export function AuthProvider({ children }) {
 
   const logout = () => {
     setUser(null);
-    localStorage.clear();
+    localStorage.clear("");
+    limpiarVistos();
     navigate("/login");
   };
 
@@ -51,7 +58,6 @@ export function AuthProvider({ children }) {
   const eliminarDeFavoritos = async (productoId) => {
     try {
       const nuevosFavoritos = user.favoritos.filter((fav) => fav !== productoId); // Filtramos por id
-  
       await axios.patch(`http://localhost:3001/users/${user.id}`, {
         favoritos: nuevosFavoritos,
       });
@@ -63,6 +69,8 @@ export function AuthProvider({ children }) {
       console.error("Error al eliminar de favoritos en la DB:", error);
     }
   };
+
+
   
 
   useEffect(() => {
