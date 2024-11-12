@@ -3,6 +3,10 @@ import "../styles/Registro.css";
 import { handleRegister } from '../services/serviceRegistro';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../hooks/useAuth';
+import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card";
+import { Label } from "@/components/ui/label";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
 
 const Registro = () => {
   const [usuario, setUsuario] = useState({
@@ -68,65 +72,82 @@ const Registro = () => {
   };
 
   return (
-    <div className="registro">
-      <form onSubmit={manejarEnvioFormulario} className="formulario">
-        <h1 className="titulo">Registro</h1>
-
-        <div>
-          <input
+  <Card className="mx-auto max-w-2xl"> {/* Updated max width here */}
+    <CardHeader className="space-y-2">
+      <CardTitle className="text-3xl font-bold">Registro</CardTitle>
+      <CardDescription>Ingresa tus datos para registrarte</CardDescription>
+    </CardHeader>
+    <CardContent>
+      <form onSubmit={manejarEnvioFormulario} className="space-y-4">
+        <div className="space-y-2">
+          <Label htmlFor="nombreUsuario">Nombre</Label>
+          <Input
             type="text"
             name="nombre"
             value={usuario.nombre}
             onChange={manejarCambioInput}
             placeholder="Nombre"
+            required
           />
         </div>
-        <div>
-          <input
+        <div className="space-y-2">
+          <Label htmlFor="apellido">Apellido</Label>
+          <Input
             type="text"
             name="apellido"
             value={usuario.apellido}
             onChange={manejarCambioInput}
             placeholder="Apellido"
+            required
           />
         </div>
-        <div>
-          <input
+        <div className="space-y-2">
+          <Label htmlFor="email">Email</Label>
+          <Input
             type="email"
             name="email"
             value={usuario.email}
             onChange={manejarCambioInput}
             placeholder="Email"
+            required
           />
         </div>
-        <div>
-          <input
+        <div className="space-y-2">
+          <Label htmlFor="nombreUsuario">Username</Label>
+          <Input
             type="text"
             name="nombreUsuario"
             value={usuario.nombreUsuario}
             onChange={manejarCambioInput}
             placeholder="Nombre de usuario"
+            required
           />
         </div>
-        <div>
-          <input
+        <div className="space-y-2">
+          <Label htmlFor="contrasena">Contraseña</Label>
+          <Input
             type="password"
             name="contrasena"
             value={usuario.contrasena}
             onChange={manejarCambioInput}
             placeholder="Contraseña"
+            required
           />
         </div>
-        <button type="submit">Registrarse</button>
-        <p>¿Ya tienes cuenta? <Link to="/login" className='logi'>Login</Link></p>
+        
+        <Button type="submit" className="w-full">
+          Registrarse
+        </Button>
+        <p>¿Ya tienes cuenta? <Link to="/login" className="logi">Login</Link></p>
         <div className="mensajesRegistro">
           {error && <p style={{ color: 'red' }}>Todos los campos son obligatorios</p>}
           {registroExitoso && <p style={{ color: 'green' }}>¡Registro exitoso!</p>}
           {mensajeError && <p>{mensajeError}</p>}
         </div>
       </form>
+    </CardContent>
+  </Card>
 
-    </div>
   );
 };
 

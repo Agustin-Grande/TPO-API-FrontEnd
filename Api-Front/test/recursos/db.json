@@ -19,11 +19,11 @@
     },
     {
       "id": "f036",
-      "nombreUsuario": "Fanta123",
-      "contrasena": "123456",
-      "nombre": "Juanitrox",
+      "nombre": "Juan",
       "apellido": "Gshwind",
-      "email": "vanesapecker@gmail.com"
+      "nombreUsuario": "Fanta123",
+      "email": "vanesapecker@gmail.com",
+      "contrasena": "123456"
     },
     {
       "id": "4b97",
@@ -140,6 +140,15 @@
       "email": "asdasdsad@gmail.com",
       "contrasena": "qwert",
       "favoritos": []
+    },
+    {
+      "id": "6d76",
+      "nombre": "martin",
+      "apellido": "Dottori",
+      "nombreUsuario": "marto2",
+      "email": "martin@gmail.com",
+      "contrasena": "hola",
+      "favoritos": []
     }
   ],
   "auth": [
@@ -195,54 +204,49 @@
       "contrasena": "123456"
     },
     {
-      "id": "392b",
+      "id": "f83a",
+      "nombreUsuario": "marto2",
+      "contrasena": "hola"
+    },
+    {
+      "id": "9197",
       "nombreUsuario": "Agus",
       "contrasena": "Agus"
     },
     {
-      "id": "2a50",
+      "id": "3ee8",
       "nombreUsuario": "Agus",
       "contrasena": "Agus"
-    },
-    {
-      "id": "b230",
-      "nombreUsuario": "Fanta123",
-      "contrasena": "123456"
-    },
-    {
-      "id": "e3eb",
-      "nombreUsuario": "Fanta123",
-      "contrasena": "123456"
     }
   ],
   "carrito": [
     {
       "id": "189a",
-      "precioTotal": 0,
+      "precioTotal": 85,
       "user_id": "1"
     },
     {
-      "id": "f6f6",
-      "precioTotal": 324.96999999999997,
+      "id": "9e4d",
+      "precioTotal": 159.98,
       "user_id": "f036"
     }
   ],
   "carrito_item": [
     {
-      "id": "9a4f",
-      "cantidad": 3,
+      "id": "7656",
+      "cantidad": 2,
       "precioUnidad": 79.99,
-      "precioTotal": 239.96999999999997,
+      "precioTotal": 159.98,
       "product_id": "1",
-      "carrito_id": "f6f6"
+      "carrito_id": "9e4d"
     },
     {
-      "id": "631a",
+      "id": "1e07",
       "cantidad": 1,
       "precioUnidad": 85,
       "precioTotal": 85,
       "product_id": "2",
-      "carrito_id": "f6f6"
+      "carrito_id": "189a"
     }
   ],
   "productos": [
@@ -266,7 +270,7 @@
       "imagen": "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/78b62417f1e042aeb25e3353d278de3b_9366/Camiseta_Titular_Real_Madrid_24-25_Version_Jugador_Blanco_IX8095_HM1.jpg",
       "nombre": "Camiseta del Real Madrid",
       "precio": 85,
-      "stock": 30,
+      "stock": "900",
       "liga": "La Liga",
       "equipo": "Real Madrid",
       "marca": "Adidas",
@@ -424,21 +428,6 @@
       "descripcion": "Camiseta de Chacarita Juniors, temporada 23/24",
       "favorito": true,
       "visto": true,
-      "destacado": false
-    },
-    {
-      "id": "2363",
-      "imagen": "https://www.thunderinternacional.com/cdn/shop/files/AenrzpwhHFetcNW.jpg?v=1698159217",
-      "nombre": "Camiseta Borussia",
-      "precio": "25",
-      "stock": "10",
-      "liga": "Bundesliga",
-      "equipo": "Borussia Dortmund",
-      "marca": "Puma",
-      "categoria": "CAMISETA",
-      "descripcion": "Camiseta Borussia temporada 2023",
-      "favorito": false,
-      "visto": false,
       "destacado": false
     }
   ],
