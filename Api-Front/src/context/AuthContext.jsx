@@ -25,6 +25,7 @@ export function AuthProvider({ children }) {
       setUser({ ...response, favoritos: response.favoritos || [] });
       localStorage.setItem("user", JSON.stringify({ ...response, favoritos: response.favoritos || [] }));
       localStorage.setItem("token", response.id);
+      limpiarVistos();
       navigate("/home");
     } catch (error) {
       setError("Usuario o contraseña incorrectos");
