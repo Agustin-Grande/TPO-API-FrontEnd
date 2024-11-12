@@ -10,16 +10,19 @@ export const verOrdenesPorUsuario = async (usuarioId) => {
 
 export const verItemsDeOrden = async (orden) => {
     const response = await apiClient.get(`Orden_item`);
-    const itemsFiltrados = response.data.filter(item => item.orden_id === parseInt(orden.id));
+    const itemsFiltrados = response.data.filter(item => item.orden_id == orden.id);
     return itemsFiltrados;
 };
 
 export const productoPorOrden = async (orden_items) => {
-    console.log("a",orden_items);
-    const ids = orden_items.map(item => parseInt(item.product_id));
+    const ids = orden_items.map(item => item.product_id);
     const responseProductos = await apiClient.get(`productos`);
-    const productosFiltrados = responseProductos.data.filter(producto => ids.includes(parseInt(producto.id)));
-    console.log("b",productosFiltrados);
+    const productosFiltrados = responseProductos.data.filter(producto => ids.includes(producto.id));
 
     return productosFiltrados;
 };
+
+export const editarDatosPersonales = async (user, campo, nuevoValor) => {
+    const response = await apiClient.put(`usuarios/${user.id}`, { [campo]: nuevoValor });
+    return response.data;
+}
