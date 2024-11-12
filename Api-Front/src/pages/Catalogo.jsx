@@ -66,7 +66,7 @@ const Catalogo = () => {
   
 
   return (
-    <div>
+    <div style={{height : '270vh'}}>
     <div className="category-bar">
       {categories.map((category) => (
         <button

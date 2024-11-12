@@ -29,7 +29,7 @@ const TarjetaCompra = ({ ordenes }) => {
          <Button
            variant="outline"
            onClick={() => handleVerDetalles(orden)}
-           onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = '#30182F')}
+           onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = '#80714a')}
            onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = '')}
          >
            Ver detalles

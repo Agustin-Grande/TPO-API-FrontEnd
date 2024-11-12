@@ -17,12 +17,12 @@ const AppRoutes = () => {
     const location = useLocation();
     
     // Define las rutas donde no deseas mostrar Header y Footer
-    const hideHeaderFooter = location.pathname === "/login" || location.pathname === "/registro";
+   
 
     return (
         <>  
             
-            {!hideHeaderFooter && <Header />}
+            { <Header />}
             <div>
                 <Routes>                    
                     <Route path="/" element={<Home />} />
@@ -39,7 +39,7 @@ const AppRoutes = () => {
 
                 </Routes>
             </div>
-            {!hideHeaderFooter && <Footer />}
+            {<Footer />}
         </>
     );
 };

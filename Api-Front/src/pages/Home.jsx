@@ -108,6 +108,8 @@ const Home = () => {
           <p>No has visitado ningún producto aún.</p>
         )}
       </div>
+      <br />
+      <br />
     </div>
   );
 };

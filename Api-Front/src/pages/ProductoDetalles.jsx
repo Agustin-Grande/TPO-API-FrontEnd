@@ -115,13 +115,15 @@ const ProductoDetalles = () => {
               </div>
 
               <div className="flex gap-4">
-                <Button 
+                  {producto.stock != 0 && (
+                  <Button 
                   asChild 
                   className="flex-1"
                   disabled={producto.stock === 0}
                 >
                   <BtnAgregarCarrito producto={producto} />
                 </Button>
+                )}
                 <Button
                   variant="outline"
                   size="icon"
