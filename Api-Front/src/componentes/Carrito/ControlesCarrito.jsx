@@ -3,6 +3,7 @@ import './ControlesCarrito.css';
 import axios from 'axios';
 import { useContext } from "react";
 import { AuthContext } from '../../context/AuthContext.jsx'
+import {checkout} from '../../services/serviceCheckout.js'
 
 const ControlesCarrito = ({carrito, onVaciarCarrito}) => {
 
@@ -34,9 +35,14 @@ const ControlesCarrito = ({carrito, onVaciarCarrito}) => {
         }
     }
 
+    const confirmarCarrito = () =>{
+        checkout(carrito)
+        vaciarCarrito()
+    }
+
     return (
         <div className="controles-carrito">
-            <button className="btn-confirmar" onClick={vaciarCarrito}>
+            <button className="btn-confirmar" onClick={confirmarCarrito}>
                 Confirmar Carrito
             </button>
             <button className="btn-vaciar" onClick={vaciarCarrito}>

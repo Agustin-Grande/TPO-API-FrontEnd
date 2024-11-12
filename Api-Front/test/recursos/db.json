@@ -207,7 +207,16 @@
       "user_id": "1"
     }
   ],
-  "carrito_item": [],
+  "carrito_item": [
+    {
+      "id": "6c1a",
+      "cantidad": 1,
+      "precioUnidad": 79.99,
+      "precioTotal": 79.99,
+      "product_id": "1",
+      "carrito_id": "189a"
+    }
+  ],
   "productos": [
     {
       "id": "1",
@@ -462,6 +471,12 @@
       "fecha": "2022-09-09",
       "precio_total": 1900,
       "user_id": "da47"
+    },
+    {
+      "id": "ba59",
+      "fecha": "Hoy",
+      "precio_total": 164.99,
+      "user_id": "1"
     }
   ],
   "Orden_item": [
@@ -592,6 +607,22 @@
       "precio_total": 2700,
       "product_id": 2,
       "orden_id": 11
+    },
+    {
+      "id": "7ce0",
+      "cantidad": 1,
+      "precio_unidad": 79.99,
+      "precio_total": 79.99,
+      "product_id": "1",
+      "orden_id": "ba59"
+    },
+    {
+      "id": "8bc2",
+      "cantidad": 1,
+      "precio_unidad": 85,
+      "precio_total": 85,
+      "product_id": "2",
+      "orden_id": "ba59"
     }
   ]
 }
