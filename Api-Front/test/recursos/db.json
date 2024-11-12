@@ -282,7 +282,7 @@
       "contrasena": "123456"
     },
     {
-      "id": "15e1",
+      "id": "b7ca",
       "nombreUsuario": "Agus",
       "contrasena": "Agus"
     },
@@ -302,9 +302,9 @@
       "contrasena": "123456"
     },
     {
-      "id": "c26e",
-      "nombreUsuario": "Fanta123",
-      "contrasena": "123456"
+      "id": "d4db",
+      "nombreUsuario": "Agus",
+      "contrasena": "Agus"
     }
   ],
   "carrito": [
@@ -312,21 +312,6 @@
       "id": "189a",
       "precioTotal": 0,
       "user_id": "1"
-    },
-    {
-      "id": "2627",
-      "precioTotal": 0,
-      "user_id": "f036"
-    },
-    {
-      "id": "17e8",
-      "precioTotal": 0,
-      "user_id": "914d"
-    },
-    {
-      "id": "2990",
-      "precioTotal": 0,
-      "user_id": "7771"
     }
   ],
   "carrito_item": [],
@@ -580,140 +565,42 @@
       "user_id": "1"
     },
     {
-      "id": "12",
-      "fecha": "2022-09-09",
-      "precio_total": 1900,
-      "user_id": "da47"
+      "id": "4a39",
+      "fecha": "Hoy",
+      "precio_total": 170,
+      "user_id": "1"
+    },
+    {
+      "id": "f109",
+      "fecha": "Hoy",
+      "precio_total": 165,
+      "user_id": "1"
     }
   ],
   "Orden_item": [
     {
-      "id": "1",
+      "id": "614d",
       "cantidad": 2,
-      "precio_unidad": 1400,
-      "precio_total": 2800,
-      "product_id": 1,
-      "orden_id": 1
+      "precio_unidad": 85,
+      "precio_total": 170,
+      "product_id": "2",
+      "orden_id": "4a39"
     },
     {
-      "id": "2",
+      "id": "1de9",
       "cantidad": 1,
-      "precio_unidad": 1500,
-      "precio_total": 1500,
-      "product_id": 1,
-      "orden_id": 2
+      "precio_unidad": 85,
+      "precio_total": 85,
+      "product_id": "2",
+      "orden_id": "f109"
     },
     {
-      "id": "3",
+      "id": "675c",
       "cantidad": 2,
-      "precio_unidad": 1600,
-      "precio_total": 3200,
-      "product_id": 1,
-      "orden_id": 3
-    },
-    {
-      "id": "4",
-      "cantidad": 1,
-      "precio_unidad": 2100,
-      "precio_total": 2100,
-      "product_id": 1,
-      "orden_id": 5
-    },
-    {
-      "id": "5",
-      "cantidad": 1,
-      "precio_unidad": 2100,
-      "precio_total": 2100,
-      "product_id": 3,
-      "orden_id": 1
-    },
-    {
-      "id": "6",
-      "cantidad": 1,
-      "precio_unidad": 2100,
-      "precio_total": 2100,
-      "product_id": 5,
-      "orden_id": 5
-    },
-    {
-      "id": "7",
-      "cantidad": 1,
-      "precio_unidad": 2100,
-      "precio_total": 2100,
-      "product_id": 6,
-      "orden_id": 5
-    },
-    {
-      "id": "8",
-      "cantidad": 1,
-      "precio_unidad": 1800,
-      "precio_total": 1800,
-      "product_id": 2,
-      "orden_id": 7
-    },
-    {
-      "id": "9",
-      "cantidad": 1,
-      "precio_unidad": 1800,
-      "precio_total": 1800,
-      "product_id": 3,
-      "orden_id": 7
-    },
-    {
-      "id": "10",
-      "cantidad": 1,
-      "precio_unidad": 2500,
-      "precio_total": 2500,
-      "product_id": 5,
-      "orden_id": 8
-    },
-    {
-      "id": "11",
-      "cantidad": 1,
-      "precio_unidad": 2500,
-      "precio_total": 2500,
-      "product_id": 7,
-      "orden_id": 8
-    },
-    {
-      "id": "12",
-      "cantidad": 1,
-      "precio_unidad": 3000,
-      "precio_total": 3000,
-      "product_id": 1,
-      "orden_id": 9
-    },
-    {
-      "id": "13",
-      "cantidad": 1,
-      "precio_unidad": 3000,
-      "precio_total": 3000,
-      "product_id": 6,
-      "orden_id": 9
-    },
-    {
-      "id": "14",
-      "cantidad": 1,
-      "precio_unidad": 2200,
-      "precio_total": 2200,
-      "product_id": 3,
-      "orden_id": 10
-    },
-    {
-      "id": "15",
-      "cantidad": 1,
-      "precio_unidad": 2200,
-      "precio_total": 2200,
-      "product_id": 4,
-      "orden_id": 10
-    },
-    {
-      "id": "16",
-      "cantidad": 1,
-      "precio_unidad": 2700,
-      "precio_total": 2700,
-      "product_id": 2,
-      "orden_id": 11
+      "precio_unidad": 40,
+      "precio_total": 80,
+      "product_id": "4",
+      "orden_id": "f109"
     }
   ]
 }
