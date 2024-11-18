@@ -5,20 +5,23 @@ export const agregarCarrito = async (user, producto) => {
 
     let hayStock = validarStock(producto)
 
-    if (hayStock) {
-        // 1. Obtengo el carrito del user
-        let carrito = await obtenerCarrito(user)
-        
-        // 2. Inserto las lineas del carrito
-        await agregarItemsCarrito(carrito.id, producto)
+    // 1. Obtengo el carrito del user
+    let carrito = await obtenerCarrito(user)
 
-        // 3. Seteo el total del carrito
-        actualizarPrecioTotal(carrito)
+    // 2. Inserto las lineas del carrito
+    let agregadoOk = await agregarItemsCarrito(carrito.id, producto)
 
+    if(!agregadoOk){
+        return false
     }
+    // 3. Seteo el total del carrito
+    await actualizarPrecioTotal(carrito)
+
+    return true
+
 }
 
-export const actualizarPrecioTotal = async (carrito) =>{
+export const actualizarPrecioTotal = async (carrito) => {
     let items = await axios.get(`http://localhost:3001/carrito_item?carrito_id=${carrito.id}`);
     let total = 0
 
@@ -35,7 +38,7 @@ export const obtenerCarrito = async (user) => {
     let carrito
     try {
         carrito = await axios.get(`http://localhost:3001/carrito?user_id=${user.id}`);
-        
+
         // Si no existe, Axios devuelve 200 con un arr vacio
         // Por eso esta validacion
         if (carrito.data.length === 0) {
@@ -47,27 +50,32 @@ export const obtenerCarrito = async (user) => {
     } catch (err) {
         console.error("Error al obtener el carrito");
     }
-    
+
 }
 
 export const agregarItemsCarrito = async (carritoId, producto, cantidad = 1) => {
-    let itemExistente =  await axios.get(`http://localhost:3001/carrito_item?carrito_id=${carritoId}&product_id=${producto.id}`);
+    let itemExistente = await axios.get(`http://localhost:3001/carrito_item?carrito_id=${carritoId}&product_id=${producto.id}`);
 
     // Me fijo si el item ya estaba en el carrito. 
     // Si está, actualizo la cantidad
     // Si no está, creo un item
 
-    if(itemExistente.data.length > 0){
+    if (itemExistente.data.length > 0) {
 
         const productoExistente = itemExistente.data[0];
         const nuevaCantidad = productoExistente.cantidad + cantidad; // Sumar la nueva cantidad
         const nuevoPrecioTotal = nuevaCantidad * producto.precio
 
+        // Si no hay mas stock
+        if(nuevaCantidad > producto.stock ){
+            return false
+        }
+
         await axios.patch(`http://localhost:3001/carrito_item/${productoExistente.id}`, {
             cantidad: nuevaCantidad,
-            precioTotal:nuevoPrecioTotal
+            precioTotal: nuevoPrecioTotal
         });
-    }else{
+    } else {
         const nuevoItem = {
             cantidad: cantidad,
             precioUnidad: producto.precio,
@@ -77,7 +85,7 @@ export const agregarItemsCarrito = async (carritoId, producto, cantidad = 1) => 
         }
 
         await axios.post('http://localhost:3001/carrito_item', nuevoItem);
-        //agregarItemsCarrito()
+        return true
     }
 }
 

@@ -511,7 +511,7 @@
       "imagen": "https://zeusdeportes.com.ar/wp-content/uploads/2024/02/3.jpg",
       "nombre": "Camiseta Chacarita Juniors",
       "precio": 1300,
-      "stock": 0,
+      "stock": 3,
       "liga": "Nacional",
       "equipo": "Club Atlético Chacarita Juniors",
       "marca": "Hummel",
@@ -522,30 +522,6 @@
       "destacado": false
     }
   ],
-  "Orden": [
-    {
-      "id": "f4fa",
-      "fecha": "Hoy",
-      "precio_total": 164.99,
-      "user_id": "1"
-    }
-  ],
-  "Orden_item": [
-    {
-      "id": "9fd9",
-      "cantidad": 1,
-      "precio_unidad": 79.99,
-      "precio_total": 79.99,
-      "product_id": "1",
-      "orden_id": "f4fa"
-    },
-    {
-      "id": "aa0b",
-      "cantidad": 1,
-      "precio_unidad": 85,
-      "precio_total": 85,
-      "product_id": "2",
-      "orden_id": "f4fa"
-    }
-  ]
+  "Orden": [],
+  "Orden_item": []
 }
