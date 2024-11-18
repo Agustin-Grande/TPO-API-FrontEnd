@@ -346,7 +346,7 @@
       "imagen": "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw43e15003/products/NI_CD4232-456/NI_CD4232-456-1.JPG",
       "nombre": "Camiseta del Barcelona",
       "precio": 79.99,
-      "stock": 57,
+      "stock": 56,
       "liga": "La Liga",
       "equipo": "FC Barcelona",
       "marca": "Nike",
@@ -361,7 +361,7 @@
       "imagen": "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/78b62417f1e042aeb25e3353d278de3b_9366/Camiseta_Titular_Real_Madrid_24-25_Version_Jugador_Blanco_IX8095_HM1.jpg",
       "nombre": "Camiseta del Real Madrid",
       "precio": 85,
-      "stock": 27,
+      "stock": 26,
       "liga": "La Liga",
       "equipo": "Real Madrid",
       "marca": "Adidas",
@@ -524,20 +524,28 @@
   ],
   "Orden": [
     {
-      "id": "07b0",
+      "id": "f4fa",
       "fecha": "Hoy",
-      "precio_total": 13000,
+      "precio_total": 164.99,
       "user_id": "1"
     }
   ],
   "Orden_item": [
     {
-      "id": "c0d9",
-      "cantidad": 10,
-      "precio_unidad": 1300,
-      "precio_total": 13000,
-      "product_id": "12",
-      "orden_id": "07b0"
+      "id": "9fd9",
+      "cantidad": 1,
+      "precio_unidad": 79.99,
+      "precio_total": 79.99,
+      "product_id": "1",
+      "orden_id": "f4fa"
+    },
+    {
+      "id": "aa0b",
+      "cantidad": 1,
+      "precio_unidad": 85,
+      "precio_total": 85,
+      "product_id": "2",
+      "orden_id": "f4fa"
     }
   ]
 }
