@@ -2,9 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../context/AuthContext.jsx';
 import axios from 'axios';
 import ItemCarrito from '../componentes/Carrito/ItemCarrito.jsx';
-import ControlesCarrito from '../componentes/Carrito/ControlesCarrito.jsx';
 import { checkout } from '../services/serviceCheckout.js'
-
 
 import {
   Card,
@@ -22,10 +20,8 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { Button } from "@/components/ui/button";
-import { MinusCircle, PlusCircle, Trash2, ShoppingCart } from "lucide-react";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Separator } from "@/components/ui/separator";
-import { Avatar } from "@/components/ui/avatar";
 import { agregarItemsCarrito, obtenerCarrito, actualizarPrecioTotal } from '../services/serviceCart.js';
 import CarritoVacio from '@/componentes/Carrito/CarritoVacio.jsx';
 
