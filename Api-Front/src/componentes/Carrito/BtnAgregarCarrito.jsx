@@ -6,7 +6,6 @@ import { Button } from "@/components/ui/button";
 import { HeartIcon, PlusIcon } from "lucide-react";
 
 
-
 const BtnAgregarCarrito = ({ producto }) => {
 
     const {user} = useContext(AuthContext)
@@ -27,7 +26,5 @@ const BtnAgregarCarrito = ({ producto }) => {
     );
     
 };
-
-
 
 export default BtnAgregarCarrito;

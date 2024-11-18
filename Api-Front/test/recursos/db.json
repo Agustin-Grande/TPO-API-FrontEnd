@@ -310,32 +310,43 @@
       "id": "6477",
       "nombreUsuario": "Agus",
       "contrasena": "Agus"
+    },
+    {
+      "id": "608f",
+      "nombreUsuario": "Agus",
+      "contrasena": "Agus"
+    },
+    {
+      "id": "7d38",
+      "nombreUsuario": "Agus",
+      "contrasena": "Agus"
+    },
+    {
+      "id": "5c9e",
+      "nombreUsuario": "Agus",
+      "contrasena": "Agus"
+    },
+    {
+      "id": "9f8f",
+      "nombreUsuario": "Agus",
+      "contrasena": "Agus"
     }
   ],
   "carrito": [
     {
-      "id": "189a",
-      "precioTotal": 85,
+      "id": "57cc",
+      "precioTotal": 0,
       "user_id": "1"
     }
   ],
-  "carrito_item": [
-    {
-      "id": "05d2",
-      "cantidad": 1,
-      "precioUnidad": 85,
-      "precioTotal": 85,
-      "product_id": "2",
-      "carrito_id": "189a"
-    }
-  ],
+  "carrito_item": [],
   "productos": [
     {
       "id": "1",
       "imagen": "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw43e15003/products/NI_CD4232-456/NI_CD4232-456-1.JPG",
       "nombre": "Camiseta del Barcelona",
       "precio": 79.99,
-      "stock": 58,
+      "stock": 56,
       "liga": "La Liga",
       "equipo": "FC Barcelona",
       "marca": "Nike",
@@ -350,7 +361,7 @@
       "imagen": "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/78b62417f1e042aeb25e3353d278de3b_9366/Camiseta_Titular_Real_Madrid_24-25_Version_Jugador_Blanco_IX8095_HM1.jpg",
       "nombre": "Camiseta del Real Madrid",
       "precio": 85,
-      "stock": 28,
+      "stock": 26,
       "liga": "La Liga",
       "equipo": "Real Madrid",
       "marca": "Adidas",
@@ -500,7 +511,7 @@
       "imagen": "https://zeusdeportes.com.ar/wp-content/uploads/2024/02/3.jpg",
       "nombre": "Camiseta Chacarita Juniors",
       "precio": 1300,
-      "stock": 9,
+      "stock": 0,
       "liga": "Nacional",
       "equipo": "Club Atlético Chacarita Juniors",
       "marca": "Hummel",
@@ -513,28 +524,28 @@
   ],
   "Orden": [
     {
-      "id": "3140",
+      "id": "f4fa",
       "fecha": "Hoy",
-      "precio_total": 244.98,
+      "precio_total": 164.99,
       "user_id": "1"
     }
   ],
   "Orden_item": [
     {
-      "id": "0bfb",
+      "id": "9fd9",
+      "cantidad": 1,
+      "precio_unidad": 79.99,
+      "precio_total": 79.99,
+      "product_id": "1",
+      "orden_id": "f4fa"
+    },
+    {
+      "id": "aa0b",
       "cantidad": 1,
       "precio_unidad": 85,
       "precio_total": 85,
       "product_id": "2",
-      "orden_id": "3140"
-    },
-    {
-      "id": "e194",
-      "cantidad": 2,
-      "precio_unidad": 79.99,
-      "precio_total": 159.98,
-      "product_id": "1",
-      "orden_id": "3140"
+      "orden_id": "f4fa"
     }
   ]
 }
