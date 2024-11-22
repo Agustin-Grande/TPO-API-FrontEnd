@@ -45,7 +45,7 @@ body {
     border: none;
     border-radius: 3px;
     box-sizing: border-box;
-    border-bottom: 2px solid rgba(0, 0, 0, 0.2); /* Línea sutil debajo */
+    border-bottom: 2px solid rgba(0, 0, 0, 0.2); 
     transition: border-color 0.3s;
 }
 

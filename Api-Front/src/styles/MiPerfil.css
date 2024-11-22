@@ -9,7 +9,7 @@
 
 ::-webkit-scrollbar-track {
     background-color: none;
-    margin: 4px 2px; /* Agrega márgenes alrededor del track para mayor separación */
+    margin: 4px 2px; 
 }
 
 ::-webkit-scrollbar-thumb:hover {
