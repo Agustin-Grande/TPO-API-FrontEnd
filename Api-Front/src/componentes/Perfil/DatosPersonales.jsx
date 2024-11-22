@@ -17,7 +17,7 @@ import axios from 'axios';
 
 
 export default function DatosPersonales({ user: propUser }) {
-    const { user: authUser, updateUser } = useContext(AuthContext); // Renamed the user from context to authUser
+    const { user: authUser, updateUser } = useContext(AuthContext); 
     const [editUser, setEditUser] = useState(propUser);
     const [updateStatus, setUpdateStatus] = useState(null);
 
@@ -33,7 +33,7 @@ export default function DatosPersonales({ user: propUser }) {
         try {
           const response = await axios.put(`http://localhost:3001/users/${propUser.id}`, editUser);
           setUpdateStatus('Updated successfully');
-          updateUser(response.data);  // Update user context after successful update
+          updateUser(response.data);  
         } catch (error) {
           console.error("Error updating user:", error);
           setUpdateStatus('Failed to update');
