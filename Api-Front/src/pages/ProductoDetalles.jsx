@@ -13,6 +13,7 @@ import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Badge } from "@/components/ui/badge";
 import BtnAgregarCarrito from '../componentes/Carrito/BtnAgregarCarrito.jsx';
 
+import apiClient from '../services/apiClient';
 
 const ProductoDetalles = () => {
   const { user, agregarAFavoritos, eliminarDeFavoritos } = useAuth();
@@ -25,7 +26,8 @@ const ProductoDetalles = () => {
   useEffect(() => {
     const fetchProducto = async () => {
       try {
-        const response = await axios.get(`http://localhost:3001/productos/${id}`);
+        const response = await apiClient.get(`/catalogo/productos/${id}`);
+        console.log(response.data);
         setProducto(response.data);
   
         setFavorito(user?.favoritos.includes(response.data.id));  

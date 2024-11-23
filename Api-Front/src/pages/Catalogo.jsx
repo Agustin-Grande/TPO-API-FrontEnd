@@ -100,7 +100,7 @@ const Catalogo = () => {
         filteredProducts.map((producto) => (
           <div key={producto.id} className="w-[300px] group relative space-y-3">
             <figure className="group-hover:opacity-90">
-              <Link to={`/producto/${producto.id}`} onClick={() => agregarVisto(producto)}>
+              <Link to={`/catalogo/productos/${producto.id}`} onClick={() => agregarVisto(producto)}>
                 <img
                   className="w-full rounded-lg aspect-square"
                   src={producto.imagen}
