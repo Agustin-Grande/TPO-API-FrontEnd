@@ -11,6 +11,8 @@ import AuthContext from '../context/AuthContext.jsx';
 import { useContext } from "react";
 import { useVistos } from '../hooks/useVistos';
 
+import apiClient from '../services/apiClient';
+
 
 const categories = ["Todos", "Camiseta", "Short", "Pantalon", "Remera", "Calzado"];
 
@@ -24,7 +26,8 @@ const Catalogo = () => {
 
   const fetchCatalogo = async () => {
     try {
-      const response = await axios.get('http://localhost:3001/productos');
+      const response = await apiClient.get('/catalogo/productos');
+      console.log(response.data);
       setProductos(response.data);
       setFilteredProducts(response.data);
     } catch (error) {
