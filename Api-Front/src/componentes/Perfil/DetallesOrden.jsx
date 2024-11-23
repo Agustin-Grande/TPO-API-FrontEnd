@@ -7,29 +7,29 @@ import { Separator } from '@/components/ui/separator';
 
 const DetallesOrden = () => {
   const location = useLocation();
-  const { orden } = location.state || {}; // Extrae el objeto de orden
+  const { orden } = location.state || {}; 
 
-  // Estado para almacenar los productos
+  
   const [productos, setProductos] = useState([]);
-  const [items, setItems] = useState([]);  // Estado para almacenar los items de la orden
+  const [items, setItems] = useState([]);  
 
-  // Función para obtener los datos
+  
   const traerDatos = async () => {
     if (orden) {
-      const items = await verItemsDeOrden(orden);
-      setItems(items);  // Guardamos los items en el estado
+      const items = orden.items;
+      setItems(items);  
       const productos = await productoPorOrden(items);
-      setProductos(productos);  // Guardamos los productos en el estado
+      setProductos(productos);  
     }
   };
 
   useEffect(() => {
     if (orden) {
-      traerDatos();  // Llamamos a traerDatos solo cuando orden esté disponible
+      traerDatos();  
     }
-  }, [orden]); // Dependencia de 'orden'
+  }, [orden]); 
 
-  // Verificamos si 'orden' está disponible antes de renderizar
+  
   if (!orden) {
     return <p>No se encontraron detalles de la orden.</p>;
   }

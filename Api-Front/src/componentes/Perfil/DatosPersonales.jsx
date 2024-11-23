@@ -13,11 +13,11 @@ import {
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import axios from 'axios';
+import apiClient from '../../services/apiClient';
 
 
 export default function DatosPersonales({ user: propUser }) {
-    const { user: authUser, updateUser } = useContext(AuthContext); // Renamed the user from context to authUser
+    const { user: authUser, updateUser } = useContext(AuthContext); 
     const [editUser, setEditUser] = useState(propUser);
     const [updateStatus, setUpdateStatus] = useState(null);
 
@@ -31,9 +31,9 @@ export default function DatosPersonales({ user: propUser }) {
 
       const handleSave = async () => {
         try {
-          const response = await axios.put(`http://localhost:3001/users/${propUser.id}`, editUser);
+          const response = await apiClient.put(`/mi-perfil/editarDatos`, editUser);
           setUpdateStatus('Updated successfully');
-          updateUser(response.data);  // Update user context after successful update
+          updateUser(response.data);  
         } catch (error) {
           console.error("Error updating user:", error);
           setUpdateStatus('Failed to update');
