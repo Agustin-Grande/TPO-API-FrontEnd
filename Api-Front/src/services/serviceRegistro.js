@@ -24,7 +24,7 @@ export const handleRegister = async (newUser) => {
         }*/
 
         //No hace falta hacer la verificacion de usuario
-        const registro = await apiClient.post('users', newUser);
+        const registro = await apiClient.post('usuario/registro', newUser);
 
         return { success: true, registro};
     } catch (error) {
