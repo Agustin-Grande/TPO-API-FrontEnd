@@ -3,6 +3,7 @@ import { useParams, Link } from 'react-router-dom';
 import axios from 'axios';
 import corazonVacio from '../assets/corazon_vacio.png';
 import corazonLleno from '../assets/corazon_lleno.png';
+import { agregarAFav,eliminarDeFav } from '../services/serviceFav'; 
 import '../styles/ProductoDetalle.css';
 import { useAuth } from '../hooks/useAuth';
 import { Card, CardContent } from "@/components/ui/card";
@@ -37,7 +38,6 @@ const ProductoDetalles = () => {
     };
     fetchProducto();
   }, [id, user]);
-  
 
   const toggleDescripcion = () => {
     setMostrarDescripcion(!mostrarDescripcion);
@@ -49,15 +49,17 @@ const ProductoDetalles = () => {
 
     try {
       if (nuevoEstadoFavorito) {
-        await agregarAFavoritos(producto); 
+        await agregarAFav(producto, user); 
       } else {
-        await eliminarDeFavoritos(producto.id); 
+        await eliminarDeFav(producto.id, user); 
       }
     } catch (error) {
       console.error('Error al actualizar el estado de favorito:', error);
     }
   };
 
+  
+  
   if (!producto) {
     return <p>Cargando producto...</p>;
   }

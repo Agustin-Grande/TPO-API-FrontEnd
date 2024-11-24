@@ -18,12 +18,16 @@ const Home = () => {
   const [loading, setLoading] = useState(true); 
   const [error, setError] = useState(null); 
 
+
+
   useEffect(() => {
     if (user?.favoritos?.length > 0) {
       const fetchFavoritos = async () => {
         try {
-          const productos = await mostrarFavUser(user);  
-          setProductosFavoritos(productos);  
+          const favoritos = await mostrarFavUser(user);  
+          setProductosFavoritos(productosFavoritos);
+          console.log('favoritos:', favoritos);
+          console.log('Productos favoritos:', productosFavoritos);
         } catch (error) {
           setError('Error al obtener los productos favoritos.');  
           console.error('Error al obtener los productos favoritos:', error);

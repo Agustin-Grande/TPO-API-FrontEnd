@@ -29,10 +29,12 @@ export function AuthProvider({ children }) {
       console.log("Datos del usuario logueado:", datosUser.data.nombreUsuario);
 
       const userData = {
+        id: datosUser.data.id,
         nombreUsuario: datosUser.data.nombreUsuario,
         mail: datosUser.data.mail,
         nombre: datosUser.data.nombre,
         apellido: datosUser.data.apellido,
+        favoritos: datosUser.data.favoritos || [],
       };
 
       setUser(userData);
@@ -53,37 +55,7 @@ export function AuthProvider({ children }) {
     navigate("/login");
   };
 
-  const agregarAFavoritos = async (producto) => {
-    try {
-      const nuevosFavoritos = [...(user.favoritos || []), producto.id]; // Solo agregamos el id
   
-      await axios.patch(`http://localhost:3001/users/${user.id}`, {
-        favoritos: nuevosFavoritos,
-      });
-  
-      const updatedUser = { ...user, favoritos: nuevosFavoritos };
-      setUser(updatedUser);
-      localStorage.setItem("user", JSON.stringify(updatedUser));
-    } catch (error) {
-      console.error("Error al agregar a favoritos en la DB:", error);
-    }
-  };
-  
-
-  const eliminarDeFavoritos = async (productoId) => {
-    try {
-      const nuevosFavoritos = user.favoritos.filter((fav) => fav !== productoId); // Filtramos por id
-      await axios.patch(`http://localhost:3001/users/${user.id}`, {
-        favoritos: nuevosFavoritos,
-      });
-  
-      const updatedUser = { ...user, favoritos: nuevosFavoritos };
-      setUser(updatedUser);
-      localStorage.setItem("user", JSON.stringify(updatedUser));
-    } catch (error) {
-      console.error("Error al eliminar de favoritos en la DB:", error);
-    }
-  };
 
   const updateUser = (newUserData) => {
     setUser(newUserData);
@@ -103,7 +75,7 @@ export function AuthProvider({ children }) {
   }, [user]);
 
   return (
-    <AuthContext.Provider value={{ user, login, logout, error, agregarAFavoritos, eliminarDeFavoritos, updateUser }}>
+    <AuthContext.Provider value={{ user, login, logout, error, updateUser }}>
       {children}
     </AuthContext.Provider>
   );
