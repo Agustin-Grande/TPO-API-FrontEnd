@@ -31,7 +31,7 @@ export default function DatosPersonales({ user: propUser }) {
 
       const handleSave = async () => {
         try {
-          const response = await apiClient.put(`/mi-perfil/editarDatos`, editUser);
+          const response = await apiClient.put(`/mi-perfil/editar_datos`, editUser);
           setUpdateStatus('Updated successfully');
           updateUser(response.data);  
         } catch (error) {
