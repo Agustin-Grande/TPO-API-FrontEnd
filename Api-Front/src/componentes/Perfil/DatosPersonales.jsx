@@ -119,7 +119,7 @@ return (
           </div>
           <div>
             <Label htmlFor="email">Email</Label>
-            <p>{authUser.email}</p>
+            <p>{authUser.mail}</p>
           </div>
         </div>
       </div>

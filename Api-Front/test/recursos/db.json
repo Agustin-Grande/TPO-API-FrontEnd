@@ -6,7 +6,10 @@
       "email": "Agus@gmail.com",
       "nombreUsuario": "Agus",
       "contrasena": "Agus",
-      "rol": "ADMIN"
+      "rol": "ADMIN",
+      "favoritos": [
+        2
+      ]
     },
     {
       "id": "da47",

@@ -3,6 +3,7 @@ import { useParams, Link } from 'react-router-dom';
 import axios from 'axios';
 import corazonVacio from '../assets/corazon_vacio.png';
 import corazonLleno from '../assets/corazon_lleno.png';
+import { agregarAFav,eliminarDeFav } from '../services/serviceFav'; 
 import '../styles/ProductoDetalle.css';
 import { useAuth } from '../hooks/useAuth';
 import { Card, CardContent } from "@/components/ui/card";
@@ -13,9 +14,10 @@ import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Badge } from "@/components/ui/badge";
 import BtnAgregarCarrito from '../componentes/Carrito/BtnAgregarCarrito.jsx';
 
+import apiClient from '../services/apiClient';
 
 const ProductoDetalles = () => {
-  const { user, agregarAFavoritos, eliminarDeFavoritos } = useAuth();
+  const { user, setUser } = useAuth();
   const { id } = useParams();
   const [producto, setProducto] = useState(null);
   const [cantidad, setCantidad] = useState(1);
@@ -25,7 +27,8 @@ const ProductoDetalles = () => {
   useEffect(() => {
     const fetchProducto = async () => {
       try {
-        const response = await axios.get(`http://localhost:3001/productos/${id}`);
+        const response = await apiClient.get(`/catalogo/productos/${id}`);
+        console.log(response.data);
         setProducto(response.data);
   
         setFavorito(user?.favoritos.includes(response.data.id));  
@@ -35,27 +38,22 @@ const ProductoDetalles = () => {
     };
     fetchProducto();
   }, [id, user]);
-  
 
   const toggleDescripcion = () => {
     setMostrarDescripcion(!mostrarDescripcion);
   };
 
   const handleFavoritoClick = async () => {
-    const nuevoEstadoFavorito = !favorito;
-    setFavorito(nuevoEstadoFavorito);
-
     try {
-      if (nuevoEstadoFavorito) {
-        await agregarAFavoritos(producto); 
-      } else {
-        await eliminarDeFavoritos(producto.id); 
-      }
+      await agregarAFav(producto, user, setUser);
+      alert("Producto agregado a favoritos");
     } catch (error) {
-      console.error('Error al actualizar el estado de favorito:', error);
+      console.error("Error al agregar el producto a favoritos:", error);
     }
   };
 
+  
+  
   if (!producto) {
     return <p>Cargando producto...</p>;
   }
