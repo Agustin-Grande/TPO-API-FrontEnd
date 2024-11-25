@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import apiClient from "../../services/apiClient";
 import {
     Table,
     TableBody,
@@ -17,10 +18,10 @@ const ItemCarrito = ({ item, eliminarItem,sumar,restar }) => {
   const [producto, setProducto] = useState({});
 
     // Llamamos a getProducto cuando el componente se monta o cuando item cambie
-    useEffect(() => {
-      if (item.product_id) {
-          
-          getProducto();
+    useEffect(() => {      
+      if (item.producto.id) {
+
+        getProducto();
       }
   }, [item]); // Dependencia: se ejecutará cuando `item` cambie
 
@@ -28,8 +29,10 @@ const ItemCarrito = ({ item, eliminarItem,sumar,restar }) => {
   // Función para obtener el nombre del producto
   const getProducto = async () => {
       try {
-          const res = await axios.get(`http://localhost:3001/productos?id=${item.product_id}`);
-          setProducto(res.data[0]); // Actualiza el estado con el nombre del producto
+          const res = await apiClient.get(`catalogo/productos/${item.producto.id}`);
+          console.log(res.data);
+          
+          setProducto(res.data); // Actualiza el estado con el nombre del producto
       } catch (err) {
           console.error(err);
       }
@@ -46,14 +49,13 @@ const ItemCarrito = ({ item, eliminarItem,sumar,restar }) => {
 
 
     return (
-        <TableRow key={item.id} className="h-24">
+        <TableRow key={producto.id} className="h-24">
         <TableCell>
-          <ProductImage src={item.imagen} alt={item.nombre} />
+          <ProductImage src={producto.nombre} alt={producto.nombre} />
         </TableCell>
         <TableCell>
           <div>
-            <p className="font-medium">{item.nombre}</p>
-            <p className="text-sm text-gray-500">SKU: {item.product_id}</p>
+            <p className="font-medium">{producto.nombre}</p>
           </div>
         </TableCell>
         <TableCell className="text-right">
