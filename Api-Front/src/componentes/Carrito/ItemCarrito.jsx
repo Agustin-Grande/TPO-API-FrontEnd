@@ -19,6 +19,7 @@ const ItemCarrito = ({ item, eliminarItem,sumar,restar }) => {
     // Llamamos a getProducto cuando el componente se monta o cuando item cambie
     useEffect(() => {
       if (item.product_id) {
+          
           getProducto();
       }
   }, [item]); // Dependencia: se ejecutará cuando `item` cambie
@@ -73,7 +74,7 @@ const ItemCarrito = ({ item, eliminarItem,sumar,restar }) => {
               variant="ghost"
               size="icon"
               className="h-8 w-8"
-              onClick={() => sumar(item, producto)}
+              onClick={() => sumar(item)}
             >
               <PlusCircle className="h-4 w-4" />
             </Button>
@@ -87,7 +88,7 @@ const ItemCarrito = ({ item, eliminarItem,sumar,restar }) => {
             variant="ghost"
             size="icon"
             className="h-8 w-8"
-            onClick={() => eliminarItem(item.id)}
+            onClick={() => eliminarItem(item.producto.id)}
           >
             <Trash2 className="h-4 w-4" />
           </Button>

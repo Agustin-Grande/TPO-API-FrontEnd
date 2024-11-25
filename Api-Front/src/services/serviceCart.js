@@ -1,23 +1,25 @@
 import axios from "axios";
+import apiClient from "./apiClient";
 
 
 export const agregarCarrito = async (user, producto) => {
 
+    /*
     let hayStock = validarStock(producto)
 
     // 1. Obtengo el carrito del user
-    let carrito = await obtenerCarrito(user)
+    let carrito = await obtenerCarrito(user) // Esto debería desaparecer. El back lo hace*/
 
     // 2. Inserto las lineas del carrito
-    let agregadoOk = await agregarItemsCarrito(carrito.id, producto)
+    let agregadoOk = await agregarItemsCarrito(producto)
 
-    if(!agregadoOk){
+    /*if(!agregadoOk){
         return false
     }
     // 3. Seteo el total del carrito
     await actualizarPrecioTotal(carrito)
 
-    return true
+    return true*/
 
 }
 
@@ -53,40 +55,8 @@ export const obtenerCarrito = async (user) => {
 
 }
 
-export const agregarItemsCarrito = async (carritoId, producto, cantidad = 1) => {
-    let itemExistente = await axios.get(`http://localhost:3001/carrito_item?carrito_id=${carritoId}&product_id=${producto.id}`);
-
-    // Me fijo si el item ya estaba en el carrito. 
-    // Si está, actualizo la cantidad
-    // Si no está, creo un item
-
-    if (itemExistente.data.length > 0) {
-
-        const productoExistente = itemExistente.data[0];
-        const nuevaCantidad = productoExistente.cantidad + cantidad; // Sumar la nueva cantidad
-        const nuevoPrecioTotal = nuevaCantidad * producto.precio
-
-        // Si no hay mas stock
-        if(nuevaCantidad > producto.stock ){
-            return false
-        }
-
-        await axios.patch(`http://localhost:3001/carrito_item/${productoExistente.id}`, {
-            cantidad: nuevaCantidad,
-            precioTotal: nuevoPrecioTotal
-        });
-    } else {
-        const nuevoItem = {
-            cantidad: cantidad,
-            precioUnidad: producto.precio,
-            precioTotal: producto.precio * cantidad,
-            product_id: producto.id,
-            carrito_id: carritoId
-        }
-
-        await axios.post('http://localhost:3001/carrito_item', nuevoItem);
-        return true
-    }
+export const agregarItemsCarrito = async (producto, cantidad = 1) => {
+    let res = await apiClient.post(`carrito/agregar/${producto.id}/${cantidad}`)
 }
 
 
