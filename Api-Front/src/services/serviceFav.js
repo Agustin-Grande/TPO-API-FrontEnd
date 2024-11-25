@@ -1,7 +1,7 @@
 import axios from "axios";
 import apiClient from "./apiClient";
 
-export const mostrarFavUser = async (user) => {
+/*export const mostrarFavUser = async (user) => {
   try {
     if (user.favoritos.length === 0) {
       return [];
@@ -21,24 +21,35 @@ export const mostrarFavUser = async (user) => {
     console.error("Error al obtener los productos favoritos", err);
     throw err;
   }
+};*/
+
+export const mostrarFavUser = async () => {
+  try {
+    const response = await apiClient.get('/usuario/listaFavoritos'); // Asegúrate de usar await
+    return response.data; // Asegúrate de devolver los datos, no toda la respuesta
+  } catch (error) {
+    console.error("Error al obtener la lista de favoritos:", error);
+    throw error;
+  }
 };
 
-export const agregarAFav = async (producto, user) => {
-  console.log(producto);
-  console.log(user);
-  try {
-    const nuevosFavoritos = [...(user.favoritos || []), producto.id]; 
-    await apiClient.post(`/usuario/agregar_fav`, {
-      favoritos: nuevosFavoritos[-1],
-    });
 
-    const updatedUser = { ...user, favoritos: nuevosFavoritos };
-    setUser(updatedUser);
-    localStorage.setItem("user", JSON.stringify(updatedUser));
+export const agregarAFav = async (producto, user, setUser) => {
+  try {
+    await apiClient.post(`/usuario/agregar_fav`, producto);
+    // Actualiza el estado del usuario con los nuevos favoritos
+    setUser((prevUser) => ({
+      ...prevUser,
+      favoritos: [...prevUser.favoritos, producto],
+    }));
   } catch (error) {
     console.error("Error al agregar a favoritos en la DB:", error);
+    throw error; // Opcional, para manejar errores en el componente que lo llama
   }
-}
+};
+
+
+
 
 export const eliminarDeFav = async (productoId, user) => {
   try {

@@ -17,7 +17,7 @@ import BtnAgregarCarrito from '../componentes/Carrito/BtnAgregarCarrito.jsx';
 import apiClient from '../services/apiClient';
 
 const ProductoDetalles = () => {
-  const { user, agregarAFavoritos, eliminarDeFavoritos } = useAuth();
+  const { user, setUser } = useAuth();
   const { id } = useParams();
   const [producto, setProducto] = useState(null);
   const [cantidad, setCantidad] = useState(1);
@@ -44,17 +44,11 @@ const ProductoDetalles = () => {
   };
 
   const handleFavoritoClick = async () => {
-    const nuevoEstadoFavorito = !favorito;
-    setFavorito(nuevoEstadoFavorito);
-
     try {
-      if (nuevoEstadoFavorito) {
-        await agregarAFav(producto, user); 
-      } else {
-        await eliminarDeFav(producto.id, user); 
-      }
+      await agregarAFav(producto, user, setUser);
+      alert("Producto agregado a favoritos");
     } catch (error) {
-      console.error('Error al actualizar el estado de favorito:', error);
+      console.error("Error al agregar el producto a favoritos:", error);
     }
   };
 
