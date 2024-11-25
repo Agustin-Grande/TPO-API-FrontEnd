@@ -35,6 +35,7 @@ export function AuthProvider({ children }) {
         nombre: datosUser.data.nombre,
         apellido: datosUser.data.apellido,
         favoritos: datosUser.data.favoritos || [],
+        rol: datosUser.data.rol,
       };
 
       setUser(userData);
@@ -55,16 +56,45 @@ export function AuthProvider({ children }) {
     navigate("/login");
   };
 
+  const agregarAFavoritos = async (producto) => {
+    try {
+      const nuevosFavoritos = [...(user.favoritos || []), producto.id]; // Solo agregamos el id
   
+      await axios.patch(`http://localhost:3001/users/${user.id}`, {
+        favoritos: nuevosFavoritos,
+      });
+  
+      const updatedUser = { ...user, favoritos: nuevosFavoritos };
+      setUser(updatedUser);
+      localStorage.setItem("user", JSON.stringify(updatedUser));
+    } catch (error) {
+      console.error("Error al agregar a favoritos en la DB:", error);
+    }
+  };
+  
+
+  const eliminarDeFavoritos = async (productoId) => {
+    try {
+      const nuevosFavoritos = user.favoritos.filter((fav) => fav !== productoId); // Filtramos por id
+      await axios.patch(`http://localhost:3001/users/${user.id}`, {
+        favoritos: nuevosFavoritos,
+      });
+  
+      const updatedUser = { ...user, favoritos: nuevosFavoritos };
+      setUser(updatedUser);
+      localStorage.setItem("user", JSON.stringify(updatedUser));
+    } catch (error) {
+      console.error("Error al eliminar de favoritos en la DB:", error);
+    }
+  };
 
   const updateUser = (newUserData) => {
     setUser(newUserData);
-    localStorage.setItem("user", JSON.stringify(newUserData)); // Almacenar el usuario en localStorage
-      localStorage.setItem("token", newUserData.id); // Almacenar el token
-      localStorage.setItem("nombre", JSON.stringify(newUserData.nombre));
-      localStorage.setItem("apellido", newUserData.apellido);
-      localStorage.setItem("mail", newUserData.mail);
-      localStorage.setItem("rol", newUserData.rol);
+    localStorage.setItem("user", JSON.stringify(newUserData)); 
+    localStorage.setItem("nombre", JSON.stringify(newUserData.nombre));
+    localStorage.setItem("apellido", newUserData.apellido);
+    localStorage.setItem("mail", newUserData.mail);
+    localStorage.setItem("rol", newUserData.rol);
 };
 
 

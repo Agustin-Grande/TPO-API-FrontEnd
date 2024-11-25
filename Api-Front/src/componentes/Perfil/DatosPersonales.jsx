@@ -14,10 +14,11 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import axios from 'axios';
+import { editarDatosPersonales } from '@/services/servicePerfil';
 
 
 export default function DatosPersonales({ user: propUser }) {
-    const { user: authUser, updateUser } = useContext(AuthContext); // Renamed the user from context to authUser
+    const { user: authUser, updateUser } = useContext(AuthContext); 
     const [editUser, setEditUser] = useState(propUser);
     const [updateStatus, setUpdateStatus] = useState(null);
 
@@ -30,15 +31,20 @@ export default function DatosPersonales({ user: propUser }) {
       };
 
       const handleSave = async () => {
-        try {
-          const response = await axios.put(`http://localhost:3001/users/${propUser.id}`, editUser);
-          setUpdateStatus('Updated successfully');
-          updateUser(response.data);  // Update user context after successful update
-        } catch (error) {
-          console.error("Error updating user:", error);
-          setUpdateStatus('Failed to update');
+        // Llamar a editarDatosPersonales y esperar el resultado
+        const success = await editarDatosPersonales(editUser);
+    
+        // Si el resultado es exitoso, actualizar el contexto del usuario
+        if (success) {
+            updateUser(editUser); // Actualizar el usuario solo si no hay error
+            setUpdateStatus('Perfil actualizado correctamente');
+        } else {
+            setUpdateStatus('Failed to update'); // Actualizar el estado de error
         }
-      };
+    };
+    
+
+    
 
 return (
     <div className="px-4 space-y-6 md:px-6">
@@ -68,12 +74,6 @@ return (
                 Nombre
               </Label>
               <Input
-                id="nombreUsuario"
-                name="nombreUsuario"
-                value={editUser.nombreUsuario}
-                onChange={handleChange}
-              />
-              <Input
                 id="nombre"
                 name="nombre"
                 value={editUser.nombre}
@@ -88,7 +88,7 @@ return (
               <Input
                 id="email"
                 name="email"
-                value={editUser.email}
+                value={editUser.mail}
                 onChange={handleChange}
               />
             </div>

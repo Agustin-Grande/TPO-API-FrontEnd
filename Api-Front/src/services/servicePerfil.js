@@ -2,8 +2,7 @@ import axios from "axios";
 import apiClient from "./apiClient";
 
 export const verOrdenesPorUsuario = async (usuarioId) => {  
-    const response = await axios.get("http://localhost:3001/Orden");
-
+    const response = await axios.get("orden");
     const ordenes = response.data.filter(orden => orden.user_id === usuarioId);
     return ordenes; 
 };
@@ -22,7 +21,19 @@ export const productoPorOrden = async (orden_items) => {
     return productosFiltrados;
 };
 
-export const editarDatosPersonales = async (user, campo, nuevoValor) => {
-    const response = await apiClient.put(`usuarios/${user.id}`, { [campo]: nuevoValor });
-    return response.data;
-}
+export const editarDatosPersonales = async (datosNuevos) => {
+    try {
+        const response = await apiClient.put(`/mi-perfil/editar_datos`, datosNuevos);
+        return true;
+    } catch (error) {
+        if (error.response && error.response.data) {
+            const errorMessage = error.response.data || 'Error desconocido del servidor';
+            alert(`Error! ${errorMessage}`); 
+        } else {
+            alert(`Error inesperado: ${error.message}`);
+        }
+        console.error("Error en editarDatosPersonales:", error.response?.data || error.message);
+        return false;
+    }
+};
+

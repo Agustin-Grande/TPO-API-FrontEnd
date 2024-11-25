@@ -7,6 +7,8 @@ import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { ChevronDown, ChevronUp, Save, Loader2 } from "lucide-react";
 import { Alert, AlertDescription } from "@/components/ui/alert";
+import apiClient from '../services/apiClient';
+
 
 const ProductoDetalles_Gestor = () => {
   const { id } = useParams();
@@ -16,14 +18,17 @@ const ProductoDetalles_Gestor = () => {
   const [saving, setSaving] = useState(false);
   const [saveSuccess, setSaveSuccess] = useState(false);
   const { user } = useContext(AuthContext);
+  const [errors, setErrors] = useState({});
+
 
   useEffect(() => {
     const fetchProducto = async () => {
       try {
-        const response = await fetch(`http://localhost:3001/productos/${id}`);
-        const data = await response.json();
-        setProducto(data);
-        setEditProduct(data);
+        const response = await apiClient.get(`/Productos/${id}`);
+        //const data = await response.json();
+        console.log(response);
+        setProducto(response.data);
+        setEditProduct(response.data);
       } catch (error) {
         console.error('Error al cargar el producto:', error);
       }
@@ -31,24 +36,47 @@ const ProductoDetalles_Gestor = () => {
     fetchProducto();
   }, [id]);
 
+  
   const handleChange = (e) => {
     const { name, value } = e.target;
     setEditProduct(prev => ({
       ...prev,
       [name]: value
     }));
+    // Clear error when user starts typing
+    if (errors[name]) {
+      setErrors(prev => ({
+        ...prev,
+        [name]: ''
+      }));
+    }
   };
 
+  const validateForm = () => {
+    const newErrors = {};
+    
+    if (!editProduct.nombre.trim()) newErrors.nombre = 'El nombre es requerido';
+   // if (!editProduct.imagen.trim()) newErrors.imagen = 'La URL de la imagen es requerida';
+    if (!editProduct.precio || isNaN(editProduct.precio) || editProduct.precio < 0) newErrors.precio = 'Ingrese un precio válido';
+    if (!editProduct.stock || isNaN(editProduct.stock) || editProduct.stock < 0) newErrors.stock = 'Ingrese un stock válido';
+    if (!editProduct.liga) newErrors.liga = 'Seleccione una liga';
+    if (!editProduct.equipo.trim()) newErrors.equipo = 'El equipo es requerido';
+    if (!editProduct.marca) newErrors.marca = 'Seleccione una marca';
+    if (!editProduct.categoria) newErrors.categoria = 'Seleccione una categoría';
+    if (!editProduct.descripcion.trim()) newErrors.descripcion = 'La descripción es requerida';
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
+  
+
   const handleSave = async () => {
+    if (validateForm()) {
     setSaving(true);
     try {
-      const response = await fetch(`http://localhost:3001/productos/${editProduct.id}`, {
-        method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(editProduct)
-      });
+      const response = await apiClient.put(`/Productos/management/update/${editProduct.id}`, editProduct);
+
       if (response.ok) {
         setSaveSuccess(true);
         setTimeout(() => setSaveSuccess(false), 3000);
@@ -58,6 +86,7 @@ const ProductoDetalles_Gestor = () => {
     } finally {
       setSaving(false);
     }
+  }
   };
 
   if (!user || user.rol !== 'ADMIN') {
@@ -101,8 +130,9 @@ const ProductoDetalles_Gestor = () => {
                   name="nombre"
                   value={editProduct.nombre}
                   onChange={handleChange}
-                  className="w-full"
-                />
+                  className={errors.nombre ? 'border-red-500' : ''}
+                  />
+                  {errors.nombre && <p className="text-red-500 text-sm mt-1">{errors.nombre}</p>}
               </div>
 
               <div>
@@ -110,10 +140,12 @@ const ProductoDetalles_Gestor = () => {
                 <Input
                   type="number"
                   name="precio"
+                  min="0"
                   value={editProduct.precio}
                   onChange={handleChange}
-                  className="w-full"
+                  className={errors.precio ? 'border-red-500' : ''}
                 />
+                {errors.precio && <p className="text-red-500 text-sm mt-1">{errors.precio}</p>}
               </div>
 
               <div className="grid grid-cols-2 gap-4">
@@ -122,9 +154,12 @@ const ProductoDetalles_Gestor = () => {
                   <Input
                     type="number"
                     name="stock"
+                    min="0"
                     value={editProduct.stock}
                     onChange={handleChange}
-                  />
+                    className={errors.stock ? 'border-red-500' : ''}
+                />
+                {errors.stock && <p className="text-red-500 text-sm mt-1">{errors.stock}</p>}
                 </div>
                 <div>
                   <label className="block text-sm font-medium mb-1">Liga</label>
@@ -133,7 +168,9 @@ const ProductoDetalles_Gestor = () => {
                     name="liga"
                     value={editProduct.liga}
                     onChange={handleChange}
+                    className={errors.liga ? 'border-red-500' : ''}
                   />
+                  {errors.liga && <p className="text-red-500 text-sm mt-1">{errors.liga}</p>}
                 </div>
               </div>
 
@@ -145,7 +182,9 @@ const ProductoDetalles_Gestor = () => {
                     name="equipo"
                     value={editProduct.equipo}
                     onChange={handleChange}
-                  />
+                    className={errors.equipo ? 'border-red-500' : ''}
+                />
+                {errors.equipo && <p className="text-red-500 text-sm mt-1">{errors.equipo}</p>}
                 </div>
                 <div>
                   <label className="block text-sm font-medium mb-1">Marca</label>
@@ -154,7 +193,9 @@ const ProductoDetalles_Gestor = () => {
                     name="marca"
                     value={editProduct.marca}
                     onChange={handleChange}
-                  />
+                  className={errors.marca ? 'border-red-500' : ''}
+                />
+                {errors.marca && <p className="text-red-500 text-sm mt-1">{errors.marca}</p>}
                 </div>
               </div>
 
