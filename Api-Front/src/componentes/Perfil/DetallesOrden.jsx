@@ -16,10 +16,10 @@ const DetallesOrden = () => {
   // Función para obtener los datos
   const traerDatos = async () => {
     if (orden) {
-      const items = await verItemsDeOrden(orden);
-      setItems(items);  // Guardamos los items en el estado
+      // const items = await verItemsDeOrden(orden);
+      setItems(orden.items);  
       const productos = await productoPorOrden(items);
-      setProductos(productos);  // Guardamos los productos en el estado
+      setProductos(productos);  
     }
   };
 

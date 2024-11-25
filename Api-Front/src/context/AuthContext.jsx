@@ -59,12 +59,11 @@ export function AuthProvider({ children }) {
 
   const updateUser = (newUserData) => {
     setUser(newUserData);
-    localStorage.setItem("user", JSON.stringify(newUserData)); // Almacenar el usuario en localStorage
-      localStorage.setItem("token", newUserData.id); // Almacenar el token
-      localStorage.setItem("nombre", JSON.stringify(newUserData.nombre));
-      localStorage.setItem("apellido", newUserData.apellido);
-      localStorage.setItem("mail", newUserData.mail);
-      localStorage.setItem("rol", newUserData.rol);
+    localStorage.setItem("user", JSON.stringify(newUserData)); 
+    localStorage.setItem("nombre", JSON.stringify(newUserData.nombre));
+    localStorage.setItem("apellido", newUserData.apellido);
+    localStorage.setItem("mail", newUserData.mail);
+    localStorage.setItem("rol", newUserData.rol);
 };
 
 
