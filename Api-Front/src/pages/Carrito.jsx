@@ -82,7 +82,7 @@ const Carrito = () => {
   };
 
   const confirmarCarrito = async () => {
-    await checkout(carrito.id)
+    await checkout()
     vaciarCarrito()
   }
 
