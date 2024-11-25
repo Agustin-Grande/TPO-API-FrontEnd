@@ -3,6 +3,7 @@ import { AuthContext } from '../context/AuthContext.jsx';
 import axios from 'axios';
 import ItemCarrito from '../componentes/Carrito/ItemCarrito.jsx';
 import { checkout } from '../services/serviceCheckout.js'
+import apiClient from "../services/apiClient";
 
 import {
   Card,
@@ -22,44 +23,25 @@ import {
 import { Button } from "@/components/ui/button";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Separator } from "@/components/ui/separator";
-import { agregarItemsCarrito, obtenerCarrito, actualizarPrecioTotal } from '../services/serviceCart.js';
+import { agregarItemsCarrito } from '../services/serviceCart.js';
 import CarritoVacio from '@/componentes/Carrito/CarritoVacio.jsx';
 
 
 const Carrito = () => {
   const [carrito, setCarrito] = useState(null);
   const [itemsCarrito, setItems] = useState([]);
-  const { user } = useContext(AuthContext);
 
   useEffect(() => {
-    const fetchCarrito = async () => {
-      try {
-        const res = await axios.get(`http://localhost:3001/carrito?user_id=${user.id}`);
-        cargarItems(res.data[0].id);
-        setCarrito(res.data[0]);
-      } catch (err) {
-        console.error("Carrito vacío");
-      }
-    };
     fetchCarrito();
   }, []);
 
-  const cargarItems = async (id) => {
+  const fetchCarrito = async () => {
     try {
-      const res = await axios.get(`http://localhost:3001/carrito_item?carrito_id=${id}`);
-      const itemsWithDetails = await Promise.all(
-        res.data.map(async (item) => {
-          const productRes = await axios.get(`http://localhost:3001/productos?id=${item.product_id}`);
-          return {
-            ...item,
-            nombre: productRes.data[0].nombre,
-            imagen: productRes.data[0].imagen || '/api/placeholder/80/80'
-          };
-        })
-      );
-      setItems(itemsWithDetails);
+      const res = await apiClient.get(`carrito`);        
+      setCarrito(res.data);        
+      setItems(res.data.items)        
     } catch (err) {
-      console.error(err);
+      console.error("Carrito vacío");
     }
   };
 
@@ -67,58 +49,35 @@ const Carrito = () => {
     return itemsCarrito.reduce((total, item) => total + item.precioTotal, 0);
   };
 
-  const eliminarItem = async (itemId) => {
+  const eliminarItem = async (productId) => {
     try {
-      await axios.delete(`http://localhost:3001/carrito_item/${itemId}`);
-      //let nuevoarreglo =  itemsCarrito.filter(item => item.id !== itemId)            
-      cargarItems(carrito.id)
+      await apiClient.delete(`carrito/eliminar/${productId}`)        
+      fetchCarrito()
     } catch (err) {
       console.error("Error eliminando item del carrito");
     }
   };
 
-  const sumarCantidad = async (item, producto) => {
-    if (item.cantidad < producto.stock) {
-      let carrito = await obtenerCarrito(user)
-      await agregarItemsCarrito(carrito.id, producto)
-      await actualizarPrecioTotal(carrito)
+  const sumarCantidad = async (itemCarrito) => {    
+    if (itemCarrito.cantidad < itemCarrito.producto.stock) {
+      await agregarItemsCarrito(itemCarrito.producto)
     }
-
-    cargarItems(carrito.id)
+    fetchCarrito()
   }
 
-  const restarCantidad = async (item, producto) => {
-    if (item.cantidad > 1) {
-      let carrito = await obtenerCarrito(user)
-      await agregarItemsCarrito(carrito.id, producto, -1)
-      await actualizarPrecioTotal(carrito)
+  const restarCantidad = async (itemCarrito) => {
+    if (itemCarrito.cantidad > 1) {
+      await agregarItemsCarrito(itemCarrito.producto, -1)
     }
-
-    cargarItems(carrito.id)
+    fetchCarrito()
   };
 
   const vaciarCarrito = async () => {
     try {
-      let items = await obtenerItemsCarrito(carrito.id);
-      for (const item of items) {
-        await axios.delete(`http://localhost:3001/carrito_item/${item.id}`);
-      }
-
-      await axios.patch(`http://localhost:3001/carrito/${carrito.id}`, {
-        precioTotal: 0
-      });
+      await apiClient.delete('carrito/vaciar')
       setItems([]);
     } catch (error) {
       console.error("Error al vaciar carrito:", error);
-    }
-  };
-
-  const obtenerItemsCarrito = async (carritoId) => {
-    try {
-      const response = await axios.get(`http://localhost:3001/carrito_item?carrito_id=${carritoId}`);
-      return response.data;
-    } catch (error) {
-      console.error("Error al obtener items del carrito:", error);
     }
   };
 
