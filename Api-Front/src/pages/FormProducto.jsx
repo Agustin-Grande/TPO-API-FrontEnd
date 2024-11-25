@@ -6,11 +6,14 @@ import { Button } from '@/components/ui/button';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Textarea } from '@/components/ui/textarea';
 import axios from 'axios';
+import apiClient from '../services/apiClient';
+
+
 
 
 const FormProducto = () => {
   const initialState = {
-    imagen: '',
+    //imagen: '',
     nombre: '',
     precio: '',
     stock: '',
@@ -70,9 +73,9 @@ const FormProducto = () => {
     const newErrors = {};
     
     if (!formData.nombre.trim()) newErrors.nombre = 'El nombre es requerido';
-    if (!formData.imagen.trim()) newErrors.imagen = 'La URL de la imagen es requerida';
-    if (!formData.precio || isNaN(formData.precio)) newErrors.precio = 'Ingrese un precio válido';
-    if (!formData.stock || isNaN(formData.stock)) newErrors.stock = 'Ingrese un stock válido';
+   // if (!formData.imagen.trim()) newErrors.imagen = 'La URL de la imagen es requerida';
+    if (!formData.precio || isNaN(formData.precio) || formData.precio < 0) newErrors.precio = 'Ingrese un precio válido';
+    if (!formData.stock || isNaN(formData.stock) || formData.stock < 0) newErrors.stock = 'Ingrese un stock válido';
     if (!formData.liga) newErrors.liga = 'Seleccione una liga';
     if (!formData.equipo.trim()) newErrors.equipo = 'El equipo es requerido';
     if (!formData.marca) newErrors.marca = 'Seleccione una marca';
@@ -87,7 +90,7 @@ const FormProducto = () => {
     e.preventDefault();
     if (validateForm()) {
       try {
-        const response = await axios.post(`http://localhost:3001/productos`, formData);
+        const response = await apiClient.post(`/Productos/management/crear`, formData);
       } catch (error) {
         console.error("Error updating product:", error);
       } 
@@ -118,17 +121,7 @@ const handleSave = async () => {
       <CardContent>
         <form onSubmit={handleSubmit} className="space-y-6">
           <div className="space-y-4">
-            <div>
-              <Label htmlFor="imagen">URL de la Imagen</Label>
-              <Input
-                id="imagen"
-                name="imagen"
-                value={formData.imagen}
-                onChange={handleChange}
-                className={errors.imagen ? 'border-red-500' : ''}
-              />
-              {errors.imagen && <p className="text-red-500 text-sm mt-1">{errors.imagen}</p>}
-            </div>
+
 
             <div>
               <Label htmlFor="nombre">Nombre del Producto</Label>
