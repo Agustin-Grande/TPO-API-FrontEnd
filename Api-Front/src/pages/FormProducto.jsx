@@ -13,7 +13,7 @@ import apiClient from '../services/apiClient';
 
 const FormProducto = () => {
   const initialState = {
-    //imagen: '',
+    imagen: '',
     nombre: '',
     precio: '',
     stock: '',
@@ -73,7 +73,7 @@ const FormProducto = () => {
     const newErrors = {};
     
     if (!formData.nombre.trim()) newErrors.nombre = 'El nombre es requerido';
-   // if (!formData.imagen.trim()) newErrors.imagen = 'La URL de la imagen es requerida';
+   if (!formData.imagen.trim()) newErrors.imagen = 'La URL de la imagen es requerida';
     if (!formData.precio || isNaN(formData.precio) || formData.precio < 0) newErrors.precio = 'Ingrese un precio válido';
     if (!formData.stock || isNaN(formData.stock) || formData.stock < 0) newErrors.stock = 'Ingrese un stock válido';
     if (!formData.liga) newErrors.liga = 'Seleccione una liga';
@@ -122,6 +122,17 @@ const handleSave = async () => {
         <form onSubmit={handleSubmit} className="space-y-6">
           <div className="space-y-4">
 
+          <div>
+              <Label htmlFor="imagen">Imagen del producto</Label>
+              <Input
+                id="imagen"
+                name="imagen"
+                value={formData.imagen}
+                onChange={handleChange}
+                className={errors.imagen ? 'border-red-500' : ''}
+              />
+              {errors.imagen && <p className="text-red-500 text-sm mt-1">{errors.imagen}</p>}
+            </div>
 
             <div>
               <Label htmlFor="nombre">Nombre del Producto</Label>
