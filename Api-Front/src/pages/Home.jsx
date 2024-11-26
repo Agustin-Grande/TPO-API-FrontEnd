@@ -10,6 +10,7 @@ import imagen from "../assets/imagen.png";
 import { mostrarFavUser } from "../services/serviceFav";
 import { Link } from "react-router-dom";
 import { useVistos } from "../hooks/useVistos";
+import foto from "../assets/fullAdidasAFA50.jpg";
 
 const Home = () => {
   const { vistos, agregarVisto } = useVistos();
@@ -46,7 +47,7 @@ const Home = () => {
     <div>
       {/* Portada */}
       <div className="portada-home">
-        <img src={messi} alt="Portada Messi" />
+        <img src={foto} alt="Portada Messi" />
       </div>
 
       {/* Cuadrados promocionales */}
