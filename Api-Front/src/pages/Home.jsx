@@ -83,7 +83,7 @@ const Home = () => {
           productosFavoritos.map((producto) => (
             <div key={producto.id} className="producto">
               <Link
-                to={`/producto/${producto.id}`}
+                to={`/catalogo/productos/${producto.id}`}
                 onClick={() => agregarVisto(producto)}
               >
                 <img src={producto.imagen} alt={producto.nombre} />
@@ -102,7 +102,7 @@ const Home = () => {
         {vistos?.length > 0 ? (
           vistos.map((producto) => (
             <div key={producto.id} className="producto">
-              <Link to={`/producto/${producto.id}`}>
+              <Link to={`/catalogo/productos/${producto.id}`}>
                 <img src={producto.imagen} alt={producto.nombre} />
                 <p className="producto-nombre">{producto.nombre}</p>
               </Link>
