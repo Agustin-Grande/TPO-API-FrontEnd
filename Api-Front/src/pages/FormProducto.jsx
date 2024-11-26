@@ -21,10 +21,7 @@ const FormProducto = () => {
     equipo: '',
     marca: '',
     categoria: '',
-    descripcion: '',
-    favorito: false,
-    visto: false,
-    destacado: false
+    descripcion: ''
   };
 
   const [formData, setFormData] = useState(initialState);
@@ -32,7 +29,7 @@ const FormProducto = () => {
 
   const ligas = ["LaLiga", "Premier League", "Serie A", "Bundesliga", "Ligue 1"];
   const marcas = ["Nike", "Adidas", "Puma", "New Balance", "Under Armour"];
-  const categorias = ["CAMISETA", "SHORTS", "MEDIAS", "ACCESORIOS"];
+  const categorias = ["CAMISETA", "SHORT", "PANTALON", "REMERA","CALZADO"];
 
   const handleChange = (e) => {
     const { name, value } = e.target;
