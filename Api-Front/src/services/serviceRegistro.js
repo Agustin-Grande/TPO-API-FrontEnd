@@ -1,35 +1,28 @@
 import apiClient from "./apiClient";
+import axios from "axios";
 
 export const handleRegister = async (newUser) => {
     try {
-        // Verificación de nombre de usuario
-        /*const responseNombre = await apiClient.get('users', {
-            params: {
-                nombreUsuario: newUser.nombreUsuario,
-            }
-        });
+        const transformedUser = {
+            userName: newUser.nombreUsuario, 
+            firstname: newUser.nombre, 
+            lastname: newUser.apellido, 
+            fechaNacimiento: newUser.fechaNacimiento,
+            email: newUser.email, 
+            password: newUser.contrasena 
+        };
 
-        if (responseNombre.data.length > 0) {
-            return { success: false, message: 'El nombre de usuario ya está en uso' };
+        const response = await axios.post("http://localhost:8080/usuario/registro", transformedUser);
+        console.log(response.access_token);
+
+        if (response.data && response.data.access_token) {
+            console.log("entro");
+            return { success: true, message: "Registro exitoso", access_token: response.data.access_token };
+        } else {
+            return { success: false, message: 'Error al registrar usuario' };
         }
-
-        const responseMail = await apiClient.get('users', {
-            params: {
-                email: newUser.email,
-            }
-        });
-
-        if (responseMail.data.length > 0) {
-            return { success: false, message: 'El correo electrónico ya está en uso' };
-        }*/
-
-        //No hace falta hacer la verificacion de usuario
-        const registro = await apiClient.post('usuario/registro', newUser);
-
-        return { success: true, registro};
     } catch (error) {
         console.error("Error en la conexión con el servidor:", error);
         return { success: false, message: 'Error de conexión con el servidor' };
     }
 };
-

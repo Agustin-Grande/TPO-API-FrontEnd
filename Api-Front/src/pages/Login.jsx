@@ -37,6 +37,7 @@ const Login = () => {
       setError("Ambos campos son obligatorios");
       return;
     }
+    
     await login(nombreUsuario, contrasena);
     navigate("/home"); 
   };
