@@ -34,36 +34,26 @@ export const mostrarFavUser = async () => {
 };
 
 
-export const agregarAFav = async (producto, user, setUser) => {
+export const agregarAFav = async (producto) => {
   try {
-    await apiClient.post(`/usuario/agregar_fav`, producto);
-    // Actualiza el estado del usuario con los nuevos favoritos
-    setUser((prevUser) => ({
-      ...prevUser,
-      favoritos: [...prevUser.favoritos, producto],
-    }));
+    const response = await apiClient.post('/usuario/agregar_fav', producto); // Enviamos el objeto completo
+    return response.data; // Devuelve el estado actualizado desde el backend si es necesario
   } catch (error) {
-    console.error("Error al agregar a favoritos en la DB:", error);
-    throw error; // Opcional, para manejar errores en el componente que lo llama
+    console.error("Error al agregar producto a favoritos:", error);
+    throw error;
   }
 };
 
 
 
 
-export const eliminarDeFav = async (productoId, user) => {
+
+export const eliminarDeFav = async (productoId) => {
   try {
-    const nuevosFavoritos = user.favoritos.filter((fav) => fav !== productoId); 
-
-    await apiClient.put(`/usuario/eliminar_fav`, {
-      favoritos: nuevosFavoritos,
-    });
-
-    const updatedUser = { ...user, favoritos: nuevosFavoritos };
-    setUser(updatedUser);
-    localStorage.setItem("user", JSON.stringify(updatedUser));
+    const response = await apiClient.delete(`/usuario/eliminarFavorito/${productoId}`);
+    return response.data; // Devuelve el estado actualizado del servidor si es necesario
   } catch (error) {
-    console.error("Error al eliminar de favoritos en la DB:", error);
+    console.error("Error al eliminar producto de favoritos:", error);
+    throw error;
   }
-}
-
+};

@@ -24,6 +24,7 @@ export function AuthProvider({ children }) {
   const login = async (nombreUsuario, contrasena) => {
     try {
       const token = await serviceLogin(nombreUsuario, contrasena);
+      console.log(token);
       localStorage.setItem("token", token);
       const datosUser = await apiClient.get("/usuario/getUser");
       console.log("Datos del usuario logueado:", datosUser.data.nombreUsuario);
@@ -56,7 +57,7 @@ export function AuthProvider({ children }) {
     navigate("/login");
   };
 
-  const agregarAFavoritos = async (producto) => {
+  /*const agregarAFavoritos = async (producto) => {
     try {
       const nuevosFavoritos = [...(user.favoritos || []), producto.id]; // Solo agregamos el id
   
@@ -70,10 +71,10 @@ export function AuthProvider({ children }) {
     } catch (error) {
       console.error("Error al agregar a favoritos en la DB:", error);
     }
-  };
+  };*/
   
 
-  const eliminarDeFavoritos = async (productoId) => {
+  /*const eliminarDeFavoritos = async (productoId) => {
     try {
       const nuevosFavoritos = user.favoritos.filter((fav) => fav !== productoId); // Filtramos por id
       await axios.patch(`http://localhost:3001/users/${user.id}`, {
@@ -86,7 +87,7 @@ export function AuthProvider({ children }) {
     } catch (error) {
       console.error("Error al eliminar de favoritos en la DB:", error);
     }
-  };
+  };*/
 
   const updateUser = (newUserData) => {
     setUser(newUserData);
