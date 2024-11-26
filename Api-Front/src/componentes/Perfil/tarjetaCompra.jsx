@@ -18,7 +18,7 @@ const TarjetaCompra = ({ ordenes }) => {
       {ordenes.map((orden, index) => (
        <Card key={index} className="mb-4">
        <CardHeader>
-         <CardTitle>Orden del {orden.fecha}</CardTitle>
+         <CardTitle>Orden del {orden.fechaTransaccion}</CardTitle>
        </CardHeader>
        <CardContent>
          <CardDescription>
@@ -44,9 +44,8 @@ const TarjetaCompra = ({ ordenes }) => {
 TarjetaCompra.propTypes = {
   ordenes: PropTypes.arrayOf(
     PropTypes.shape({
-      id: PropTypes.string.isRequired,
       precio_total: PropTypes.number.isRequired,
-      fecha: PropTypes.string.isRequired,
+      fechaTransaccion: PropTypes.string.isRequired,
     })
   ).isRequired,
 };

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
-import { verItemsDeOrden, productoPorOrden } from '../../services/servicePerfil'; // Asegúrate de importar la función
+import { productoPorOrden } from '../../services/servicePerfil'; // Asegúrate de importar la función
 import { Card, CardHeader, CardTitle, CardContent, CardDescription } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 
@@ -15,10 +15,9 @@ const DetallesOrden = () => {
 
   // Función para obtener los datos
   const traerDatos = async () => {
-    if (orden) {
-      // const items = await verItemsDeOrden(orden);
+    if (orden) {      // const items = await verItemsDeOrden(orden);
       setItems(orden.items);  
-      const productos = await productoPorOrden(items);
+      const productos = await productoPorOrden(orden);
       setProductos(productos);  
     }
   };
@@ -42,7 +41,7 @@ const DetallesOrden = () => {
       </CardHeader>
       <CardContent>
         <CardDescription className="sticky top-[72px] bg-background z-10 pb-4">
-          <p><strong>Fecha:</strong> {orden.fecha}</p>
+          <p><strong>Fecha:</strong> {orden.fechaTransaccion}</p>
           <p><strong>Costo Total:</strong> ${orden.precio_total}</p>
         </CardDescription>
         <Separator className="my-6" />
