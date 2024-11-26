@@ -51,7 +51,7 @@ const ItemCarrito = ({ item, eliminarItem,sumar,restar }) => {
     return (
         <TableRow key={producto.id} className="h-24">
         <TableCell>
-          <ProductImage src={producto.nombre} alt={producto.nombre} />
+          <ProductImage src={producto.imagen} alt={producto.nombre} />
         </TableCell>
         <TableCell>
           <div>
